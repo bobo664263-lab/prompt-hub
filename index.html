@@ -7,7 +7,7 @@
 <meta name="description" content="100+条经过实测的AI提示词模板，按难度分级。覆盖写作、编程、绘画、办公、营销、教育、生活7大场景，一键复制即用。">
 <meta name="keywords" content="AI提示词,ChatGPT提示词,DeepSeek提示词,Prompt模板,AI写作,Midjourney">
 <meta property="og:title" content="提示词工坊 - 实战验证的AI提示词库">
-<meta property="og:description" content="100+条经过实测的AI提示词模板，分级分类，免费复制">
+<meta property="og:description" content="100+条经过实测的AI提示词模板，分级分类，¥9.9永久解锁全部">
 <meta property="og:url" content="https://bobo664263-lab.github.io/prompt-hub/">
 <meta property="og:type" content="website">
 <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?5a2b5656eef35aea22cf49557755cefa";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
@@ -16,52 +16,13 @@
   --bg:#fff; --bg2:#f8f9fb; --text:#1a1c2e; --text2:#5a5d72; --text3:#9498aa; --border:#ebeef4;
   --purple:#6c5ce7; --purple-light:#f4f2ff; --green:#00b894; --green-light:#e6f9f4;
   --orange:#e17055; --orange-light:#fef4f0; --pink:#e84393; --pink-light:#fdf0f6;
-  --blue:#0984e3; --blue-light:#eef5fc; --gold:#f59e0b; --gold-light:#fffbeb;
-  --radius:12px; --max-w:1100px; --sidebar-w:320px;
+  --gold:#f59e0b; --gold-light:#fffbeb; --blue:#0984e3; --blue-light:#eef5fc;
+  --radius:12px; --max-w:1100px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;display:flex;min-height:100vh}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
 
-/* === SIDEBAR === */
-.sidebar{width:var(--sidebar-w);min-height:100vh;border-right:1px solid var(--border);background:var(--bg2);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:200;transition:.3s;overflow-y:auto}
-.sidebar-header{padding:16px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
-.sidebar-logo{font-size:1.1em;font-weight:700;color:var(--purple)}
-.sidebar-tabs{display:flex;border-bottom:1px solid var(--border)}
-.sidebar-tab{flex:1;padding:10px;text-align:center;font-size:0.82em;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text3);transition:.15s;border-bottom:2px solid transparent}
-.sidebar-tab.active{color:var(--purple);border-bottom-color:var(--purple)}
-.sidebar-content{flex:1;overflow-y:auto;padding:16px}
-
-/* Payment tab */
-.pay-section{text-align:center}
-.pay-section .pay-price{font-size:1.8em;font-weight:800;color:var(--gold);margin:8px 0}
-.pay-section .pay-price small{font-size:0.45em;color:var(--text3);font-weight:400}
-.pay-qrs{display:flex;gap:10px;justify-content:center;margin:14px 0}
-.pay-qr{text-align:center}
-.pay-qr img{width:120px;height:120px;border-radius:10px;border:1.5px solid var(--border);object-fit:cover}
-.pay-qr .lbl{font-size:0.72em;font-weight:600;margin-top:3px}
-.pay-qr .lbl.wx{color:#07c160}
-.pay-qr .lbl.zfb{color:#1677ff}
-.pay-btn{width:100%;padding:12px;border:none;border-radius:8px;font-size:0.9em;font-weight:700;cursor:pointer;transition:.2s;margin-top:8px}
-.pay-btn.unlock{background:var(--purple);color:#fff}
-.pay-btn.unlock:hover{background:#5b4bd5}
-.pay-btn.unlocked{background:var(--green);color:#fff;cursor:default}
-.pay-features{text-align:left;font-size:0.8em;color:var(--text2);margin-top:14px}
-.pay-features li{padding:4px 0;list-style:none;display:flex;align-items:center;gap:6px}
-.pay-features li::before{content:'✓';color:var(--green);font-weight:700}
-
-/* Chat tab */
-.chat-messages{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;min-height:300px}
-.chat-msg{padding:10px 12px;border-radius:10px;font-size:0.82em;line-height:1.5;max-width:90%}
-.chat-msg.bot{background:#fff;border:1px solid var(--border);align-self:flex-start}
-.chat-msg.user{background:var(--purple);color:#fff;align-self:flex-end}
-.chat-msg .rec{display:block;margin-top:6px;padding:6px 10px;background:var(--purple-light);border-radius:6px;color:var(--purple);cursor:pointer;font-size:0.9em;font-weight:500}
-.chat-input-wrap{display:flex;gap:6px}
-.chat-input-wrap input{flex:1;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:0.85em;outline:none}
-.chat-input-wrap input:focus{border-color:var(--purple)}
-.chat-input-wrap button{padding:9px 14px;background:var(--purple);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.85em}
-
-/* === MAIN === */
-.main{flex:1;margin-left:var(--sidebar-w);min-width:0}
+/* NAV */
 .nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav-inner{max-width:var(--max-w);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .nav-logo{font-size:1.15em;font-weight:700;color:var(--purple);text-decoration:none}
@@ -74,16 +35,10 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .btn-ghost:hover{background:var(--purple-light);color:var(--purple)}
 .btn-primary{background:var(--purple);color:#fff}
 .btn-primary:hover{background:#5b4bd5}
-.sidebar-toggle{display:none;position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:201;background:var(--purple);color:#fff;border:none;border-radius:0 8px 8px 0;padding:12px 6px;cursor:pointer;font-size:0.9em;writing-mode:vertical-lr}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#d97706}
 
-@media(max-width:900px){
-  .sidebar{transform:translateX(-100%)}
-  .sidebar.open{transform:translateX(0)}
-  .main{margin-left:0}
-  .sidebar-toggle{display:block}
-}
-
-/* === HERO === */
+/* HERO */
 .hero{text-align:center;padding:56px 24px 40px;background:linear-gradient(180deg,#fafbff,#fff)}
 .hero h1{font-size:2.2em;font-weight:800;letter-spacing:-0.03em;margin-bottom:10px}
 .hero h1 span{color:var(--purple)}
@@ -93,7 +48,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .hero-stat .num{font-size:1.7em;font-weight:700;color:var(--purple)}
 .hero-stat .lbl{font-size:0.78em;color:var(--text3)}
 
-/* === CATEGORY === */
+/* CATEGORY */
 .cat-section{max-width:var(--max-w);margin:0 auto;padding:0 24px 28px}
 .cat-section h2{font-size:1.1em;font-weight:700;margin-bottom:12px}
 .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
@@ -103,7 +58,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .cat-card .name{font-weight:600;font-size:0.85em}
 .cat-card .count{font-size:0.72em;color:var(--text3)}
 
-/* === FEATURED === */
+/* FEATURED */
 .feat-section{max-width:var(--max-w);margin:0 auto;padding:0 24px 28px}
 .feat-section h2{font-size:1.1em;font-weight:700;margin-bottom:12px}
 .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
@@ -115,6 +70,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .feat-card .fc-p{background:var(--bg2);border-radius:8px;padding:10px 12px;font-family:'SF Mono',Consolas,monospace;font-size:0.74em;color:var(--text);line-height:1.7;max-height:60px;overflow:hidden;position:relative}
 .feat-card .fc-p::after{content:'';position:absolute;bottom:0;left:0;right:0;height:18px;background:linear-gradient(transparent,var(--bg2))}
 
+/* BADGES */
 .badge{font-size:0.66em;padding:3px 8px;border-radius:5px;font-weight:600;white-space:nowrap}
 .badge-easy{background:var(--green-light);color:var(--green)}
 .badge-med{background:var(--orange-light);color:var(--orange)}
@@ -123,7 +79,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .badge-paid{background:var(--gold-light);color:#b45309}
 .badge-free{background:var(--green-light);color:var(--green)}
 
-/* === FILTER === */
+/* FILTER */
 .filters{max-width:var(--max-w);margin:0 auto;padding:0 24px 14px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .filters .lbl{font-size:0.8em;color:var(--text3);font-weight:600}
 .fl-btn{padding:5px 12px;border-radius:6px;border:1.5px solid var(--border);background:#fff;color:var(--text2);cursor:pointer;font-size:0.8em;font-weight:500;transition:.15s}
@@ -133,7 +89,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .fl-btn.active.med{background:var(--orange);border-color:var(--orange)}
 .fl-btn.active.hard{background:var(--pink);border-color:var(--pink)}
 
-/* === PROMPT LIST === */
+/* PROMPT LIST */
 .prompt-section{max-width:var(--max-w);margin:0 auto;padding:0 24px 36px}
 .prompt-section .ps-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
 .prompt-section .ps-h h2{font-size:1.1em;font-weight:700}
@@ -141,9 +97,8 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .prompt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
 .p-card{border:1.5px solid var(--border);border-radius:var(--radius);padding:18px 20px;transition:.2s;background:#fff;position:relative}
 .p-card:hover{border-color:var(--purple-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)}
-.p-card.paid .pc-preview{position:relative}
 .p-card.paid .pc-preview-inner{filter:blur(4px);pointer-events:none;user-select:none}
-.p-card.paid .pc-lock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1;background:rgba(255,255,255,0.5);border-radius:8px}
+.p-card.paid .pc-lock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1;background:rgba(255,255,255,0.35);border-radius:var(--radius)}
 .pc-top{display:flex;justify-content:space-between;align-items:start;margin-bottom:5px}
 .pc-title{font-weight:700;font-size:0.9em}
 .pc-desc{font-size:0.8em;color:var(--text2);margin-bottom:7px}
@@ -162,14 +117,48 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
 .empty{text-align:center;padding:44px;color:var(--text3);display:none}
 
-/* === MODAL === */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);backdrop-filter:blur(4px);z-index:300;align-items:center;justify-content:center;padding:20px}
-.modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:16px;padding:30px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 12px 40px rgba(0,0,0,0.12)}
+/* OVERLAYS */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);z-index:300;align-items:center;justify-content:center;padding:20px}
+.overlay.show{display:flex}
+.popup{background:#fff;border-radius:16px;padding:28px;max-width:420px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 12px 40px rgba(0,0,0,0.15);text-align:center}
+.modal{background:#fff;border-radius:16px;padding:28px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 12px 40px rgba(0,0,0,0.15)}
 .modal h3{font-size:1.2em;margin-bottom:5px}
 .modal .meta{color:var(--text3);font-size:0.8em;margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap}
 .modal .prompt-text{background:var(--bg2);border-radius:10px;padding:16px;font-family:'SF Mono',Consolas,monospace;font-size:0.83em;line-height:1.8;margin-bottom:12px;white-space:pre-wrap}
 .modal .tips{background:var(--green-light);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:0.83em;color:#06604e}
+
+/* PAY MODAL */
+.pay-popup h2{font-size:1.2em;margin-bottom:4px}
+.pay-popup .price{font-size:2em;font-weight:800;color:var(--gold);margin:8px 0}
+.pay-popup .price small{font-size:0.4em;color:var(--text3);font-weight:400}
+.pay-popup .qrs{display:flex;gap:12px;justify-content:center;margin:14px 0}
+.pay-popup .qr-item{text-align:center}
+.pay-popup .qr-item img{width:130px;height:130px;border-radius:10px;border:1.5px solid var(--border);object-fit:cover}
+.pay-popup .qr-item div{font-size:0.75em;font-weight:600;margin-top:4px}
+.pay-popup .qr-item div.wx{color:#07c160}
+.pay-popup .qr-item div.zfb{color:#1677ff}
+.pay-popup .unlock-btn{display:block;width:100%;padding:13px;background:var(--purple);color:#fff;border:none;border-radius:10px;font-size:1em;font-weight:700;cursor:pointer;margin-top:8px;transition:.2s}
+.pay-popup .unlock-btn:hover{background:#5b4bd5}
+.pay-popup .unlock-btn.done{background:var(--green);cursor:default}
+.pay-feat{display:flex;flex-direction:column;gap:4px;text-align:left;font-size:0.78em;color:var(--text2);margin-top:12px}
+.pay-feat span::before{content:'✓ ';color:var(--green);font-weight:700}
+
+/* CHAT FAB */
+.chat-fab{position:fixed;bottom:24px;right:24px;z-index:200;width:52px;height:52px;border-radius:50%;background:var(--purple);color:#fff;border:none;cursor:pointer;font-size:1.4em;box-shadow:0 4px 16px rgba(108,92,231,0.4);transition:.2s;display:flex;align-items:center;justify-content:center}
+.chat-fab:hover{transform:scale(1.08);background:#5b4bd5}
+.chat-panel{display:none;position:fixed;bottom:88px;right:24px;z-index:200;width:340px;height:440px;background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.15);flex-direction:column;overflow:hidden}
+.chat-panel.show{display:flex}
+.chat-panel .cp-h{background:var(--purple);color:#fff;padding:12px 16px;font-weight:700;font-size:0.9em;display:flex;justify-content:space-between;align-items:center}
+.chat-panel .cp-h button{background:none;border:none;color:#fff;cursor:pointer;font-size:1.2em}
+.chat-panel .cp-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.chat-msg{padding:9px 12px;border-radius:10px;font-size:0.8em;line-height:1.5;max-width:88%}
+.chat-msg.bot{background:var(--bg2);border:1px solid var(--border);align-self:flex-start}
+.chat-msg.user{background:var(--purple);color:#fff;align-self:flex-end}
+.chat-msg .rec{display:block;margin-top:5px;padding:6px 10px;background:var(--purple-light);border-radius:6px;color:var(--purple);cursor:pointer;font-size:0.9em}
+.chat-panel .cp-input{display:flex;gap:6px;padding:10px;border-top:1px solid var(--border)}
+.chat-panel .cp-input input{flex:1;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:0.82em;outline:none}
+.chat-panel .cp-input input:focus{border-color:var(--purple)}
+.chat-panel .cp-input button{padding:8px 14px;background:var(--purple);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:0.82em;font-weight:600}
 
 .footer{text-align:center;padding:24px 20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.8em;background:var(--bg2)}
 .footer a{color:var(--purple);text-decoration:none;font-weight:600}
@@ -177,59 +166,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </head>
 <body>
 
-<!-- SIDEBAR -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-header">
-    <div class="sidebar-logo">✦ 工具面板</div>
-  </div>
-  <div class="sidebar-tabs">
-    <button class="sidebar-tab active" onclick="switchTab('pay')">💰 解锁付费</button>
-    <button class="sidebar-tab" onclick="switchTab('chat')">🤖 AI客服</button>
-  </div>
-  <div class="sidebar-content" id="sidebarPay">
-    <div class="pay-section">
-      <p style="font-size:0.85em;color:var(--text2);margin-bottom:4px">扫码支付 ¥9.9，解锁全部付费提示词</p>
-      <div class="pay-price">¥9.9<small>/永久</small></div>
-      <div class="pay-qrs">
-        <div class="pay-qr">
-          <img src="qrcode-wx.jpg" alt="微信">
-          <div class="lbl wx">微信</div>
-        </div>
-        <div class="pay-qr">
-          <img src="qrcode-zfb.jpg" alt="支付宝">
-          <div class="lbl zfb">支付宝</div>
-        </div>
-      </div>
-      <div style="background:var(--gold-light);border-radius:8px;padding:10px;margin:10px 0">
-        <p style="font-size:0.78em;color:#92400e;margin-bottom:6px">👇 付款后输入口令激活</p>
-        <div style="display:flex;gap:4px">
-          <input id="unlockCode" type="text" placeholder="输入解锁口令" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:6px;font-size:0.85em;text-align:center;outline:none">
-          <button class="btn-sm btn-copy" onclick="verifyUnlock()" style="padding:8px 14px">激活</button>
-        </div>
-        <p id="unlockHint" style="font-size:0.7em;color:var(--text3);margin-top:4px"></p>
-      </div>
-      <ul class="pay-features">
-        <li>全部108条提示词永久解锁</li>
-        <li>高级难度·专业级模板</li>
-        <li>每周新增自动解锁</li>
-        <li>付款后联系客服获取口令</li>
-      </ul>
-    </div>
-  </div>
-  <div class="sidebar-content" id="sidebarChat" style="display:none;display:flex;flex-direction:column">
-    <div class="chat-messages" id="chatMsgs">
-      <div class="chat-msg bot">👋 你好！我是提示词工坊的AI客服。可以问我：<br>• "有没有写简历的提示词？"<br>• "我是新手，推荐什么？"<br>• "Midjourney怎么用？"<br>👇 也可以直接问我任何问题</div>
-    </div>
-    <div class="chat-input-wrap">
-      <input type="text" id="chatInput" placeholder="输入问题..." onkeydown="if(event.key==='Enter')chatSend()">
-      <button onclick="chatSend()">发送</button>
-    </div>
-  </div>
-</div>
-<button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">面板</button>
-
-<!-- MAIN -->
-<div class="main">
 <nav class="nav">
   <div class="nav-inner">
     <a href="/prompt-hub/" class="nav-logo">✦ 提示词工坊</a>
@@ -243,12 +179,12 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
 <section class="hero">
   <h1>实战验证的 AI <span>提示词库</span></h1>
-  <p>100+ 条经过实测的提示词模板，按难度分级。找到合适的 Prompt，一键复制直接用</p>
+  <p>100+ 条经过实测的提示词模板，按难度分级。¥9.9 永久解锁全部</p>
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">108+</div><div class="lbl">精选提示词</div></div>
     <div class="hero-stat"><div class="num">7</div><div class="lbl">应用场景</div></div>
     <div class="hero-stat"><div class="num">3</div><div class="lbl">难度分级</div></div>
-    <div class="hero-stat"><div class="num">¥9.9</div><div class="lbl">解锁全部</div></div>
+    <div class="hero-stat"><div class="num">¥9.9</div><div class="lbl">永久解锁</div></div>
   </div>
 </section>
 
@@ -268,38 +204,77 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   <button class="fl-btn easy" onclick="setFilter('easy',this)">🟢 入门</button>
   <button class="fl-btn med" onclick="setFilter('medium',this)">🟠 进阶</button>
   <button class="fl-btn hard" onclick="setFilter('hard',this)">🔴 高级</button>
-  <span class="lbl" style="margin-left:16px">类型：</span>
+  <span class="lbl" style="margin-left:14px">类型：</span>
   <button class="fl-btn active" onclick="setPaidFilter('all',this)">全部</button>
   <button class="fl-btn" onclick="setPaidFilter('free',this)">免费</button>
   <button class="fl-btn" onclick="setPaidFilter('paid',this)">付费</button>
 </div>
 
 <section class="prompt-section">
-  <div class="ps-h">
-    <h2>📋 全部提示词</h2>
-    <span class="ps-count" id="resultCount"></span>
-  </div>
+  <div class="ps-h"><h2>📋 全部提示词</h2><span class="ps-count" id="resultCount"></span></div>
   <div class="prompt-grid" id="promptGrid"></div>
   <div class="empty" id="empty"><p>没有匹配结果，换个关键词试试 🔍</p></div>
 </section>
 
-<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+<!-- PROMPT DETAIL MODAL -->
+<div class="overlay" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <h3 id="mTitle"></h3>
     <div class="meta" id="mMeta"></div>
     <div class="prompt-text" id="mPrompt"></div>
     <div class="tips" id="mTips"></div>
-    <div class="modal-actions">
+    <div style="display:flex;gap:8px">
       <button class="btn btn-primary" id="mCopyBtn" onclick="modalCopy()">📋 复制到剪贴板</button>
       <button class="btn btn-ghost" onclick="closeModal()">关闭</button>
     </div>
   </div>
 </div>
 
+<!-- PAYMENT POPUP -->
+<div class="overlay" id="payModal" onclick="if(event.target===this)closePayModal()">
+  <div class="popup pay-popup">
+    <div style="font-size:2em">🔓</div>
+    <h2>解锁全部付费提示词</h2>
+    <div class="price">¥9.9<small>/ 永久</small></div>
+    <p style="font-size:0.85em;color:var(--text2)">扫码支付 ¥9.9，支付完成后点击下方按钮即刻激活</p>
+    <div class="qrs">
+      <div class="qr-item">
+        <img src="qrcode-wx.jpg" alt="微信收款码">
+        <div class="wx">微信支付</div>
+      </div>
+      <div class="qr-item">
+        <img src="qrcode-zfb.jpg" alt="支付宝收款码">
+        <div class="zfb">支付宝</div>
+      </div>
+    </div>
+    <button class="unlock-btn" id="payConfirmBtn" onclick="confirmPay()">✅ 我已完成付款，立即解锁</button>
+    <div class="pay-feat">
+      <span>全部 108 条提示词永久解锁</span>
+      <span>高级难度·专业级模板任意使用</span>
+      <span>后续新增自动解锁</span>
+    </div>
+  </div>
+</div>
+
+<!-- CHAT WIDGET -->
+<button class="chat-fab" onclick="toggleChat()" id="chatFab">💬</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="cp-h">
+    <span>🤖 AI 客服</span>
+    <button onclick="toggleChat()">✕</button>
+  </div>
+  <div class="cp-msgs" id="chatMsgs">
+    <div class="chat-msg bot">👋 你好！我是提示词工坊客服。<br>可以问我推荐什么提示词~</div>
+  </div>
+  <div class="cp-input">
+    <input type="text" id="chatInput" placeholder="比如：写简历的提示词？" onkeydown="if(event.key==='Enter')chatSend()">
+    <button onclick="chatSend()">发送</button>
+  </div>
+</div>
+
 <footer class="footer">
   <p>✦ 提示词工坊 © 2026 · <a href="https://www.ailiqi.cn">AI利器</a> 旗下产品</p>
 </footer>
-</div>
 
 <script>
 // ===== DATA =====
@@ -340,17 +315,16 @@ const prompts = [
   {cat:"life",catName:"生活助手",diff:"easy",model:"通用",title:"法律常识咨询",desc:"分析风险+可行方案+证据收集建议",prompt:"请分析以下法律风险和应对：\n情况：[描述]\n含：涉及法律+权利+义务+3个应对方案+需收集证据+何时找律师\n⚠️仅供参考",tips:"描述清楚时间、地点、人物关系"},
 ];
 
-// ===== TIERING =====
+// TIERING: easy=free, hard=paid, medium=free except featured
 prompts.forEach(p => {
   if (p.diff === 'easy') p.free = true;
   else if (p.diff === 'hard') p.free = false;
-  else p.free = p.feat ? false : true; // featured medium ones are paid
+  else p.free = !p.feat;
 });
-const freeCount = prompts.filter(p=>p.free).length;
-const paidCount = prompts.length - freeCount;
+const paidCount = prompts.filter(p=>!p.free).length;
 const unlocked = new Set(JSON.parse(localStorage.getItem('ph_unlocked')||'[]'));
 
-// ===== STATE =====
+// STATE
 let activeCat='all', activeDiff='all', activePaid='all';
 const CAT_EMOJI = {writing:'✍️',coding:'💻',art:'🎨',office:'📊',marketing:'📢',edu:'📚',life:'🌟'};
 const CAT_COLOR = {writing:'#f4f2ff',coding:'#eef5fc',art:'#fdf0f6',office:'#e6f9f4',marketing:'#fef4f0',edu:'#e6fafa',life:'#f0fdf4'};
@@ -358,7 +332,6 @@ const CAT_NAMES = {writing:'写作创作',coding:'编程开发',art:'AI绘画',o
 const DIFF_NAMES = {easy:'入门',medium:'进阶',hard:'高级'};
 const DIFF_CLASS = {easy:'badge-easy',medium:'badge-med',hard:'badge-hard'};
 
-// ===== FILTER =====
 function filterPrompts() {
   let list = [...prompts];
   const q = (document.getElementById('searchInput').value||'').toLowerCase();
@@ -372,152 +345,86 @@ function filterPrompts() {
 
 function setCat(cat) { activeCat=cat; renderCatGrid(); renderAll(); }
 function setFilter(diff, btn) {
-  activeDiff=diff; document.querySelectorAll('.fl-btn:not(.active)').forEach(b=>{if(b.textContent.includes('全部')||b.textContent.includes('免费')||b.textContent.includes('付费'))return;b.classList.remove('active')});
-  if(btn)btn.classList.add('active');
+  activeDiff=diff;
+  document.querySelectorAll('.filters .fl-btn').forEach(b=>{if(!b.classList.contains('easy')&&!b.classList.contains('med')&&!b.classList.contains('hard'))return;b.classList.remove('active')});
+  if(btn) btn.classList.add('active');
   renderAll();
 }
 function setPaidFilter(val, btn) {
   activePaid=val;
-  document.querySelectorAll('.fl-btn').forEach(b=>{if(b.textContent.includes('免费')||b.textContent.includes('付费')||(val==='all'&&b.textContent.includes('全部')))b.classList.remove('active')});
-  if(btn)btn.classList.add('active');
+  document.querySelectorAll('.filters .fl-btn').forEach(b=>{if(b.textContent.includes('免费')||b.textContent.includes('付费')||(val==='all'&&b.textContent.includes('全部')))b.classList.remove('active')});
+  if(btn) btn.classList.add('active');
   renderAll();
 }
-function doSearch() { renderAll(); }
+function doSearch(){ renderAll(); }
 
 // ===== RENDER =====
 function renderCatGrid() {
   document.getElementById('catGrid').innerHTML = Object.keys(CAT_NAMES).map(c => {
     const count = prompts.filter(p=>p.cat===c).length;
-    const active = activeCat===c;
-    return `<div class="cat-card" onclick="setCat('${c}')" style="${active?'border-color:var(--purple);background:var(--purple-light)':''}">
+    const a = activeCat===c;
+    return `<div class="cat-card" onclick="setCat('${c}')" style="${a?'border-color:var(--purple);background:var(--purple-light)':''}">
       <div class="icon" style="background:${CAT_COLOR[c]}">${CAT_EMOJI[c]}</div>
-      <div class="name">${CAT_NAMES[c]}</div>
-      <div class="count">${count} 条</div>
-    </div>`;
+      <div class="name">${CAT_NAMES[c]}</div><div class="count">${count} 条</div></div>`;
   }).join('');
 }
 
 function renderFeatured() {
-  const items = prompts.filter(p=>p.feat).slice(0,4);
-  document.getElementById('featuredGrid').innerHTML = items.map(p => `
+  document.getElementById('featuredGrid').innerHTML = prompts.filter(p=>p.feat).slice(0,4).map(p=>`
     <div class="feat-card" onclick="openModal('${esc(p.title)}')">
-      <div class="fc-h">
-        <div class="fc-t">${CAT_EMOJI[p.cat]} ${p.title}</div>
-        <div><span class="badge ${DIFF_CLASS[p.diff]}">${DIFF_NAMES[p.diff]}</span></div>
-      </div>
-      <div class="fc-d">${p.desc}</div>
-      <div class="fc-p">${esc(p.prompt.substring(0,140))}...</div>
+      <div class="fc-h"><div class="fc-t">${CAT_EMOJI[p.cat]} ${p.title}</div>
+      <div><span class="badge ${DIFF_CLASS[p.diff]}">${DIFF_NAMES[p.diff]}</span></div></div>
+      <div class="fc-d">${p.desc}</div><div class="fc-p">${esc(p.prompt.substring(0,140))}...</div>
     </div>`).join('');
 }
 
 function renderAll() {
   const list = filterPrompts();
-  document.getElementById('resultCount').textContent = `共 ${list.length} 条`;
-  document.getElementById('empty').style.display = list.length?'none':'block';
-  document.getElementById('promptGrid').innerHTML = list.map(p => {
+  document.getElementById('resultCount').textContent=`共 ${list.length} 条`;
+  document.getElementById('empty').style.display=list.length?'none':'block';
+  document.getElementById('promptGrid').innerHTML = list.map(p=>{
     const isFree = p.free || unlocked.has(p.title);
     return `<div class="p-card${isFree?'':' paid'}">
-      <div class="pc-top">
-        <div class="pc-title">${CAT_EMOJI[p.cat]} ${p.title}</div>
-        <div style="display:flex;gap:4px">
-          <span class="badge ${DIFF_CLASS[p.diff]}">${DIFF_NAMES[p.diff]}</span>
-          <span class="badge ${isFree?'badge-free':'badge-paid'}">${isFree?'免费':'付费'}</span>
-        </div>
-      </div>
+      <div class="pc-top"><div class="pc-title">${CAT_EMOJI[p.cat]} ${p.title}</div>
+      <div style="display:flex;gap:4px">
+        <span class="badge ${DIFF_CLASS[p.diff]}">${DIFF_NAMES[p.diff]}</span>
+        <span class="badge ${isFree?'badge-free':'badge-paid'}">${isFree?'免费':'付费'}</span>
+      </div></div>
       <div class="pc-desc">${p.desc}</div>
       <div class="pc-preview">
         <div class="pc-preview-inner">${esc(p.prompt.substring(0,100))}...</div>
-        ${isFree?'':'<div class="pc-lock">🔒</div>'}
+        ${isFree?'':'<div class="pc-lock" style="cursor:pointer" onclick="event.stopPropagation();openPayModal()"><span style="font-size:1.5em">🔒</span></div>'}
       </div>
       <div class="pc-bottom">
         <span class="pc-model">${p.model}</span>
         <div class="pc-actions">
           <button class="btn-sm btn-detail" onclick="openModal('${esc(p.title)}')">详情</button>
-          ${isFree ? `<button class="btn-sm btn-copy" onclick="copyPrompt('${esc(p.title)}',this)">复制</button>` : `<button class="btn-sm btn-unlock" onclick="switchTab('pay');document.getElementById('sidebar').classList.add('open')">🔓 ¥9.9</button>`}
+          ${isFree?`<button class="btn-sm btn-copy" onclick="copyPrompt('${esc(p.title)}',this)">复制</button>`:`<button class="btn-sm btn-unlock" onclick="event.stopPropagation();openPayModal()">🔓 ¥9.9</button>`}
         </div>
-      </div>
-    </div>`;
+      </div></div>`;
   }).join('');
 }
 
-// ===== SIDEBAR =====
-let sidebarTab = 'pay';
-function switchTab(tab) {
-  sidebarTab = tab;
-  document.querySelectorAll('.sidebar-tab').forEach((t,i) => t.classList.toggle('active', (i===0&&tab==='pay')||(i===1&&tab==='chat')));
-  document.getElementById('sidebarPay').style.display = tab==='pay'?'block':'none';
-  document.getElementById('sidebarChat').style.display = tab==='chat'?'flex':'none';
-  if (tab==='pay') updatePayUI();
-}
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-  if (document.getElementById('sidebar').classList.contains('open')) updatePayUI();
-}
-function verifyUnlock() {
-  const code = document.getElementById('unlockCode').value.trim();
-  const hint = document.getElementById('unlockHint');
-  const validCodes = ['ailiqi2026','free2026','prompt999'];
-  if (validCodes.includes(code)) {
-    prompts.filter(p=>!p.free).forEach(p=>unlocked.add(p.title));
-    localStorage.setItem('ph_unlocked',JSON.stringify([...unlocked]));
-    hint.textContent = '✅ 解锁成功！所有付费提示词已激活';
-    hint.style.color = 'var(--green)';
-    document.getElementById('unlockCode').value = '';
-    setTimeout(()=>{renderAll();updatePayUI();},800);
-  } else if (code) {
-    hint.textContent = '❌ 口令不正确，付款后联系客服获取';
-    hint.style.color = '#dc2626';
-  }
-}
-function updatePayUI() {
+// ===== PAYMENT =====
+function openPayModal() {
+  document.getElementById('payModal').classList.add('show');
   if (unlocked.size >= paidCount) {
-    const sec = document.getElementById('sidebarPay').querySelector('.pay-section');
-    sec.innerHTML = '<div style="text-align:center;padding:20px"><div style="font-size:2em">✅</div><p style="font-weight:700;color:var(--green);margin:8px 0">已解锁全部付费提示词</p><p style="font-size:0.8em;color:var(--text3)">108条全部可用，后续新增自动解锁</p></div>';
+    document.getElementById('payConfirmBtn').textContent = '✅ 已解锁全部';
+    document.getElementById('payConfirmBtn').className = 'unlock-btn done';
+    document.getElementById('payConfirmBtn').onclick = null;
   }
 }
-
-// ===== AI CHAT =====
-function chatSend() {
-  const input = document.getElementById('chatInput');
-  const q = input.value.trim();
-  if (!q) return;
-  addChatMsg(q, 'user');
-  input.value = '';
-  
-  // Search prompts matching the query
-  const qLower = q.toLowerCase();
-  const matches = prompts.filter(p => 
-    p.title.toLowerCase().includes(qLower) || 
-    p.catName.includes(qLower) || 
-    p.desc.toLowerCase().includes(qLower) ||
-    (qLower.includes('新手')||qLower.includes('入门')) && p.diff==='easy' ||
-    (qLower.includes('高级')||qLower.includes('专业')) && p.diff==='hard' ||
-    (qLower.includes('简历')||qLower.includes('面试')) && p.title.includes('简历') ||
-    (qLower.includes('midjourney')||qLower.includes('绘画')||qLower.includes('画图')) && p.cat==='art' ||
-    (qLower.includes('代码')||qLower.includes('编程')||qLower.includes('bug')) && p.cat==='coding' ||
-    (qLower.includes('小红书')||qLower.includes('营销')||qLower.includes('抖音')) && (p.cat==='marketing'||p.cat==='writing')
-  ).slice(0, 3);
-  
-  if (matches.length > 0) {
-    let resp = `找到 ${matches.length} 条相关提示词：\n`;
-    matches.forEach(p => {
-      const isFree = p.free || unlocked.has(p.title);
-      resp += `<span class="rec" onclick="openModal('${esc(p.title)}')">${CAT_EMOJI[p.cat]} ${p.title} ${isFree?'🆓':'🔒'}</span>`;
-    });
-    addChatMsg(resp, 'bot');
-  } else {
-    addChatMsg('抱歉，没有找到匹配的提示词。试试换个关键词？比如"写简历"、"Midjourney"、"Bug修复"', 'bot');
-  }
-}
-function addChatMsg(msg, role) {
-  const div = document.createElement('div');
-  div.className = 'chat-msg ' + role;
-  div.innerHTML = msg;
-  document.getElementById('chatMsgs').appendChild(div);
-  div.scrollIntoView({behavior:'smooth'});
+function closePayModal() { document.getElementById('payModal').classList.remove('show'); }
+function confirmPay() {
+  prompts.filter(p=>!p.free).forEach(p=>unlocked.add(p.title));
+  localStorage.setItem('ph_unlocked',JSON.stringify([...unlocked]));
+  document.getElementById('payConfirmBtn').textContent = '✅ 解锁成功！';
+  document.getElementById('payConfirmBtn').className = 'unlock-btn done';
+  document.getElementById('payConfirmBtn').onclick = null;
+  setTimeout(()=>{ closePayModal(); renderAll(); },1200);
 }
 
-// ===== MODAL =====
+// ===== DETAIL MODAL =====
 let curModal = null;
 function openModal(title) {
   curModal = prompts.find(p=>p.title===title);
@@ -531,7 +438,7 @@ function openModal(title) {
 function modalCopy(){
   if(!curModal)return;
   navigator.clipboard.writeText(curModal.prompt).then(()=>{
-    const b=document.getElementById('mCopyBtn');b.textContent='✅ 已复制！';setTimeout(()=>b.textContent='📋 复制到剪贴板',2000);
+    document.getElementById('mCopyBtn').textContent='✅ 已复制！';setTimeout(()=>document.getElementById('mCopyBtn').textContent='📋 复制到剪贴板',2000);
   });
 }
 function copyPrompt(t,b){
@@ -541,15 +448,38 @@ function copyPrompt(t,b){
 }
 function closeModal(){document.getElementById('modal').classList.remove('show')}
 function randomPrompt(){openModal(prompts[Math.floor(Math.random()*prompts.length)].title)}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closePayModal()}});
+
+// ===== AI CHAT =====
+function toggleChat(){document.getElementById('chatPanel').classList.toggle('show')}
+function chatSend(){
+  const input=document.getElementById('chatInput');
+  const q=input.value.trim();
+  if(!q)return;
+  addChatMsg(q,'user');
+  input.value='';
+  const ql=q.toLowerCase();
+  const matches = prompts.filter(p=>
+    p.title.toLowerCase().includes(ql)||p.catName.includes(ql)||p.desc.toLowerCase().includes(ql)||
+    (ql.includes('新手')||ql.includes('入门'))&&p.diff==='easy'||
+    (ql.includes('高级')||ql.includes('专业'))&&p.diff==='hard'||
+    (ql.includes('简历')||ql.includes('面试'))&&p.title.includes('简历')||
+    (ql.includes('midjourney')||ql.includes('绘画')||ql.includes('画图'))&&p.cat==='art'||
+    (ql.includes('代码')||ql.includes('编程')||ql.includes('bug'))&&p.cat==='coding'
+  ).slice(0,3);
+  if(matches.length>0){
+    let r='找到相关提示词：\n';
+    matches.forEach(p=>r+=`<span class="rec" onclick="openModal('${esc(p.title)}')">${CAT_EMOJI[p.cat]} ${p.title}</span>`);
+    addChatMsg(r,'bot');
+  }else{
+    addChatMsg('抱歉没找到匹配的，试试👇<br>• "写简历"<br>• "Midjourney"<br>• "Bug修复"','bot');
+  }
+}
+function addChatMsg(m,r){const d=document.createElement('div');d.className='chat-msg '+r;d.innerHTML=m;document.getElementById('chatMsgs').appendChild(d);d.scrollIntoView({behavior:'smooth'})}
 
 function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML.replace(/'/g,"\\'")}
 
-// Init
-renderCatGrid();
-renderFeatured();
-renderAll();
-updatePayUI();
+renderCatGrid();renderFeatured();renderAll();
 </script>
 </body>
 </html>
