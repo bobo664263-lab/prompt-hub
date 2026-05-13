@@ -3,693 +3,470 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>提示词工坊 - AI提示词模板库 | ChatGPT · DeepSeek · Kimi · 文心一言</title>
-<meta name="description" content="精选100+实战验证AI提示词模板，按难度分级，覆盖写作/编程/绘画/办公/营销/教育/生活7大场景。免费复制即用。">
-<meta name="keywords" content="AI提示词,ChatGPT提示词,DeepSeek提示词,Prompt模板,AI写作,Midjourney,Stable Diffusion">
+<title>提示词工坊 - AI提示词模板库 | ChatGPT | DeepSeek | Kimi | 文心一言</title>
+<meta name="description" content="精选100+高质量AI提示词模板，覆盖写作、编程、绘画、办公、营销、教育、生活7大场景。免费复制即用，持续更新。">
+<meta name="keywords" content="AI提示词,ChatGPT提示词,DeepSeek提示词,AI绘画提示词,Prompt模板,AI写作提示词,Midjourney提示词">
 <meta property="og:title" content="提示词工坊 - AI提示词模板库">
-<meta property="og:description" content="100+实战验证提示词，按难度分级，免费复制">
-<meta property="og:url" content="https://bobo664263-lab.github.io/prompt-hub/">
+<meta property="og:description" content="100+精选AI提示词模板，免费复制即用">
+<meta property="og:url" content="https://prompthub.pages.dev">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://bobo664263-lab.github.io/prompt-hub/">
+<link rel="canonical" href="https://prompthub.pages.dev">
 <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?5a2b5656eef35aea22cf49557755cefa";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
 <style>
 :root {
-  --bg: #f8f9fc;
-  --bg-card: #ffffff;
-  --bg-alt: #f0f2f8;
-  --text: #1a1a2e;
-  --text2: #555770;
-  --text3: #9090a8;
-  --border: #e8eaf0;
-  --shadow: 0 2px 12px rgba(0,0,0,0.06);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,0.1);
-  --purple: #7c3aed;
-  --purple-light: #ede9fe;
-  --purple-bg: #f5f3ff;
-  --blue: #2563eb;
-  --blue-light: #dbeafe;
-  --green: #059669;
-  --green-light: #d1fae5;
-  --orange: #ea580c;
-  --orange-light: #fff7ed;
-  --pink: #db2777;
-  --pink-light: #fce7f3;
-  --cyan: #0891b2;
-  --cyan-light: #cffafe;
-  --teal: #0d9488;
-  --teal-light: #ccfbf1;
-  --rose: #e11d48;
-  --rose-light: #ffe4e6;
-  --radius: 16px;
-  --radius-sm: 10px;
-  --max-w: 1240px;
+  --bg: #0a0a0f;
+  --bg-card: #12121a;
+  --bg-card-hover: #1a1a28;
+  --border: #1e1e30;
+  --text: #e0e0e0;
+  --text-dim: #8888aa;
+  --accent: #a855f7;
+  --accent2: #7c3aed;
+  --accent-glow: rgba(168,85,247,0.3);
+  --green: #10b981;
+  --orange: #f59e0b;
+  --blue: #3b82f6;
+  --pink: #ec4899;
+  --cyan: #06b6d4;
+  --radius: 12px;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--bg); color:var(--text); font-family: -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; line-height:1.7; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; line-height: 1.6; }
 
-/* Nav */
-.nav { background:rgba(255,255,255,0.85); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; }
-.nav-inner { max-width:var(--max-w); margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
-.nav-logo { font-size:1.3em; font-weight:800; color:var(--purple); display:flex; align-items:center; gap:8px; }
-.nav-logo .icon { width:32px; height:32px; background:linear-gradient(135deg,var(--purple),var(--pink)); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.1em; }
-.nav-search { display:flex; gap:8px; flex:1; max-width:400px; }
-.nav-search input { flex:1; padding:10px 18px; background:var(--bg-alt); border:2px solid transparent; border-radius:24px; color:var(--text); font-size:0.95em; outline:none; transition:.3s; }
-.nav-search input:focus { border-color:var(--purple); background:var(--purple-bg); }
-.nav-actions { display:flex; gap:8px; align-items:center; }
-.btn { padding:10px 22px; border-radius:24px; border:none; cursor:pointer; font-size:0.9em; font-weight:600; transition:.3s; display:inline-flex; align-items:center; gap:6px; }
-.btn-purple { background:linear-gradient(135deg,var(--purple),var(--pink)); color:#fff; box-shadow:0 4px 16px rgba(124,58,237,0.3); }
-.btn-purple:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(124,58,237,0.4); }
-.btn-outline { background:#fff; color:var(--purple); border:2px solid var(--purple-light); }
-.btn-outline:hover { background:var(--purple-bg); }
+/* Header */
+.header { background: rgba(10,10,15,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); position: sticky; top:0; z-index:100; }
+.header-inner { max-width: 1200px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.logo { font-size: 1.4em; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.search-box { display: flex; gap: 8px; flex: 1; max-width: 420px; }
+.search-box input { flex:1; padding: 10px 16px; background: var(--bg-card); border:1px solid var(--border); border-radius: 24px; color: var(--text); font-size: 0.95em; outline:none; transition: .3s; }
+.search-box input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
 
 /* Hero */
-.hero { text-align:center; padding:80px 24px 50px; position:relative; overflow:hidden; }
-.hero::before { content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%); width:600px; height:600px; background:radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%); pointer-events:none; }
-.hero-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 16px; background:var(--purple-light); color:var(--purple); border-radius:20px; font-size:0.85em; font-weight:600; margin-bottom:20px; }
-.hero-badge .dot { width:8px; height:8px; background:var(--green); border-radius:50%; animation:pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-.hero h1 { font-size:3em; font-weight:900; letter-spacing:-0.02em; line-height:1.15; margin-bottom:16px; background:linear-gradient(135deg,var(--purple),var(--pink),var(--orange)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-.hero p { font-size:1.15em; color:var(--text2); max-width:560px; margin:0 auto 32px; }
-.hero-stats { display:flex; justify-content:center; gap:48px; flex-wrap:wrap; }
-.stat-item { text-align:center; }
-.stat-num { font-size:2.4em; font-weight:800; color:var(--purple); }
-.stat-label { font-size:0.9em; color:var(--text3); margin-top:4px; }
+.hero { text-align: center; padding: 60px 20px 40px; }
+.hero h1 { font-size: 2.8em; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--cyan), var(--pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+.hero p { color: var(--text-dim); font-size: 1.15em; max-width: 600px; margin: 0 auto 24px; }
+.hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.hero-stats .stat { text-align: center; }
+.hero-stats .num { font-size: 2em; font-weight: 700; color: var(--accent); }
+.hero-stats .label { color: var(--text-dim); font-size: 0.9em; }
 
-/* Carousel */
-.carousel { max-width:var(--max-w); margin:0 auto 36px; padding:0 24px; position:relative; }
-.carousel-track { border-radius:20px; overflow:hidden; position:relative; height:280px; box-shadow:0 4px 24px rgba(0,0,0,0.08); }
-.carousel-slide { position:absolute; inset:0; opacity:0; transition:opacity .8s ease; display:flex; align-items:center; }
-.carousel-slide.active { opacity:1; }
-.carousel-slide.s1 { background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%); }
-.carousel-slide.s2 { background:linear-gradient(135deg,#1b0a2e 0%,#2d1b69 40%,#7c3aed 100%); }
-.carousel-slide.s3 { background:linear-gradient(135deg,#0a1628 0%,#0d3b66 40%,#0891b2 100%); }
-.carousel-slide.s4 { background:linear-gradient(135deg,#1a0a0a 0%,#431407 40%,#ea580c 100%); }
-.cs-bg-icon { position:absolute; right:-40px; bottom:-40px; font-size:14em; opacity:0.08; pointer-events:none; }
-.cs-inner { position:relative; z-index:1; display:flex; align-items:center; gap:32px; padding:40px 48px; max-width:800px; }
-.cs-emoji { font-size:4.5em; flex-shrink:0; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-.cs-text { color:#fff; }
-.cs-text .cs-label { display:inline-block; padding:3px 12px; border-radius:10px; font-size:0.72em; font-weight:700; margin-bottom:10px; letter-spacing:.05em; }
-.cs-text h3 { font-size:1.6em; font-weight:800; margin-bottom:6px; line-height:1.3; }
-.cs-text p { font-size:0.95em; opacity:0.85; line-height:1.5; max-width:420px; }
-.cs-text .cs-tags { display:flex; gap:6px; margin-top:12px; flex-wrap:wrap; }
-.cs-text .cs-tag { padding:4px 12px; border-radius:12px; font-size:0.75em; background:rgba(255,255,255,0.15); color:rgba(255,255,255,0.9); backdrop-filter:blur(4px); }
-.carousel-dots { display:flex; justify-content:center; gap:8px; margin-top:14px; }
-.carousel-dot { width:8px; height:8px; border-radius:50%; background:var(--border); cursor:pointer; transition:.3s; border:none; }
-.carousel-dot.active { background:var(--purple); width:24px; border-radius:4px; }
-.carousel-arrow { position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; border:none; background:rgba(255,255,255,0.9); cursor:pointer; font-size:1.2em; display:flex; align-items:center; justify-content:center; transition:.3s; z-index:2; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-.carousel-arrow:hover { background:#fff; box-shadow:0 4px 16px rgba(0,0,0,0.15); }
-.carousel-arrow.prev { left:36px; }
-.carousel-arrow.next { right:36px; }
+/* Category Tabs */
+.cat-nav { max-width: 1200px; margin: 0 auto; padding: 0 20px 20px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.cat-btn { padding: 8px 20px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-dim); cursor: pointer; font-size: 0.9em; transition: .3s; }
+.cat-btn:hover, .cat-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
 
-/* Feature cards row */
-.features { max-width:var(--max-w); margin:0 auto; padding:0 24px 40px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-.feat-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; transition:.3s; }
-.feat-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
-.feat-card .fc-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.3em; margin-bottom:14px; }
-.feat-card h3 { font-size:1.05em; margin-bottom:6px; }
-.feat-card p { color:var(--text2); font-size:0.9em; }
-
-/* Difficulty Filter */
-.diff-bar { max-width:var(--max-w); margin:0 auto; padding:0 24px 20px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-.diff-bar .label { font-size:0.85em; color:var(--text3); font-weight:600; margin-right:4px; }
-.diff-btn { padding:6px 16px; border-radius:20px; border:2px solid var(--border); background:#fff; color:var(--text2); cursor:pointer; font-size:0.85em; font-weight:600; transition:.3s; }
-.diff-btn:hover { border-color:var(--purple); }
-.diff-btn.active { background:var(--purple); color:#fff; border-color:var(--purple); }
-.diff-btn.easy.active { background:var(--green); border-color:var(--green); }
-.diff-btn.medium.active { background:var(--orange); border-color:var(--orange); }
-.diff-btn.hard.active { background:var(--pink); border-color:var(--pink); }
-
-/* Category Pills */
-.cat-bar { max-width:var(--max-w); margin:0 auto; padding:0 24px 16px; display:flex; gap:8px; flex-wrap:wrap; }
-.cat-pill { padding:8px 18px; border-radius:24px; border:2px solid var(--border); background:#fff; color:var(--text2); cursor:pointer; font-size:0.9em; font-weight:500; transition:.3s; white-space:nowrap; }
-.cat-pill:hover { border-color:var(--purple); color:var(--purple); }
-.cat-pill.active { background:var(--purple); color:#fff; border-color:var(--purple); }
-
-/* Trending Row */
-.trending { max-width:var(--max-w); margin:0 auto; padding:0 24px 24px; }
-.trending h2 { font-size:1.3em; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
-.trend-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-.trend-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; cursor:pointer; transition:.3s; position:relative; overflow:hidden; }
-.trend-card:hover { border-color:var(--purple); box-shadow:var(--shadow-lg); transform:translateY(-2px); }
-.trend-card .rank { position:absolute; top:12px; right:14px; font-size:1.8em; font-weight:900; color:var(--purple-light); }
-.trend-card .tc-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2em; margin-bottom:10px; }
-.trend-card .tc-title { font-weight:600; font-size:0.95em; margin-bottom:4px; }
-.trend-card .tc-meta { font-size:0.8em; color:var(--text3); }
+/* Stats Bar */
+.stats-bar { max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; color: var(--text-dim); font-size: 0.9em; }
+.sort-btn { padding: 6px 14px; border-radius: 16px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-dim); cursor: pointer; font-size: 0.85em; transition: .3s; }
+.sort-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
 /* Prompt Grid */
-.section-head { max-width:var(--max-w); margin:0 auto; padding:32px 24px 8px; display:flex; justify-content:space-between; align-items:center; }
-.section-head h2 { font-size:1.3em; }
-.prompt-grid { max-width:var(--max-w); margin:0 auto; padding:0 24px 40px; display:grid; grid-template-columns:repeat(auto-fill, minmax(380px, 1fr)); gap:16px; }
-.p-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; transition:.3s; position:relative; }
-.p-card:hover { border-color:var(--purple-light); box-shadow:var(--shadow-lg); transform:translateY(-2px); }
-.p-card .pc-top { display:flex; justify-content:space-between; align-items:start; margin-bottom:8px; }
-.p-card .pc-title { font-weight:700; font-size:1.05em; line-height:1.3; }
-.p-card .pc-badges { display:flex; gap:6px; flex-shrink:0; }
-.badge { font-size:0.72em; padding:3px 10px; border-radius:12px; font-weight:600; white-space:nowrap; }
-.badge-easy { background:var(--green-light); color:var(--green); }
-.badge-medium { background:var(--orange-light); color:var(--orange); }
-.badge-hard { background:var(--pink-light); color:var(--pink); }
-.badge-cat { background:var(--purple-light); color:var(--purple); }
-.p-card .pc-desc { color:var(--text2); font-size:0.88em; margin-bottom:12px; }
-.p-card .pc-preview { background:var(--bg-alt); border-radius:var(--radius-sm); padding:14px; margin-bottom:14px; position:relative; }
-.p-card .pc-preview .pp-label { font-size:0.72em; color:var(--text3); font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px; display:flex; align-items:center; gap:6px; }
-.p-card .pc-preview .pp-label::before { content:'🎯'; font-size:0.9em; }
-.p-card .pc-preview .pp-text { font-family:'SF Mono',Consolas,monospace; font-size:0.82em; color:var(--text); line-height:1.6; max-height:80px; overflow:hidden; position:relative; }
-.p-card .pc-preview .pp-text::after { content:''; position:absolute; bottom:0; left:0; right:0; height:28px; background:linear-gradient(transparent,var(--bg-alt)); }
-.p-card .pc-footer { display:flex; justify-content:space-between; align-items:center; }
-.p-card .pc-model { font-size:0.8em; color:var(--text3); display:flex; align-items:center; gap:6px; }
-.p-card .pc-actions { display:flex; gap:8px; }
-.btn-sm { padding:8px 16px; border-radius:20px; border:none; cursor:pointer; font-size:0.82em; font-weight:600; transition:.3s; }
-.btn-copy { background:var(--purple); color:#fff; }
-.btn-copy:hover { background:#6d28d9; }
-.btn-expand { background:var(--bg-alt); color:var(--text2); }
-.btn-expand:hover { background:var(--purple-light); color:var(--purple); }
+.prompt-grid { max-width: 1200px; margin: 0 auto; padding: 0 20px 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+.prompt-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: .3s; position: relative; overflow: hidden; }
+.prompt-card:hover { background: var(--bg-card-hover); border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+.prompt-card .card-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
+.prompt-card .card-title { font-weight: 600; font-size: 1.05em; line-height: 1.4; }
+.prompt-card .card-tag { font-size: 0.75em; padding: 3px 10px; border-radius: 12px; white-space: nowrap; }
+.prompt-card .card-prompt { background: #0a0a14; border: 1px solid #1a1a30; border-radius: 8px; padding: 12px; font-size: 0.85em; color: var(--text-dim); line-height: 1.7; margin-bottom: 12px; max-height: 120px; overflow: hidden; position: relative; font-family: 'SF Mono',Consolas,monospace; }
+.prompt-card .card-prompt::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: linear-gradient(transparent, #12121a); }
+.prompt-card:hover .card-prompt::after { background: linear-gradient(transparent, #1a1a28); }
+.card-actions { display: flex; gap: 8px; }
+.copy-btn { flex: 1; padding: 8px; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-weight: 600; transition: .3s; }
+.copy-btn:hover { background: var(--accent2); box-shadow: 0 0 24px var(--accent-glow); }
+.copy-btn.copied { background: var(--green); }
+.expand-btn { padding: 8px 12px; background: var(--bg-card); color: var(--text-dim); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; transition: .3s; }
+.expand-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-/* Premium */
-.badge-premium { background:linear-gradient(135deg,#fbbf24,#f59e0b); color:#fff; }
-.badge-free { background:var(--green-light); color:var(--green); }
-.p-card.premium .pc-preview { position:relative; }
-.p-card.premium .pc-preview::after { content:''; position:absolute; inset:0; background:rgba(255,255,255,0.7); backdrop-filter:blur(4px); border-radius:var(--radius-sm); }
-.p-card.premium .pc-preview .pp-lock { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; z-index:1; font-size:1.5em; }
-.btn-premium { background:linear-gradient(135deg,#fbbf24,#f59e0b); color:#fff; }
-.btn-premium:hover { background:linear-gradient(135deg,#d97706,#b45309); transform:translateY(-1px); box-shadow:0 4px 16px rgba(245,158,11,0.4); }
-
-/* Pricing */
-.pricing { max-width:var(--max-w); margin:0 auto; padding:0 24px 40px; }
-.pricing h2 { text-align:center; font-size:1.5em; margin-bottom:8px; }
-.pricing .psub { text-align:center; color:var(--text3); margin-bottom:28px; }
-.pricing-cards { display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:700px; margin:0 auto; }
-.plan-card { background:var(--bg-card); border:2px solid var(--border); border-radius:var(--radius); padding:28px; text-align:center; transition:.3s; }
-.plan-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
-.plan-card.pro { border-color:var(--orange); background:linear-gradient(180deg, #fffbeb, #fff); }
-.plan-card .plan-badge { display:inline-block; padding:4px 14px; border-radius:12px; font-size:0.8em; font-weight:700; margin-bottom:12px; }
-.plan-card .plan-price { font-size:2.2em; font-weight:900; margin:12px 0; }
-.plan-card .plan-price span { font-size:0.4em; color:var(--text3); font-weight:400; }
-.plan-card .plan-features { list-style:none; text-align:left; margin:20px 0; }
-.plan-card .plan-features li { padding:6px 0; font-size:0.9em; color:var(--text2); display:flex; align-items:center; gap:8px; }
-.plan-card .plan-features li::before { content:'✓'; color:var(--green); font-weight:bold; }
-.plan-btn { padding:12px 28px; border-radius:24px; border:none; cursor:pointer; font-weight:700; font-size:0.95em; display:inline-block; text-decoration:none; transition:.3s; }
-.plan-btn-free { background:var(--bg-alt); color:var(--text); }
-.plan-btn-pro { background:linear-gradient(135deg,#fbbf24,#f59e0b); color:#fff; }
-
-/* Unlock Banner */
-.unlock-banner { background:linear-gradient(135deg,#fffbeb,#fef3c7); border:1px solid #fcd34d; border-radius:var(--radius); padding:16px 20px; margin:0 24px 20px; max-width:var(--max-w); margin-left:auto; margin-right:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
-.unlock-banner p { color:#92400e; font-size:0.9em; font-weight:500; }
-.unlock-banner .unlock-count { font-weight:800; color:#b45309; }
-
-/* FAQ Section */
-.faq { max-width:var(--max-w); margin:0 auto; padding:40px 24px 60px; }
-.faq h2 { text-align:center; font-size:1.5em; margin-bottom:32px; }
-.faq-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-.faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:20px 24px; transition:.3s; }
-.faq-item:hover { border-color:var(--purple-light); }
-.faq-item h4 { font-size:0.95em; margin-bottom:6px; display:flex; align-items:center; gap:8px; }
-.faq-item h4::before { content:'💡'; font-size:0.9em; }
-.faq-item p { color:var(--text2); font-size:0.88em; }
+/* Collections */
+.collections { max-width: 1200px; margin: 0 auto; padding: 0 20px 40px; }
+.collections h2 { font-size: 1.6em; margin-bottom: 16px; background: linear-gradient(135deg, var(--cyan), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.col-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.col-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; cursor: pointer; transition: .3s; position: relative; overflow: hidden; }
+.col-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.col-card .col-icon { font-size: 2em; margin-bottom: 8px; }
+.col-card .col-title { font-weight: 600; font-size: 1.1em; margin-bottom: 4px; }
+.col-card .col-desc { color: var(--text-dim); font-size: 0.9em; }
+.col-card .col-count { position: absolute; top: 16px; right: 16px; font-size: 0.8em; color: var(--accent); background: rgba(168,85,247,0.15); padding: 3px 10px; border-radius: 12px; }
 
 /* CTA */
-.cta { text-align:center; padding:60px 24px; background:linear-gradient(180deg, var(--purple-bg), var(--bg)); }
-.cta h2 { font-size:1.8em; margin-bottom:8px; }
-.cta p { color:var(--text2); margin-bottom:24px; font-size:1.05em; }
-.cta-stats { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; margin-bottom:28px; }
-.cta-stat { font-size:0.9em; color:var(--text3); display:flex; align-items:center; gap:6px; }
-.cta-stat::before { content:'✓'; color:var(--green); font-weight:bold; }
+.cta { text-align: center; padding: 60px 20px; background: linear-gradient(180deg, transparent, rgba(168,85,247,0.08)); }
+.cta h2 { font-size: 2em; margin-bottom: 12px; }
+.cta p { color: var(--text-dim); margin-bottom: 24px; }
+.cta-btn { display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, var(--accent), var(--pink)); color: #fff; border-radius: 28px; text-decoration: none; font-weight: 700; font-size: 1.1em; transition: .3s; }
+.cta-btn:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(168,85,247,0.4); }
 
 /* Footer */
-.footer { text-align:center; padding:30px 24px; border-top:1px solid var(--border); color:var(--text3); font-size:0.85em; background:#fff; }
-.footer a { color:var(--purple); text-decoration:none; font-weight:600; }
+.footer { text-align: center; padding: 30px 20px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.85em; }
+.footer a { color: var(--accent); text-decoration: none; }
 
 /* Modal */
-.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); backdrop-filter:blur(4px); z-index:200; align-items:center; justify-content:center; padding:24px; }
-.modal-overlay.show { display:flex; }
-.modal { background:var(--bg-card); border-radius:var(--radius); padding:32px; max-width:680px; width:100%; max-height:80vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,0.2); }
-.modal h3 { font-size:1.3em; margin-bottom:8px; }
-.modal .modal-meta { color:var(--text3); font-size:0.85em; margin-bottom:16px; display:flex; gap:12px; flex-wrap:wrap; }
-.modal .modal-prompt { background:var(--bg-alt); border-radius:var(--radius-sm); padding:20px; font-family:'SF Mono',Consolas,monospace; font-size:0.9em; line-height:1.8; margin-bottom:20px; white-space:pre-wrap; }
-.modal .modal-tips { background:var(--green-light); border-radius:var(--radius-sm); padding:14px 18px; margin-bottom:20px; }
-.modal .modal-tips h4 { color:var(--green); font-size:0.9em; margin-bottom:4px; }
-.modal .modal-tips p { color:var(--text2); font-size:0.85em; }
-.modal-actions { display:flex; gap:12px; flex-wrap:wrap; }
-.modal-close { padding:10px 24px; background:var(--bg-alt); color:var(--text2); border:none; border-radius:24px; cursor:pointer; font-weight:600; }
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 200; justify-content: center; align-items: center; padding: 20px; }
+.modal-overlay.show { display: flex; }
+.modal { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; max-width: 640px; width: 100%; max-height: 80vh; overflow-y: auto; }
+.modal h3 { margin-bottom: 16px; font-size: 1.3em; }
+.modal .modal-prompt { background: #0a0a14; border: 1px solid #1a1a30; border-radius: 8px; padding: 16px; font-family: 'SF Mono',Consolas,monospace; font-size: 0.9em; line-height: 1.8; color: var(--text); white-space: pre-wrap; margin-bottom: 16px; }
+.modal-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.modal-close { padding: 10px 24px; background: var(--border); color: var(--text); border: none; border-radius: 8px; cursor: pointer; }
 
-/* Empty state */
-.empty { text-align:center; padding:60px 20px; color:var(--text3); display:none; }
-.empty .icon { font-size:3em; margin-bottom:12px; }
+.no-results { text-align: center; padding: 60px 20px; color: var(--text-dim); }
+.no-results .icon { font-size: 3em; margin-bottom: 12px; }
 
-/* Responsive */
-@media (max-width:768px) {
-  .hero h1 { font-size:2em; }
-  .features, .trend-grid, .faq-grid { grid-template-columns:1fr; }
-  .prompt-grid { grid-template-columns:1fr; }
-  .hero-stats { gap:24px; }
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.8em; }
+  .prompt-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 20px; }
 }
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="nav-logo"><div class="icon">✦</div>提示词工坊</div>
-    <div class="nav-search">
-      <input type="text" id="search" placeholder="搜索提示词... 如：简历、Python、Midjourney" oninput="filterAll()">
-    </div>
-    <div class="nav-actions">
-      <button class="btn btn-outline" onclick="randomPrompt()">🎲 手气不错</button>
-      <a href="https://www.ailiqi.cn" target="_blank" class="btn btn-outline" style="text-decoration:none">🔗 AI利器</a>
+<header class="header">
+  <div class="header-inner">
+    <span class="logo">✦ 提示词工坊</span>
+    <div class="search-box">
+      <input type="text" id="search" placeholder="搜索提示词... 如：写作、编程、绘画" oninput="filterPrompts()">
     </div>
   </div>
-</nav>
-
-<section class="carousel">
-  <div class="carousel-track" id="carouselTrack">
-    <div class="carousel-slide s1"><div class="cs-bg-icon">🔥</div><div class="cs-inner"><div class="cs-emoji">✍️</div><div class="cs-text"><span class="cs-label" style="background:rgba(239,68,68,0.3)">🔥 本周最热</span><h3>小红书爆款笔记生成器</h3><p>标题emoji+数字+痛点 → 正文口语种草 → 结尾互动引导，一条龙出稿，实测点击率提升40%</p><div class="cs-tags"><span class="cs-tag">🟢 入门</span><span class="cs-tag">ChatGPT</span><span class="cs-tag">免费</span></div></div></div></div>
-    <div class="carousel-slide s2"><div class="cs-bg-icon">💻</div><div class="cs-inner"><div class="cs-emoji">🐛</div><div class="cs-text"><span class="cs-label" style="background:rgba(168,85,247,0.3)">⭐ 开发者必备</span><h3>Bug修复助手</h3><p>贴代码+报错信息 → AI分析根因 → 完整修复方案+避坑建议，省掉1小时Debug时间</p><div class="cs-tags"><span class="cs-tag">🟢 入门</span><span class="cs-tag">通用</span><span class="cs-tag">免费</span></div></div></div></div>
-    <div class="carousel-slide s3"><div class="cs-bg-icon">🎨</div><div class="cs-inner"><div class="cs-emoji">📸</div><div class="cs-text"><span class="cs-label" style="background:rgba(6,182,212,0.3)">🔒 付费专享</span><h3>赛博朋克城市场景</h3><p>霓虹灯+飞行汽车+雨天反光+体积雾，Blade Runner风格8K渲染，Midjourney专业级出图</p><div class="cs-tags"><span class="cs-tag">🔴 高级</span><span class="cs-tag">Midjourney</span><span class="cs-tag">付费</span></div></div></div></div>
-    <div class="carousel-slide s4"><div class="cs-bg-icon">📊</div><div class="cs-inner"><div class="cs-emoji">📄</div><div class="cs-text"><span class="cs-label" style="background:rgba(249,115,22,0.3)">⭐ 求职神器</span><h3>简历优化大师</h3><p>STAR法则改写经历 → 量化成果 → 匹配JD关键词 → HR视角优化，3个版本任选</p><div class="cs-tags"><span class="cs-tag">🔴 高级</span><span class="cs-tag">ChatGPT</span><span class="cs-tag">付费</span></div></div></div></div>
-  </div>
-  <button class="carousel-arrow prev" onclick="carouselPrev()">‹</button>
-  <button class="carousel-arrow next" onclick="carouselNext()">›</button>
-  <div class="carousel-dots" id="carouselDots"></div>
-</section>
+</header>
 
 <section class="hero">
-  <div class="hero-badge"><span class="dot"></span> 2026年6月更新 · 新增25条Agent提示词</div>
-  <h1>让AI听懂你的话</h1>
-  <p>100+ 条实战验证的提示词模板，按难度分级。无论你是新手还是专家，3 秒找到合适的 Prompt，一键复制直接用。</p>
+  <h1>AI 提示词模板库</h1>
+  <p>精选 100+ 高质量 Prompt 模板，覆盖 7 大场景，免费复制即用。支持 ChatGPT、DeepSeek、Kimi、文心一言等主流 AI。</p>
   <div class="hero-stats">
-    <div class="stat-item"><div class="stat-num" id="totalCount">108</div><div class="stat-label">精选提示词</div></div>
-    <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">应用场景</div></div>
-    <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">难度分级</div></div>
-    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">免费使用</div></div>
+    <div class="stat"><div class="num" id="totalCount">100+</div><div class="label">精选提示词</div></div>
+    <div class="stat"><div class="num">7</div><div class="label">应用场景</div></div>
+    <div class="stat"><div class="num">∞</div><div class="label">持续更新</div></div>
   </div>
 </section>
 
-<section class="features">
-  <div class="feat-card">
-    <div class="fc-icon" style="background:var(--purple-light);">📋</div>
-    <h3>一键复制即用</h3>
-    <p>鼠标点击复制按钮，提示词直接进剪贴板，粘贴到任意AI工具即可</p>
+<nav class="cat-nav" id="catNav">
+  <button class="cat-btn active" data-cat="all">全部</button>
+  <button class="cat-btn" data-cat="writing">✍️ 写作创作</button>
+  <button class="cat-btn" data-cat="coding">💻 编程开发</button>
+  <button class="cat-btn" data-cat="art">🎨 AI绘画</button>
+  <button class="cat-btn" data-cat="office">📊 办公效率</button>
+  <button class="cat-btn" data-cat="marketing">📢 营销运营</button>
+  <button class="cat-btn" data-cat="edu">📚 教育学习</button>
+  <button class="cat-btn" data-cat="life">🌟 生活助手</button>
+</nav>
+
+<div class="stats-bar">
+  <span id="resultCount">显示 100+ 条提示词</span>
+  <div>
+    <button class="sort-btn active" data-sort="default">默认</button>
+    <button class="sort-btn" data-sort="popular">最热</button>
+    <button class="sort-btn" data-sort="new">最新</button>
   </div>
-  <div class="feat-card">
-    <div class="fc-icon" style="background:var(--green-light);">✅</div>
-    <h3>实战验证过</h3>
-    <p>每条提示词都经过实测，附效果说明和使用技巧，不是随便抄来的</p>
-  </div>
-  <div class="feat-card">
-    <div class="fc-icon" style="background:var(--orange-light);">📊</div>
-    <h3>难度分级清晰</h3>
-    <p>入门/进阶/高级三级标注，新手不会被复杂Prompt劝退，高手能找到深度模板</p>
-  </div>
-</section>
-
-<div class="diff-bar">
-  <span class="label">难度：</span>
-  <button class="diff-btn active" data-diff="all" onclick="setDiff('all',this)">全部</button>
-  <button class="diff-btn easy" data-diff="easy" onclick="setDiff('easy',this)">🟢 入门</button>
-  <button class="diff-btn medium" data-diff="medium" onclick="setDiff('medium',this)">🟠 进阶</button>
-  <button class="diff-btn hard" data-diff="hard" onclick="setDiff('hard',this)">🔴 高级</button>
-</div>
-
-<div class="cat-bar" id="catBar"></div>
-
-<!-- Trending -->
-<div class="trending">
-  <h2>🔥 本周热门</h2>
-  <div class="trend-grid" id="trendingGrid"></div>
-</div>
-
-<div class="section-head">
-  <h2 id="sectionTitle">📚 全部提示词</h2>
-  <span style="color:var(--text3);font-size:0.9em" id="resultInfo"></span>
-</div>
-
-<div class="unlock-banner" id="unlockBanner" style="display:none">
-  <p>🔓 已解锁 <span class="unlock-count" id="unlockCount">0</span> 条付费提示词 · 还有 <span class="unlock-count" id="remainCount">0</span> 条待解锁</p>
-  <button class="btn btn-purple btn-sm" onclick="showUpgrade()">查看解锁方案 →</button>
 </div>
 
 <div class="prompt-grid" id="promptGrid"></div>
-<div class="empty" id="empty"><div class="icon">🔍</div><p>没有匹配的提示词，换个关键词试试</p></div>
 
-<section class="pricing" id="pricing">
-  <h2>💎 解锁全部提示词</h2>
-  <p class="psub">免费提示词 <b id="pFreeCount">0</b> 条永久可用 · 付费专享 <b id="pPaidCount">0</b> 条持续更新</p>
-  <div class="pricing-cards">
-    <div class="plan-card">
-      <div class="plan-badge badge-free" style="background:var(--green-light)">🆓 免费版</div>
-      <div class="plan-price">¥0</div>
-      <ul class="plan-features">
-        <li>入门级提示词全部免费</li>
-        <li>大部分进阶提示词可用</li>
-        <li>一键复制，永久有效</li>
-        <li>百度/Google搜到的都在这里</li>
-      </ul>
-      <button class="plan-btn plan-btn-free" onclick="window.scrollTo({top:400,behavior:'smooth'})">开始使用</button>
-    </div>
-    <div class="plan-card pro">
-      <div class="plan-badge" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#fff">⭐ 付费版</div>
-      <div class="plan-price">¥9.9<span>/永久</span></div>
-      <ul class="plan-features">
-        <li><b>全部 108 条</b>提示词永久解锁</li>
-        <li>高级难度 · 专业级模板</li>
-        <li>每周新增付费专享提示词</li>
-        <li>解锁码一劳永逸，换电脑也能用</li>
-      </ul>
-      <button class="plan-btn plan-btn-pro" onclick="showPayModal()">立即解锁 ¥19.9 →</button>
-    </div>
-  </div>
-</section>
+<div class="no-results" id="noResults" style="display:none">
+  <div class="icon">🔍</div>
+  <p>没有找到匹配的提示词，试试其他关键词吧~</p>
+</div>
 
-<section class="faq">
-  <h2>常见问题</h2>
-  <div class="faq-grid">
-    <div class="faq-item"><h4>这些提示词免费吗？</h4><p>全部免费！点击复制按钮即可使用，不需要注册、登录或付费。</p></div>
-    <div class="faq-item"><h4>支持哪些AI工具？</h4><p>ChatGPT、DeepSeek、Kimi、文心一言、通义千问、Claude、Gemini 等主流 AI 都适用。</p></div>
-    <div class="faq-item"><h4>提示词多久更新一次？</h4><p>每周更新，紧跟AI新功能和热门场景。收藏本站就不会错过。</p></div>
-    <div class="faq-item"><h4>难度怎么选？</h4><p>🟢入门：直接粘贴就能用；🟠进阶：需要替换[ ]里的内容；🔴高级：适合有Prompt工程基础的用户。</p></div>
-  </div>
+<section class="collections">
+  <h2>🔥 热门专题合集</h2>
+  <div class="col-grid" id="collectionsGrid"></div>
 </section>
 
 <section class="cta">
-  <h2>🎯 开始提升你的AI效率</h2>
-  <p>108条精选提示词，从此告别「问AI像问砖头」</p>
-  <div class="cta-stats">
-    <span class="cta-stat">无需注册</span>
-    <span class="cta-stat">持续更新</span>
-    <span class="cta-stat">实战验证</span>
-  </div>
-  <button class="btn btn-purple" onclick="window.scrollTo({top:300,behavior:'smooth'})">立即浏览 →</button>
+  <h2>找到你的 AI 超能力</h2>
+  <p>100+ 提示词模板持续更新，帮你十倍提升 AI 使用效率</p>
+  <a href="#" class="cta-btn" onclick="scrollToTop()">开始浏览 →</a>
 </section>
 
 <footer class="footer">
-  <p>✦ 提示词工坊 © 2026 · <a href="https://www.ailiqi.cn" target="_blank">AI利器</a> 旗下产品 · 提示词由社区贡献，仅供学习使用</p>
+  <p>✦ 提示词工坊 © 2026 · <a href="https://www.ailiqi.cn" target="_blank">AI利器</a> 旗下产品</p>
+  <p style="margin-top:4px">提示词由社区贡献，仅供学习参考</p>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+<div class="modal-overlay" id="modal">
   <div class="modal">
-    <h3 id="mTitle"></h3>
-    <div class="modal-meta" id="mMeta"></div>
-    <div class="modal-prompt" id="mPrompt"></div>
-    <div class="modal-tips" id="mTips"><h4>💡 使用技巧</h4><p id="mTipsText"></p></div>
+    <h3 id="modalTitle"></h3>
+    <div class="modal-prompt" id="modalPrompt"></div>
     <div class="modal-actions">
-      <button class="btn btn-purple" id="mCopy">📋 一键复制</button>
+      <button class="copy-btn" id="modalCopy">📋 一键复制</button>
       <button class="modal-close" onclick="closeModal()">关闭</button>
     </div>
   </div>
 </div>
 
-<!-- UNLOCK MODAL -->
-<div class="modal-overlay" id="payModal" onclick="if(event.target===this)closePayModal()">
-  <div class="modal" style="text-align:center">
-    <h3>🔓 解锁全部付费提示词</h3>
-    <p style="color:var(--text2);margin-bottom:20px">💎 <b>¥9.9</b> 永久解锁 <b id="payPaidTotal">0</b> 条付费提示词，后续新增全免</p>
-    <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:20px">
-      <div style="text-align:center">
-        <img src="qrcode-wx.jpg" alt="微信支付" style="width:170px;height:170px;border-radius:14px;border:2px solid #e8eaf0;object-fit:cover">
-        <p style="margin-top:6px;font-weight:700;color:#07c160">微信扫码 ¥9.9</p>
-      </div>
-      <div style="text-align:center">
-        <img src="qrcode-zfb.jpg" alt="支付宝" style="width:170px;height:170px;border-radius:14px;border:2px solid #e8eaf0;object-fit:cover">
-        <p style="margin-top:6px;font-weight:700;color:#1677ff">支付宝扫码 ¥9.9</p>
-      </div>
-    </div>
-    <div style="background:var(--green-light);border-radius:14px;padding:16px 20px;margin-bottom:16px">
-      <p style="font-size:0.9em;color:#047857;font-weight:600;margin-bottom:12px">👇 付款完成后，点下方按钮即解锁</p>
-      <button class="btn btn-purple" style="font-size:1.05em;padding:14px 40px" onclick="doUnlockDirect()">💳 我已完成付款，立即解锁</button>
-    </div>
-    <p style="font-size:0.8em;color:var(--green);text-align:center;min-height:24px" id="unlockMsg"></p>
-    <button class="modal-close" onclick="closePayModal()" style="margin-top:4px">关闭</button>
-  </div>
-</div>
-
 <script>
-// ==================== DATA ====================
+// ============ PROMPT DATA ============
 const prompts = [
-  // === WRITING ===
-  {id:1,cat:"writing",catName:"写作创作",catIcon:"✍️",catColor:"var(--purple-light)",diff:"easy",model:"ChatGPT / DeepSeek / Kimi",title:"小红书爆款笔记",desc:"一键生成高互动的小红书种草文案，带标题、正文、标签",prompt:"你是一位小红书资深博主。请为[产品/话题]创作一篇种草笔记：\n1. 标题用emoji+数字+痛点，≤20字\n2. 正文口语化，像朋友聊天，每段≤3行\n3. 加入真实使用感受和效果对比\n4. 文末引导互动（提问/求点赞）\n5. 带5-8个相关话题标签",tips:"把[产品/话题]换成你要推广的具体内容，比如「电动牙刷」「大理旅行」"},
-  {id:2,cat:"writing",catName:"写作创作",catIcon:"✍️",catColor:"var(--purple-light)",diff:"medium",model:"ChatGPT / DeepSeek",title:"公众号深度长文",desc:"2000字专业长文模板，故事+数据+观点三段式",prompt:"你是资深新媒体主编。请围绕[主题]撰写公众号深度文章（2000-2500字）：\n1. 标题有悬念感或冲突感\n2. 故事+数据+观点的三段式结构\n3. 加入至少3个真实案例\n4. 行文风格参考「人物」杂志调性\n5. 结尾金句收尾，引发转发",tips:"适合知识类、观点类公众号。[主题]替换为具体话题如「远程办公的未来」"},
-  {id:3,cat:"writing",catName:"写作创作",catIcon:"✍️",catColor:"var(--purple-light)",diff:"easy",model:"通用",title:"短视频口播脚本",desc:"60秒口播脚本，前3秒抓人，节奏紧凑",prompt:"你是短视频编导。请为[话题]创作60秒口播脚本：\n1. 前3秒用反常识/提问抓住注意力\n2. 语言口语化，像对着朋友说话\n3. 每15秒一个信息点，节奏紧凑\n4. 结尾引导点赞评论\n5. 标注语气（快/慢/停顿）和情绪",tips:"适用于抖音/视频号/B站口播类视频，[话题]要具体"},
-  {id:4,cat:"writing",catName:"写作创作",catIcon:"✍️",catColor:"var(--purple-light)",diff:"medium",model:"ChatGPT / Claude",title:"商业计划书大纲",desc:"标准BP结构，含市场/产品/财务7大模块",prompt:"请为[项目名]生成商业计划书大纲，包含：\n1. 项目概述（一句话价值主张）\n2. 市场分析（目标用户/规模/竞品）\n3. 产品服务（核心功能/差异化）\n4. 商业模式（收入/定价）\n5. 运营计划（团队/里程碑/KPI）\n6. 财务预测（12个月收支预估）\n7. 融资需求（金额/用途/退出）",tips:"适用于创业路演、投资人演示，替换[项目名]即可"},
-  {id:5,cat:"writing",catName:"写作创作",catIcon:"✍️",catColor:"var(--purple-light)",diff:"hard",model:"GPT-4 / Claude",title:"品牌故事创作",desc:"打动人心的品牌故事，含创始人初心+关键时刻",prompt:"请为[品牌]创作品牌故事（500字以内）：\n1. 用故事化叙事，不要罗列事实\n2. 突出创始人初心和品牌使命\n3. 包含一个转折点/关键时刻\n4. 注入情感元素引发共鸣\n5. 适合「关于我们」页面\n品牌信息：名称=[名] 品类=[类] 创始人背景=[背景] 理念=[理念]",tips:"需要提前准备好品牌信息填入，故事比数据更能打动人"},
-  {id:6,cat:"writing",catName:"写作创作",catIcon:"✍️",catColor:"var(--purple-light)",diff:"easy",model:"通用",title:"周报日报生成器",desc:"输入工作内容，输出结构化周报",prompt:"请根据以下工作内容生成周报：\n本周完成：[内容]\n要求：\n1. 格式：完成事项 | 进展说明 | 下周计划\n2. 用数据和成果说话，突出亮点\n3. 语言简洁专业，≤500字",tips:"把本周做过的事列出来填入[内容]，AI帮你润色成专业周报"},
-  {id:7,cat:"writing",catName:"写作创作",catIcon:"✍️",catColor:"var(--purple-light)",diff:"medium",model:"ChatGPT / DeepSeek",title:"知乎高赞回答",desc:"高赞知乎回答模板，「结论先行的反转叙事」",prompt:"你是知乎万粉答主。请为问题「[问题]」撰写高赞回答：\n1. 开头一针见血\n2. 「先说结论→分析原因→给方案」结构\n3. 穿插3-5个真实经历或个人观点\n4. 适当使用加粗、引用增强可读性\n5. 结尾抛出一个延伸思考引发讨论",tips:"选热门问题回答效果最好，个人经历越具体越容易获赞"},
+  // === 写作创作 ===
+  {id:1,title:"专业文章撰写",cat:"writing",tag:"写作",hot:true,prompt:"你是一位资深专栏作家。请以[主题]为核心，写一篇1500字左右的深度文章。要求：\n1. 开头用引人入胜的故事或数据切入\n2. 分3-4个论点展开，每个论点配案例\n3. 语言生动有力，避免说教\n4. 结尾给出可操作的行动建议",model:"通用"},
+  {id:2,title:"小红书爆款文案",cat:"writing",tag:"写作",hot:true,prompt:"你是一位小红书资深博主。请为[产品/话题]创作一篇小红书种草笔记。要求：\n1. 标题用emoji+数字+痛点，20字以内\n2. 正文用口语化表达，像朋友聊天\n3. 每段不超过3行，多用emoji分段\n4. 加入真实使用感受和效果对比\n5. 文末引导互动（提问/求点赞）\n6. 带上5-8个相关话题标签",model:"通用"},
+  {id:3,title:"公众号深度长文",cat:"writing",tag:"写作",prompt:"你是一位资深新媒体主编。请围绕[主题]撰写一篇公众号深度文章，字数2000-2500。要求：\n1. 标题要有悬念感或冲突感\n2. 用故事+数据+观点的三段式结构\n3. 加入至少3个真实案例\n4. 行文风格参考「人物」杂志调性\n5. 结尾要有金句收尾",model:"通用"},
+  {id:4,title:"短视频口播脚本",cat:"writing",tag:"写作",hot:true,prompt:"你是一位短视频编导。请为[话题]创作一条60秒的口播脚本。要求：\n1. 前3秒用反常识/提问/冲突抓住注意力\n2. 语言口语化，像对着朋友说话\n3. 节奏紧凑，每15秒一个信息点\n4. 结尾有力，引导点赞评论\n5. 标注语气和节奏（快/慢/停顿）",model:"通用"},
+  {id:5,title:"商业计划书大纲",cat:"writing",tag:"写作",prompt:"请帮我生成一份[项目名称]的商业计划书大纲。包含：\n1. 项目概述（一句话说清做什么）\n2. 市场分析（目标用户、市场规模、竞争格局）\n3. 产品/服务（核心功能、差异化优势）\n4. 商业模式（收入来源、定价策略）\n5. 运营计划（团队、里程碑、关键指标）\n6. 财务预测（12个月收入成本预估）\n7. 融资需求（金额、用途、退出方案）",model:"通用"},
+  {id:6,title:"SEO优化文章",cat:"writing",tag:"写作",prompt:"你是一位SEO内容专家。请围绕关键词[关键词]写一篇SEO优化的文章。要求：\n1. 标题包含核心关键词，长度15-25字\n2. 正文1500字以上，关键词密度2-3%\n3. 使用H2/H3结构组织内容\n4. 自然融入3-5个长尾关键词\n5. 添加内链和外链的建议位置\n6. 文末添加FAQ板块覆盖更多关键词",model:"通用"},
+  {id:7,title:"知乎高赞回答",cat:"writing",tag:"写作",prompt:"你是一位知乎万粉答主。请为问题「[问题]」撰写一篇高赞回答。要求：\n1. 开头一针见血，直接回应问题\n2. 用「先说结论→分析原因→给出方案」结构\n3. 穿插3-5个真实经历或个人观点\n4. 适当使用加粗、引用增强可读性\n5. 结尾抛出一个延伸思考引发讨论",model:"通用"},
+  {id:8,title:"英文邮件润色",cat:"writing",tag:"写作",prompt:"Please polish the following email to make it more professional and native-sounding. Keep the original meaning but improve:\n1. Grammar and sentence structure\n2. Tone (make it [formal/casual/friendly])\n3. Flow and readability\n\nOriginal email:\n[原文]",model:"通用"},
+  {id:9,title:"小说情节构思",cat:"writing",tag:"写作",prompt:"你是一位畅销小说家。请帮我构思一个[类型]小说的情节框架。要求：\n1. 一句话故事梗概（Logline）\n2. 主要人物设定（主角、反派、配角各100字）\n3. 三幕剧结构：开端-冲突-结局\n4. 3个关键转折点\n5. 2-3个让人意想不到的情节反转\n6. 主题和情感主线",model:"通用"},
+  {id:10,title:"产品文案优化",cat:"writing",tag:"写作",prompt:"你是一位资深文案策划。请帮我优化以下产品文案，提升转化率。\n\n当前文案：[文案内容]\n目标人群：[人群描述]\n\n优化方向：\n1. 突出用户痛点而非产品功能\n2. 用AIDA模型（注意-兴趣-欲望-行动）重构\n3. 加入社交证明元素\n4. 降低用户的决策焦虑\n5. 给出3个不同风格的版本",model:"通用"},
+  {id:11,title:"周报/日报生成",cat:"writing",tag:"写作",hot:true,prompt:"请根据以下工作内容，帮我生成一份结构清晰的周报：\n\n本周完成：\n[工作内容]\n\n要求：\n1. 格式：完成事项 | 进展说明 | 下周计划\n2. 用数据和成果说话\n3. 突出亮点和遇到的挑战\n4. 语言简洁专业\n5. 控制在500字以内",model:"通用"},
+  {id:12,title:"论文摘要生成",cat:"writing",tag:"写作",prompt:"请根据以下论文内容，帮我撰写一份学术论文摘要。\n\n论文主题：[主题]\n主要内容：[内容要点]\n\n要求：\n1. 200-300字\n2. 包含研究背景、方法、结果、结论四要素\n3. 语言学术规范\n4. 包含3-5个关键词\n5. 中英文对照",model:"通用"},
 
-  // === CODING ===
-  {id:10,cat:"coding",catName:"编程开发",catIcon:"💻",catColor:"var(--blue-light)",diff:"easy",model:"ChatGPT / DeepSeek / Claude",title:"Bug修复助手",desc:"贴代码+报错信息，自动分析根因并修复",prompt:"你是资深软件工程师。请分析和修复以下Bug：\n语言：[语言]\n代码：[代码]\n错误：[错误信息]\n\n请：\n1. 分析Bug根因\n2. 给出修复方案和完整代码\n3. 解释为什么会出现这个Bug\n4. 建议如何避免类似问题",tips:"把完整报错信息贴进去效果更好，代码片段越完整AI判断越准"},
-  {id:11,cat:"coding",catName:"编程开发",catIcon:"💻",catColor:"var(--blue-light)",diff:"medium",model:"ChatGPT / Claude",title:"需求→代码生成",desc:"用自然语言描述功能，AI写完整代码",prompt:"你是全栈工程师。请根据以下需求生成[语言]代码：\n功能：[描述]\n技术栈：[如 React+TypeScript]\n\n要求：\n1. 先设计数据结构和接口\n2. 写出核心逻辑代码\n3. 添加关键注释\n4. 考虑边界情况和错误处理\n5. 提供测试用例建议",tips:"需求越具体代码越精准，可以先让AI帮你理清需求再生成代码"},
-  {id:12,cat:"coding",catName:"编程开发",catIcon:"💻",catColor:"var(--blue-light)",diff:"medium",model:"通用",title:"SQL查询优化",desc:"分析慢查询，给出索引建议和改写方案",prompt:"你是数据库优化专家。请优化以下SQL：\n数据库：[MySQL/PostgreSQL]\nSQL：[SQL语句]\n表结构：[表结构]\n\n要求：\n1. 分析性能瓶颈\n2. 给出优化方案（索引+改写）\n3. 提供优化后SQL\n4. 解释优化原理",tips:"附上表结构和数据量，AI才能给出最精准的索引建议"},
-  {id:13,cat:"coding",catName:"编程开发",catIcon:"💻",catColor:"var(--blue-light)",diff:"easy",model:"通用",title:"正则表达式生成",desc:"描述需求，自动生成正则+测试用例",prompt:"请生成正则表达式，用于匹配[需求]。\n示例输入：[例子]\n期望匹配：[期望]\n\n要求：\n1. 给出正则表达式\n2. 逐段解释含义\n3. 提供至少3个测试用例\n4. 说明边界问题",tips:"给的示例越多AI理解越准确，最好同时给正面和反面例子"},
-  {id:14,cat:"coding",catName:"编程开发",catIcon:"💻",catColor:"var(--blue-light)",diff:"hard",model:"ChatGPT / Claude",title:"Docker部署方案",desc:"多阶段构建+compose+环境变量完整配置",prompt:"请为[技术栈]项目编写Docker配置：\n项目：[说明]\n\n要求：\n1. Dockerfile（多阶段构建）\n2. docker-compose.yml（含数据库等依赖）\n3. .dockerignore\n4. 环境变量管理建议\n5. 启动和调试命令",tips:"适合需要容器化部署的项目，技术栈如「Next.js + PostgreSQL + Redis」"},
-  {id:15,cat:"coding",catName:"编程开发",catIcon:"💻",catColor:"var(--blue-light)",diff:"easy",model:"通用",title:"Git提交信息",desc:"根据代码改动自动生成规范的commit message",prompt:"请根据以下代码改动生成Git commit message：\n改动：[描述]\n\n要求：\n1. 遵循Conventional Commits规范\n2. 标题≤50字符\n3. 正文解释What/Why/How\n4. 中英文各一个版本",tips:"feat:/fix:/docs:/refactor: 等前缀是标准格式"},
+  // === 编程开发 ===
+  {id:20,title:"代码Bug修复",cat:"coding",tag:"编程",hot:true,prompt:"你是一位资深软件工程师。请帮我分析和修复以下代码中的Bug：\n\n语言：[语言]\n代码：\n```\n[代码]\n```\n错误信息：[错误信息]\n\n请：\n1. 分析Bug根因\n2. 给出修复方案\n3. 解释为什么会出现这个Bug\n4. 提供修复后的完整代码\n5. 建议如何避免类似问题",model:"通用"},
+  {id:21,title:"功能需求转代码",cat:"coding",tag:"编程",hot:true,prompt:"你是一位全栈工程师。请根据以下需求生成代码：\n\n功能描述：[描述]\n技术栈：[技术栈]\n\n要求：\n1. 先设计数据结构和API接口\n2. 写出核心逻辑代码\n3. 添加关键注释\n4. 考虑边界情况和错误处理\n5. 给出测试用例建议",model:"通用"},
+  {id:22,title:"代码审查/优化",cat:"coding",tag:"编程",prompt:"你是一位代码审查专家。请审查以下代码并给出优化建议：\n\n语言：[语言]\n代码：\n```\n[代码]\n```\n\n审查维度：\n1. 代码结构和可读性\n2. 性能优化点\n3. 安全漏洞\n4. 最佳实践对齐\n5. 可维护性建议",model:"通用"},
+  {id:23,title:"SQL查询优化",cat:"coding",tag:"编程",prompt:"你是一位数据库优化专家。请帮我优化以下SQL查询：\n\n```sql\n[SQL语句]\n```\n数据库：[MySQL/PostgreSQL]\n表结构：[表结构]\n\n要求：\n1. 分析当前查询的性能瓶颈\n2. 给出优化方案（索引、改写等）\n3. 提供优化后的SQL\n4. 解释优化原理",model:"通用"},
+  {id:24,title:"正则表达式生成",cat:"coding",tag:"编程",prompt:"请帮我生成一个正则表达式，用于匹配[需求描述]。\n\n示例输入和目标：\n输入：[例子]\n期望匹配：[期望]\n\n要求：\n1. 给出正则表达式\n2. 逐段解释含义\n3. 提供至少3个测试用例\n4. 说明可能出现的边界问题",model:"通用"},
+  {id:25,title:"API接口文档生成",cat:"coding",tag:"编程",prompt:"请根据以下代码，生成一份标准的API接口文档：\n\n```\n[代码]\n```\n\n文档需包含：\n1. 接口URL和方法\n2. 请求参数（名称、类型、必填、说明）\n3. 响应格式（成功和失败示例）\n4. 错误码说明\n5. 调用示例（curl/Python）\n6. 注意事项",model:"通用"},
+  {id:26,title:"算法题讲解",cat:"coding",tag:"编程",prompt:"请讲解以下算法题的思路和实现：\n\n题目：[题目描述]\n\n要求：\n1. 先分析题意和约束条件\n2. 给出暴力解法的思路和复杂度\n3. 逐步优化到最优解\n4. 分析时空复杂度\n5. 提供完整可运行的代码\n6. 用简单比喻帮助理解",model:"通用"},
+  {id:27,title:"Docker部署配置",cat:"coding",tag:"编程",prompt:"请帮我为一个[技术栈]项目编写Docker配置。\n\n项目说明：[说明]\n\n要求：\n1. Dockerfile（多阶段构建）\n2. docker-compose.yml（含数据库等依赖）\n3. .dockerignore\n4. 环境变量管理建议\n5. 启动和调试命令",model:"通用"},
+  {id:28,title:"Git提交信息生成",cat:"coding",tag:"编程",prompt:"请根据以下代码改动，生成一条规范的Git commit message。\n\n改动内容：\n[改动描述]\n\n要求：\n1. 遵循 Conventional Commits 规范\n2. 标题≤50字符\n3. 正文解释What/Why/How\n4. 英文和中文各一个版本",model:"通用"},
+  {id:29,title:"前端组件开发",cat:"coding",tag:"编程",prompt:"你是一位前端专家。请帮我开发一个[组件功能]的React/Vue组件。\n\n需求：[需求描述]\n设计要求：[设计要点]\n\n要求：\n1. 包含Props/Events/Slots定义\n2. 响应式设计和无障碍支持\n3. 完整的TypeScript类型定义\n4. 使用示例\n5. 单元测试建议",model:"通用"},
+  {id:30,title:"Python数据分析脚本",cat:"coding",tag:"编程",prompt:"请帮我写一个Python数据分析脚本，用于[分析目标]。\n\n数据源：[数据描述/CSV路径]\n\n要求：\n1. 使用pandas进行数据清洗\n2. 关键指标计算\n3. 使用matplotlib/seaborn生成可视化图表\n4. 输出分析结论和建议\n5. 代码注释清晰",model:"通用"},
 
-  // === AI ART ===
-  {id:20,cat:"art",catName:"AI绘画",catIcon:"🎨",catColor:"var(--pink-light)",diff:"medium",model:"Midjourney / DALL·E",title:"写实人像摄影",desc:"专业级人像Prompt，含光线/镜头/构图参数",prompt:"Realistic portrait photography, [人物描述], [场景], soft natural lighting, golden hour, shot on Canon EOS R5 85mm f/1.2, shallow depth of field, bokeh background, hyper-realistic 8K, professional color grading --ar 3:4",tips:"人物越具体效果越好，试试「young woman, long black hair, sitting by window」"},
-  {id:21,cat:"art",catName:"AI绘画",catIcon:"🎨",catColor:"var(--pink-light)",diff:"easy",model:"Midjourney",title:"电商产品白底图",desc:"无需摄影棚，AI生成电商级产品图",prompt:"Professional product photography, [产品描述], white background, studio lighting, commercial photography, high-end retouching, sharp focus, 8K, minimal shadow, clean composition --ar 1:1",tips:"产品描述如「minimalist wireless earbuds in matte black」"},
-  {id:22,cat:"art",catName:"AI绘画",catIcon:"🎨",catColor:"var(--pink-light)",diff:"hard",model:"Midjourney / Stable Diffusion",title:"赛博朋克城市场景",desc:"复杂的夜景+霓虹灯+飞行汽车Prompt",prompt:"Cyberpunk cityscape at night, futuristic Tokyo street, neon-lit signs, flying cars, holographic billboards, rain-slicked streets reflecting neon, Blade Runner aesthetic, cinematic lighting, volumetric fog, ray tracing, Unreal Engine 5 render, ultra-detailed 8K --ar 16:9",tips:"这个Prompt很长但每个词都有用，尤其是style reference词能大幅提升效果"},
-  {id:23,cat:"art",catName:"AI绘画",catIcon:"🎨",catColor:"var(--pink-light)",diff:"medium",model:"Midjourney",title:"国风水墨画",desc:"中式美学Prompt，山水竹林烟雨",prompt:"Traditional Chinese ink wash painting, misty bamboo forest by mountain stream, flowing water, elegant brush strokes, ink splatter effect, negative space composition, silk scroll texture, zen atmosphere, masterpiece --ar 3:4",tips:"适合制作壁纸、海报、文创素材，水墨画风格对Midjourney效果很好"},
-  {id:24,cat:"art",catName:"AI绘画",catIcon:"🎨",catColor:"var(--pink-light)",diff:"easy",model:"Midjourney",title:"极简Logo设计",desc:"品牌Logo一键生成，几何/渐变风格",prompt:"Minimalist logo for [品牌], [行业], geometric style, [颜色], clean modern flat vector, white background, recognizable silhouette, no text --ar 1:1",tips:"多次生成选最好的，然后加上'no text'可以避免AI乱加文字"},
-  {id:25,cat:"art",catName:"AI绘画",catIcon:"🎨",catColor:"var(--pink-light)",diff:"medium",model:"DeepSeek / 通义万相",title:"国产AI文生图",desc:"适配国内AI绘画工具的通用Prompt",prompt:"请生成一张图片：[主题]。风格：[写实/插画/3D]，色调：[暖/冷/高饱和]，构图：[居中/三分法]，画质：高清4K，比例：16:9",tips:"国内AI绘画对中文理解更好，直接用中文描述即可"},
-  {id:26,cat:"art",catName:"AI绘画",catIcon:"🎨",catColor:"var(--pink-light)",diff:"medium",model:"Midjourney",title:"3D卡通IP设计",desc:"Pixar风格Q版角色，适合品牌IP",prompt:"Cute 3D character, [角色描述], chibi style, Pixar/Disney inspired, soft pastel colors, smooth textures, ambient occlusion, studio lighting, 3D render, white background, isometric view --ar 1:1",tips:"角色描述如「a fox barista wearing apron, holding coffee cup」"},
+  // === AI绘画 ===
+  {id:40,title:"写实人像摄影",cat:"art",tag:"绘画",hot:true,prompt:"Realistic portrait photography, [人物描述如：young Asian woman with long black hair], [场景如：sitting in a coffee shop by the window], [光线如：soft natural window lighting, golden hour], shot on [相机如：Canon EOS R5, 85mm f/1.2 lens], shallow depth of field, bokeh background, hyper-realistic, 8K, professional color grading --ar 3:4 --v 6.0",model:"Midjourney"},
+  {id:41,title:"产品/电商白底图",cat:"art",tag:"绘画",hot:true,prompt:"Professional product photography, [产品描述], white background, studio lighting, commercial photography, high-end retouching, sharp focus, 8K detail, product shot from [角度], minimal shadow, clean composition, suitable for e-commerce --ar 1:1 --v 6.0",model:"Midjourney"},
+  {id:42,title:"二次元动漫角色",cat:"art",tag:"绘画",prompt:"anime style illustration, [角色描述], [表情和姿势], [服装], [背景], Japanese anime art style, Studio Ghibli inspired, vibrant colors, clean lineart, cel shading, masterpiece, 4K --ar 2:3 --niji 6",model:"Midjourney"},
+  {id:43,title:"赛博朋克场景",cat:"art",tag:"绘画",hot:true,prompt:"Cyberpunk cityscape at night, [场景细节如：neon-lit street in futuristic Tokyo], flying cars, holographic billboards, rain-slicked streets reflecting neon lights, Blade Runner aesthetic, cinematic lighting, volumetric fog, ray tracing, ultra-detailed, 8K, Unreal Engine 5 render --ar 16:9 --v 6.0",model:"Midjourney"},
+  {id:44,title:"极简Logo设计",cat:"art",tag:"绘画",prompt:"Minimalist logo design for [品牌/产品], [行业], [风格如：几何/线性/渐变], [颜色], clean and modern, flat vector style, white background, graphic design, recognizable silhouette, no text --ar 1:1 --v 6.0",model:"Midjourney"},
+  {id:45,title:"国风水墨画",cat:"art",tag:"绘画",prompt:"Traditional Chinese ink wash painting style (水墨画), [主题如：竹林山水], misty mountains, flowing water, elegant brush strokes, ink splatter effect, negative space composition, Chinese artistic aesthetic, silk scroll texture, masterpiece, delicate details, zen atmosphere --ar 3:4 --v 6.0",model:"Midjourney"},
+  {id:46,title:"3D卡通IP形象",cat:"art",tag:"绘画",prompt:"Cute 3D character design, [角色描述], chibi style, soft pastel colors, Pixar/Disney inspired, smooth textures, ambient occlusion, soft studio lighting, 3D render, C4D style, isometric view, white background, toy-like material --ar 1:1 --v 6.0",model:"Midjourney"},
+  {id:47,title:"食物摄影",cat:"art",tag:"绘画",prompt:"Gourmet food photography, [食物名称], [摆盘描述], overhead/flat lay shot, natural light, steam rising, mouth-watering, shallow depth of field, wooden table surface, fresh ingredients visible, restaurant menu quality, 8K detail --ar 4:5 --v 6.0",model:"Midjourney"},
+  {id:48,title:"室内设计效果图",cat:"art",tag:"绘画",prompt:"Interior design render, [风格如：modern minimalist living room], [色彩搭配], [家具风格], floor-to-ceiling windows with natural light, high-end furniture, architectural visualization, photorealistic, 8K, wide angle lens, magazine quality, cozy atmosphere --ar 16:9 --v 6.0",model:"Midjourney"},
+  {id:49,title:"DeepSeek文生图通用",cat:"art",tag:"绘画",prompt:"请生成一张图片：[主题描述]。风格：[风格]，色调：[色调]，构图：[构图方式]，画质：高清，比例：[比例]",model:"DeepSeek"},
+  {id:50,title:"可灵AI视频分镜",cat:"art",tag:"绘画",prompt:"视频主题：[主题]\n时长：5秒\n画面描述：[详细的场景、人物、动作描述]\n运镜：[推/拉/摇/移]\n色调：[暖/冷/复古/赛博]\n风格：[写实/动画/电影感]\n特殊效果：[如：粒子消散、水墨晕染]",model:"可灵AI"},
 
-  // === OFFICE ===
-  {id:30,cat:"office",catName:"办公效率",catIcon:"📊",catColor:"var(--green-light)",diff:"easy",model:"通用",title:"会议纪要生成",desc:"会议记录变专业纪要，含决议+待办",prompt:"请根据以下会议记录生成纪要：\n记录：[内容]\n\n要求：\n1. 会议主题/时间/参会人\n2. 讨论要点（按议题分类）\n3. 达成决议和共识\n4. 待办事项（责任人+截止日期）\n5. 下次会议安排",tips:"把会议录音转文字后填入，AI帮你提取要点"},
-  {id:31,cat:"office",catName:"办公效率",catIcon:"📊",catColor:"var(--green-light)",diff:"medium",model:"通用",title:"Excel公式生成",desc:"描述需求→自动生成Excel/Google Sheets公式",prompt:"请帮我写Excel公式实现：[需求]\n数据范围：[如A1:A100]\n条件：[条件]\n\n要求：\n1. 给出公式\n2. 解释每部分作用\n3. 提供简化版和增强版\n4. 标注版本要求（如365专属函数）",tips:"描述清楚比如「统计A列中>100且B列=是 的数量」"},
-  {id:32,cat:"office",catName:"办公效率",catIcon:"📊",catColor:"var(--green-light)",diff:"medium",model:"ChatGPT / Claude",title:"PPT大纲生成",desc:"主题→完整PPT大纲，每页要点+配图建议",prompt:"请为「[主题]」制作PPT大纲：\n受众：[描述] 时长：[分钟] 页数：[页]\n\n要求：\n1. 每页标题+3-5个核心要点\n2. 标注重点页和配图建议\n3. 开场有吸引力，结尾有行动号召\n4. 数据页标注来源\n5. 附演讲备注建议",tips:"可以加上「面向投资人」「内部汇报」等场景说明，AI会调整风格"},
-  {id:33,cat:"office",catName:"办公效率",catIcon:"📊",catColor:"var(--green-light)",diff:"hard",model:"ChatGPT / Claude",title:"简历优化大师",desc:"STAR法则改写简历，HR视角优化",prompt:"你是资深HR。请优化以下简历：\n目标职位：[职位] 原始简历：[内容]\n\n要求：\n1. 用STAR法则改写经历\n2. 量化成果（用数字说话）\n3. 匹配JD关键词\n4. 突出差异化优势\n5. 控制在1-2页\n6. 给3个不同风格的版本",tips:"把目标职位的JD也贴进去，AI会针对性匹配关键词"},
-  {id:34,cat:"office",catName:"办公效率",catIcon:"📊",catColor:"var(--green-light)",diff:"easy",model:"通用",title:"专业邮件撰写",desc:"场景→专业邮件，含主题行和签名",prompt:"请根据以下场景撰写专业邮件：\n场景：[描述] 收件人：[描述] 语气：[正式/友好/商务]\n\n要求：\n1. 主题行简洁明确\n2. 开头得体问候\n3. 正文直接回应核心问题\n4. 结尾加下一步行动",tips:"场景如「拒绝客户砍价」「催供应商发货」「请假申请」"},
-  {id:35,cat:"office",catName:"办公效率",catIcon:"📊",catColor:"var(--green-light)",diff:"medium",model:"ChatGPT / DeepSeek",title:"OKR制定助手",desc:"团队OKR模板，Objective+Key Result",prompt:"请帮[团队]制定季度OKR：\n上季回顾：[回顾] 公司目标：[目标]\n\n要求：\n1. 3-5个Objective\n2. 每O配2-3个可量化KR\n3. KR符合SMART原则\n4. 与公司目标对齐",tips:"先回顾上季度OKR完成情况，再定新OKR，AI会更精准"},
-  {id:36,cat:"office",catName:"办公效率",catIcon:"📊",catColor:"var(--green-light)",diff:"easy",model:"通用",title:"竞品分析框架",desc:"竞品对比矩阵+SWOT+差异化建议",prompt:"请为[产品]做竞品分析：\n对手：[列表]\n\n分析维度：\n1. 基本信息对比（融资/团队/时间线）\n2. 功能对比矩阵\n3. 定价策略对比\n4. 用户口碑（评分/评论关键词）\n5. SWOT分析\n6. 差异化建议",tips:"对手信息不够全没关系，AI会基于已知信息分析并标注需补充的部分"},
+  // === 办公效率 ===
+  {id:60,title:"会议纪要生成",cat:"office",tag:"办公",hot:true,prompt:"请根据以下会议记录，生成一份结构清晰的会议纪要：\n\n会议记录：\n[内容]\n\n要求：\n1. 会议时间、参会人员、主题\n2. 讨论要点（按议题分类）\n3. 达成的决议和共识\n4. 待办事项（责任人+截止日期）\n5. 下次会议安排\n6. 格式简洁专业",model:"通用"},
+  {id:61,title:"Excel公式生成",cat:"office",tag:"办公",hot:true,prompt:"请帮我写一个Excel公式，实现以下功能：\n\n需求：[需求描述]\n数据范围：[如：A1:A100]\n条件：[条件描述]\n\n要求：\n1. 给出公式\n2. 解释每个部分的作用\n3. 提供一个简化版和一个增强版\n4. 如果涉及数组公式，标注版本要求",model:"通用"},
+  {id:62,title:"PPT大纲生成",cat:"office",tag:"办公",prompt:"请帮我为「[主题]」制作一份PPT大纲。\n\n受众：[受众描述]\n时长：[分钟]\n页数：[页数]\n\n要求：\n1. 每页标题+核心要点（3-5条）\n2. 标注重点页和建议配图\n3. 开场要有吸引力，结尾要有行动号召\n4. 数据页标注数据来源\n5. 给出演讲备注建议",model:"通用"},
+  {id:63,title:"数据分析报告",cat:"office",tag:"办公",prompt:"请根据以下数据，生成一份数据分析报告：\n\n数据：[数据描述]\n分析目标：[目标]\n\n要求：\n1. 数据概览（关键指标汇总）\n2. 趋势分析（同比/环比）\n3. 异常值检测和解释\n4. 3-5个可落地的优化建议\n5. 附可视化图表建议（用什么图展示什么数据）",model:"通用"},
+  {id:64,title:"简历优化",cat:"office",tag:"办公",hot:true,prompt:"你是一位资深HR。请帮我优化以下简历，提升面试机会：\n\n原始简历：\n[简历内容]\n目标职位：[职位]\n\n优化方向：\n1. 用STAR法则改写经历\n2. 量化成果（用数字说话）\n3. 匹配目标职位的JD关键词\n4. 突出差异化优势\n5. 控制在1-2页\n6. 给3个不同风格的推荐模板",model:"通用"},
+  {id:65,title:"邮件自动回复",cat:"office",tag:"办公",prompt:"请根据以下场景，帮我撰写一封专业的邮件回复：\n\n场景：[场景描述]\n收件人：[收件人描述]\n语气：[正式/友好/商务]\n\n要求：\n1. 主题行简洁明确\n2. 开头得体问候\n3. 正文直接回应核心问题\n4. 结尾加下一步行动\n5. 签名档格式统一",model:"通用"},
+  {id:66,title:"项目排期表",cat:"office",tag:"办公",prompt:"请帮我为一个[项目类型]项目制定详细的排期计划。\n\n项目信息：\n- 目标：[目标]\n- 团队：[人数/角色]\n- 周期：[周数]\n\n要求：\n1. 按周分解里程碑\n2. 标注关键依赖和风险点\n3. 每个任务标注负责人和产出\n4. 预留20%缓冲时间\n5. 给出甘特图数据（可直接导入Excel）",model:"通用"},
+  {id:67,title:"竞品分析框架",cat:"office",tag:"办公",prompt:"请帮我为[产品/公司]做一份竞品分析。\n\n竞争对手：[竞品列表]\n\n分析维度：\n1. 基本信息（成立时间、融资、团队规模）\n2. 产品功能对比矩阵\n3. 定价策略对比\n4. 用户口碑（评分、评论关键词）\n5. SWOT分析\n6. 差异化机会和建议",model:"通用"},
+  {id:68,title:"OKR制定",cat:"office",tag:"办公",prompt:"请帮我和团队制定下一季度的OKR。\n\n团队：[团队说明]\n上一季度回顾：[回顾]\n公司目标：[公司目标]\n\n要求：\n1. 3-5个Objective\n2. 每个O配2-3个可量化的Key Result\n3. KR要符合SMART原则\n4. 与公司目标对齐\n5. 给出去年同期的参考数据",model:"通用"},
 
-  // === MARKETING ===
-  {id:40,cat:"marketing",catName:"营销运营",catIcon:"📢",catColor:"var(--orange-light)",diff:"medium",model:"ChatGPT / DeepSeek",title:"朋友圈营销3连发",desc:"痛点+见证+活动三种风格朋友圈文案",prompt:"你是朋友圈营销专家。为[产品]创作3条文案：\n卖点：[卖点] 人群：[人群]\n\n1. 痛点切入型（先讲故事再引出产品）\n2. 客户见证型（用真实效果说话）\n3. 限时活动型（制造紧迫感）\n4. 每条配emoji和配图建议",tips:"3条不同风格交替发，避免刷屏感，保持朋友圈有生活气息"},
-  {id:41,cat:"marketing",catName:"营销运营",catIcon:"📢",catColor:"var(--orange-light)",diff:"hard",model:"ChatGPT / Claude",title:"小红书矩阵策划",desc:"5篇系列笔记，覆盖开箱/对比/教程/种草",prompt:"为[产品]策划小红书内容矩阵（5篇）：\n产品：[描述] 目标：[目标]\n\n5篇覆盖：开箱测评、对比评测、使用教程、场景种草、合集推荐\n每篇含：标题+正文+标签+封面方案\n发布节奏：周几发、几点发",tips:"前3篇不要带广告，先做内容价值建立信任"},
-  {id:42,cat:"marketing",catName:"营销运营",catIcon:"📢",catColor:"var(--orange-light)",diff:"medium",model:"通用",title:"广告文案AB测试",desc:"5组AB测试文案，覆盖痛点/利益/情感等角度",prompt:"为[产品]的[平台]广告创作5组AB测试文案：\n预算：[预算]\n\n每组2个版本：覆盖痛点/利益/情感/好奇/权威5个角度\n标注测试假设和优化方向",tips:"跑广告前先用AI生成多版本测试，省下真金白银"},
-  {id:43,cat:"marketing",catName:"营销运营",catIcon:"📢",catColor:"var(--orange-light)",diff:"hard",model:"ChatGPT / Claude",title:"直播带货全套话术",desc:"开场+产品+逼单+互动+转款完整脚本",prompt:"为[产品]的直播带货创作全套话术：\n时长：[分钟]\n\n含：开场暖场→产品介绍→逼单话术→互动引导→转款衔接→异议处理\n每部分标注时长和关键句",tips:"打印出来放在手机支架旁边当提词器，实测有效"},
-  {id:44,cat:"marketing",catName:"营销运营",catIcon:"📢",catColor:"var(--orange-light)",diff:"easy",model:"ChatGPT / DeepSeek",title:"短视频选题库",desc:"30个选题，覆盖教程/观点/故事/测评/热点",prompt:"为[领域]短视频账号策划选题库（30个）：\n定位：[定位] 目标粉丝：[画像]\n\n5种类型：教程/观点/故事/测评/热点 各6个\n标注：标题建议+核心看点+预计时长+难度\n选出5个爆款潜力选题",tips:"选题是短视频最重要的环节，选题对了内容自然爆"},
-  {id:45,cat:"marketing",catName:"营销运营",catIcon:"📢",catColor:"var(--orange-light)",diff:"medium",model:"通用",title:"SEO关键词策略",desc:"核心词+长尾词+问题词完整策略",prompt:"你是SEO专家。为[网站]制定关键词策略：\n行业：[行业]\n\n1. 核心词5个（搜索量大竞争高）\n2. 长尾词15个（意图明确）\n3. 问题类词10个（适合FAQ）\n4. 竞品词策略\n5. 内容规划建议",tips:"长尾词是SEO的命门，大词难做就用长尾词包围策略"},
+  // === 营销运营 ===
+  {id:80,title:"朋友圈营销文案",cat:"marketing",tag:"营销",hot:true,prompt:"你是一位朋友圈营销专家。请为[产品/服务]创作3条朋友圈文案。\n\n产品卖点：[卖点]\n目标人群：[人群]\n\n要求：\n1. 第1条：痛点切入型（先讲故事再引出产品）\n2. 第2条：客户见证型（用真实效果说话）\n3. 第3条：限时活动型（制造紧迫感）\n4. 每条配2-3个emoji\n5. 每条附带配图建议",model:"通用"},
+  {id:81,title:"小红书笔记系列",cat:"marketing",tag:"营销",hot:true,prompt:"请为[产品/品牌]策划一个小红书内容矩阵，共5篇笔记。\n\n产品：[产品]\n目标：[目标]\n\n要求：\n1. 5篇内容覆盖：开箱测评、对比评测、使用教程、场景种草、合集推荐\n2. 每篇给出标题、正文、话题标签\n3. 突出3个核心卖点在不同笔记中反复出现\n4. 每篇配不同的封面图方案\n5. 发布节奏建议（周几发、几点发）",model:"通用"},
+  {id:82,title:"广告投放文案AB测试",cat:"marketing",tag:"营销",prompt:"请为[产品]的[平台]广告创作5组AB测试文案。\n\n产品：[产品]\n平台：[抖音/朋友圈/百度]\n预算：[预算]\n\n要求：\n1. 每组2个版本（A/B对比）\n2. 覆盖不同角度：痛点、利益、情感、好奇、权威\n3. 文案符合平台字数限制\n4. 标注每组测试的假设\n5. 给出测后优化方向",model:"通用"},
+  {id:83,title:"SEO关键词策略",cat:"marketing",tag:"营销",prompt:"你是一位SEO专家。请为[网站/产品]制定一套关键词策略。\n\n网站：[网站描述]\n行业：[行业]\n\n要求：\n1. 核心词（5个，搜索量大竞争高）\n2. 长尾词（15个，搜索意图明确）\n3. 问题类词（10个，适合FAQ/文章）\n4. 竞争分析（Top3竞品的词策略）\n5. 内容规划建议（每个词对应什么内容类型）",model:"通用"},
+  {id:84,title:"直播话术脚本",cat:"marketing",tag:"营销",prompt:"请为[产品]的直播带货创作一套完整话术。\n\n产品：[产品]\n直播时长：[分钟]\n\n包含：\n1. 开场暖场话术（3分钟）\n2. 产品介绍话术（痛点→方案→效果→价格）\n3. 逼单话术（限时、限量、限价）\n4. 互动话术（引导点赞、评论、关注）\n5. 转款衔接话术\n6. 常见异议处理话术",model:"通用"},
+  {id:85,title:"品牌故事创作",cat:"marketing",tag:"营销",prompt:"请为[品牌]创作一个打动人心的品牌故事。\n\n品牌信息：\n- 名称：[名称]\n- 品类：[品类]\n- 创始人背景：[背景]\n- 品牌理念：[理念]\n\n要求：\n1. 用故事化叙事，不要罗列事实\n2. 突出创始人初心和品牌使命\n3. 包含一个转折点/关键时刻\n4. 注入情感元素引发共鸣\n5. 控制在500字以内\n6. 适合放在官网「关于我们」页面",model:"通用"},
+  {id:86,title:"用户调研问卷",cat:"marketing",tag:"营销",prompt:"请帮我设计一份用户调研问卷，用于[调研目的]。\n\n目标用户：[用户]\n投放渠道：[渠道]\n\n要求：\n1. 10-15个问题\n2. 问题类型合理搭配（单选/多选/量表/开放）\n3. 前3题简单易答，降低填写门槛\n4. 关键问题放在中间位置\n5. 结尾加NPS净推荐值\n6. 预计填写时长不超过5分钟",model:"通用"},
+  {id:87,title:"短视频选题库",cat:"marketing",tag:"营销",prompt:"请为[领域]的短视频账号策划一个选题库（30个选题）。\n\n账号定位：[定位]\n目标粉丝：[画像]\n\n要求：\n1. 覆盖5种选题类型（教程/观点/故事/测评/热点）\n2. 每类6个具体选题\n3. 每个选题标注：标题建议、核心看点、预计时长、难度\n4. 标注5个爆款潜力选题\n5. 给出发布时间建议",model:"通用"},
 
-  // === EDUCATION ===
-  {id:50,cat:"edu",catName:"教育学习",catIcon:"📚",catColor:"var(--cyan-light)",diff:"easy",model:"通用",title:"概念通俗解释",desc:"把复杂概念用日常比喻讲清楚",prompt:"请用最简单的方式解释「[概念]」：\n1. 一句话概括\n2. 用日常比喻说明\n3. 举3个具体例子\n4. 和已知概念对比\n5. 语言通俗，像给零基础的人讲解\n6. 50字以内总结核心要点",tips:"试试「区块链」「量子计算」「通货膨胀」等概念"},
-  {id:51,cat:"edu",catName:"教育学习",catIcon:"📚",catColor:"var(--cyan-light)",diff:"medium",model:"ChatGPT / DeepSeek",title:"学习路线图",desc:"从零到就业的完整学习规划",prompt:"为「[方向]」设计学习路线图：\n目标：[3个月入门/6个月转行] 基础：[已有基础]\n\n要求：\n1. 分阶段（基础→进阶→实战）\n2. 每阶段重点和时间分配\n3. 推荐免费资源\n4. 里程碑练习项目\n5. 常见坑+避坑建议",tips:"方向如「前端开发」「数据分析」「UI设计」，目标越具体路线越清晰"},
-  {id:52,cat:"edu",catName:"教育学习",catIcon:"📚",catColor:"var(--cyan-light)",diff:"easy",model:"ChatGPT / Claude",title:"英语口语陪练",desc:"AI当英语陪练，日常对话+纠错+地道表达",prompt:"You are my English speaking partner. Topic: [话题]\nRules:\n1. Speak at intermediate level naturally\n2. Correct my grammar mistakes gently\n3. Teach me 2-3 idioms each session\n4. Ask follow-up questions\n5. At the end, summarize what I learned",tips:"每天15分钟效果远好于每周2小时补习"},
-  {id:53,cat:"edu",catName:"教育学习",catIcon:"📚",catColor:"var(--cyan-light)",diff:"hard",model:"ChatGPT / Claude",title:"面试模拟器",desc:"10个高频问题+高分回答+追问应对",prompt:"为[职位]面试进行模拟：\n公司：[类型] 要求：[要求]\n\n1. 10个高频面试问题\n2. 每问给高分回答模板（STAR结构）\n3. 3个常见坑+避坑方法\n4. 追问应对策略\n5. 反问面试官的好问题",tips:"建议用ChatGPT语音模式面对面练习，体验最真实"},
-  {id:54,cat:"edu",catName:"教育学习",catIcon:"📚",catColor:"var(--cyan-light)",diff:"medium",model:"通用",title:"每日一题刷题",desc:"按知识点出题，7天由浅入深",prompt:"你是[科目]教师。按「每日一题」出7道题：\n难度：[初/中/高]\n\n1. 每天一个知识点，由浅入深\n2. 每道：题目→解题思路→详解→举一反三\n3. 标注每题考察的能力点\n4. 周日出综合小测",tips:"科目如「高中数学」「Python编程」「英语语法」"},
-  {id:55,cat:"edu",catName:"教育学习",catIcon:"📚",catColor:"var(--cyan-light)",diff:"easy",model:"通用",title:"演讲稿撰写",desc:"毕业/竞聘/年会演讲稿，有故事有金句",prompt:"为[场合]撰写演讲稿：\n时长：[分钟] 受众：[描述]\n\n1. 开场用钩子（故事/问题/数据）\n2. 核心信息≤3点\n3. 加入1-2个个人经历\n4. 语言口语化方便朗读\n5. 标注语速和停顿\n6. 结尾有力有记忆点",tips:"场合如「毕业典礼」「部门竞聘」「年会致辞」"},
+  // === 教育学习 ===
+  {id:100,title:"概念通俗解释",cat:"edu",tag:"教育",hot:true,prompt:"请用最简单易懂的方式解释「[概念]」，要求：\n1. 先用一句话概括\n2. 用日常生活中的比喻说明\n3. 举3个具体例子\n4. 如果可能，和已知概念做对比\n5. 语言通俗，像给一个完全不懂的人讲解\n6. 50字以内总结核心要点",model:"通用"},
+  {id:101,title:"学习路线图",cat:"edu",tag:"教育",prompt:"请为「[方向]」设计一份从零到入门的学习路线图。\n\n目标：[目标如：3个月找到前端实习]\n基础：[已有基础]\n\n要求：\n1. 按阶段划分（基础→进阶→实战）\n2. 每个阶段的重点知识和时间分配\n3. 推荐学习资源（免费优先）\n4. 里程碑练习项目\n5. 常见坑和避坑建议\n6. 学完后的能力评估标准",model:"通用"},
+  {id:102,title:"每日一题刷题法",cat:"edu",tag:"教育",prompt:"你是一位[科目]教师。请按「每日一题」模式，帮我出7道题（一周的量）。\n\n科目：[科目]\n难度：[难度]\n\n要求：\n1. 每天一个知识点，由浅入深\n2. 每道题包含：题目→解题思路→详细解答→举一反三\n3. 标注每题考察的能力点\n4. 周日出一套综合小测\n5. 适合[学生/职场人]使用",model:"通用"},
+  {id:103,title:"英语口语陪练",cat:"edu",tag:"教育",hot:true,prompt:"You are an English speaking partner. Let's have a conversation about [topic]. Rules:\n1. Speak naturally at intermediate level\n2. Correct my grammar mistakes gently\n3. After each correction, give me a better way to say it\n4. Ask follow-up questions to keep the conversation going\n5. Teach me 2-3 new expressions or idioms each session",model:"通用"},
+  {id:104,title:"考研政治/英语复习",cat:"edu",tag:"教育",prompt:"请帮我制定一份[考研政治/英语]的复习计划。\n\n目标分数：[分数]\n开始时间：[时间]\n每天可用时间：[小时]\n\n要求：\n1. 分3轮复习规划\n2. 每轮重点和用时分配\n3. 推荐资料和老师（带理由）\n4. 刷题策略（做什么题、做几遍）\n5. 关键时间节点（如：几月前完成一轮）\n6. 考前冲刺策略",model:"通用"},
+  {id:105,title:"面试模拟问答",cat:"edu",tag:"教育",prompt:"请为[职位]的面试进行模拟问答。\n\n公司类型：[类型]\n岗位要求：[要求]\n\n请：\n1. 列出该岗位最常见的10个面试问题\n2. 对每个问题给出高分回答模板\n3. 标注回答中的STAR结构\n4. 给3个常见的坑和怎么避开\n5. 模拟追问和应对策略\n6. 提供一个反问面试官的好问题列表",model:"通用"},
+  {id:106,title:"读书笔记框架",cat:"edu",tag:"教育",prompt:"请帮我为《[书名]》做一个深度读书笔记框架。\n\n要求：\n1. 一句话概括全书核心观点\n2. 3-5个关键概念/理论\n3. 作者的论证逻辑链\n4. 对你最有启发的3句话\n5. 这本书适合什么人读、怎么用\n6. 推荐2-3本延伸阅读\n7. 如果做分享，你会讲什么",model:"通用"},
+  {id:107,title:"演讲稿/发言稿",cat:"edu",tag:"教育",prompt:"请帮我为[场合]撰写一篇演讲稿。\n\n场合：[毕业典礼/年会/竞聘/...]\n时长：[分钟]\n受众：[描述]\n\n要求：\n1. 开场要有钩子（故事/问题/惊人数据）\n2. 核心信息不超过3点\n3. 加入1-2个个人经历增加真实感\n4. 语言口语化，方便朗读\n5. 标注语速和停顿点\n6. 结尾要有力量感和记忆点",model:"通用"},
 
-  // === LIFE ===
-  {id:60,cat:"life",catName:"生活助手",catIcon:"🌟",catColor:"var(--teal-light)",diff:"medium",model:"ChatGPT / DeepSeek",title:"旅行攻略生成",desc:"N天N城完整攻略，含行程+美食+避坑",prompt:"请规划[天数]天[目的地]旅行：\n时间：[日期] 人数：[数] 预算：[金额] 偏好：[美食/拍照/文化]\n\n含：每日行程+必吃美食+交通建议+住宿区域+避坑提醒+预算明细",tips:"越具体越好，如「3天2晚成都，人均2000，爱吃辣，不要网红店」"},
-  {id:61,cat:"life",catName:"生活助手",catIcon:"🌟",catColor:"var(--teal-light)",diff:"hard",model:"ChatGPT / Claude",title:"健身增肌/减脂计划",desc:"教练级定制计划，含训练+饮食+每周检查",prompt:"你是健身教练。为[增肌/减脂]制定计划：\n性别/年龄/身高/体重：[数据] 基础：[有基础/零基础]\n时间：[每周几次/每次多久] 条件：[健身房/居家]\n\n含：目标+时间预期+每周训练安排+动作详解+饮食建议+常见误区+每周检查点",tips:"附上体重体脂数据AI算得更准"},
-  {id:62,cat:"life",catName:"生活助手",catIcon:"🌟",catColor:"var(--teal-light)",diff:"easy",model:"通用",title:"营养食谱推荐",desc:"按卡路里和忌口定制一周食谱",prompt:"请推荐一周食谱：\n需求：[减脂/增肌/素食] 卡路里：[千卡/天]\n忌口：[忌口] 烹饪条件：[条件]\n\n含：早中晚三餐+加餐\n标注每餐热量和营养素\n做法简单（每道≤3步）",tips:"忌口如实写，如「不吃香菜」「海鲜过敏」"},
-  {id:63,cat:"life",catName:"生活助手",catIcon:"🌟",catColor:"var(--teal-light)",diff:"medium",model:"通用",title:"宠物养护指南",desc:"新手养宠一站式指南，饮食+健康+训练",prompt:"为[宠物种类]新手主人提供养护指南：\n年龄：[月/岁]\n\n含：饮食（吃什么/吃多少/频率）+健康（疫苗/驱虫时间表）+日常护理+行为训练+用品清单+紧急处理+四季注意事项",tips:"宠物如「2个月大的金毛幼犬」「1岁英短蓝猫」"},
-  {id:64,cat:"life",catName:"生活助手",catIcon:"🌟",catColor:"var(--teal-light)",diff:"medium",model:"通用",title:"买车/买房攻略",desc:"决策指南+砍价话术+合同避坑清单",prompt:"请制定[买车/买房]决策指南：\n预算：[金额] 城市：[城市] 需求：[通勤/家庭]\n\n含：决策流程+对比指标+砍价话术+合同避坑+检查清单+后续费用预估",tips:"加上具体车型或楼盘信息AI分析更有针对性"},
-  {id:65,cat:"life",catName:"生活助手",catIcon:"🌟",catColor:"var(--teal-light)",diff:"easy",model:"通用",title:"法律常识咨询",desc:"分析法律风险+可行方案+证据收集",prompt:"请分析以下法律风险和应对：\n情况：[描述]\n\n含：涉及法律+权利+义务+3个应对方案（温和→强硬）+需收集证据+何时找律师\n⚠️声明：仅供参考不构成法律意见",tips:"描述清楚时间、地点、人物关系，AI才能给出准确分析"},
+  // === 生活助手 ===
+  {id:120,title:"旅行攻略生成",cat:"life",tag:"生活",hot:true,prompt:"请帮我规划一次[天数]天的[目的地]旅行。\n\n出行时间：[日期]\n人数：[人数]\n预算：[预算]\n偏好：[如：美食/拍照/文化/休闲]\n\n要求：\n1. 每日详细行程（上午/下午/晚上）\n2. 推荐景点+理由+预估游览时间\n3. 必吃美食清单\n4. 交通建议（怎么去各景点）\n5. 住宿区域推荐\n6. 避坑提醒（哪些景点别去/什么时候去）\n7. 预算明细（吃住行玩分别多少）",model:"通用"},
+  {id:121,title:"健身/减脂计划",cat:"life",tag:"生活",hot:true,prompt:"你是一位专业健身教练。请帮我制定一份个性化的[增肌/减脂/塑形]计划。\n\n个人信息：\n- 性别/年龄/身高/体重：[信息]\n- 运动基础：[描述]\n- 可用时间：[每周几次/每次多久]\n- 器械条件：[健身房/居家/无器械]\n\n要求：\n1. 明确的目标和时间预期\n2. 每周训练安排（什么部位哪天练）\n3. 每个动作的名称、组数、次数\n4. 饮食建议（热量计算+三餐示例）\n5. 常见误区和注意事项\n6. 每周进步检查点",model:"通用"},
+  {id:122,title:"营养食谱推荐",cat:"life",tag:"生活",prompt:"请根据以下条件，为我推荐一周的食谱。\n\n饮食需求：[减脂/增肌/素食/...]\n卡路里目标：[千卡/天]\n忌口：[忌口]\n烹饪条件：[条件]\n\n要求：\n1. 每天早中晚三餐+加餐\n2. 标明每餐热量和三大营养素\n3. 做法简单（每道不超过3步）\n4. 食材易买，成本适中\n5. 周末可以有一餐cheat meal",model:"通用"},
+  {id:123,title:"法律咨询常识",cat:"life",tag:"生活",prompt:"请帮我分析以下情况的法律风险和应对建议。\n\n情况：[描述]\n\n要求：\n1. 涉及的法律领域和条款\n2. 我的权利和义务\n3. 3个可行的应对方案（从温和到强硬）\n4. 需要收集哪些证据\n5. 什么情况下必须找律师\n6. 声明：本建议仅供参考，不构成法律意见",model:"通用"},
+  {id:124,title:"亲子教育咨询",cat:"life",tag:"生活",prompt:"你是一位儿童教育专家。请针对以下情况给出建议：\n\n孩子年龄：[年龄]\n问题：[问题描述]\n\n要求：\n1. 分析孩子的行为背后的心理原因\n2. 给父母的具体沟通话术（说什么，怎么说）\n3. 3个循序渐进的改善方法\n4. 需要避免的错误做法\n5. 推荐1-2本相关读物\n6. 什么情况需要专业干预",model:"通用"},
+  {id:125,title:"宠物养护指南",cat:"life",tag:"生活",prompt:"请为[宠物种类]的新手主人提供一份养护指南。\n\n宠物：[猫/狗/仓鼠/...]\n年龄：[年龄]\n\n包含：\n1. 饮食（吃什么、吃多少、频率）\n2. 健康（疫苗、驱虫、体检时间表）\n3. 日常护理（洗澡、剪指甲、刷牙）\n4. 行为训练（基本指令、纠正坏习惯）\n5. 用品清单（必备vs可选）\n6. 紧急情况处理\n7. 不同季节的注意事项",model:"通用"},
+  {id:126,title:"买车/买房攻略",cat:"life",tag:"生活",prompt:"请帮我制定一份[买车/买房]的决策指南。\n\n预算：[预算]\n需求：[如：通勤代步/家庭用车]\n城市：[城市]\n\n要求：\n1. 决策流程（先做什么、后做什么）\n2. 关键指标对比表（列出候选和打分维度）\n3. 砍价技巧和话术\n4. 合同/贷款避坑清单\n5. 提车/收房检查清单\n6. 后续费用预估（月供/保险/税/保养）",model:"通用"},
+  {id:127,title:"情感关系建议",cat:"life",tag:"生活",prompt:"你是一位情感关系咨询师。请针对以下情况，给出温和而有建设性的建议。\n\n情况：[描述]\n\n要求：\n1. 先共情，不要直接给结论\n2. 分析双方的可能的心理和需求\n3. 给出沟通话术模板\n4. 3个具体可操作的建议\n5. 提醒：复杂情况建议寻求专业咨询",model:"通用"},
 ];
 
-// ===== 免费/付费分层 =====
-// easy=免费, hard=付费, medium部分付费
-const paidMediumIds = [7,14,22,33,41,43,53,61];
-prompts.forEach(p => {
-  if (p.diff === 'easy') p.free = true;
-  else if (p.diff === 'hard') p.free = false;
-  else p.free = !paidMediumIds.includes(p.id);
-});
-const unlocked = new Set(JSON.parse(localStorage.getItem('ph_unlocked')||'[]'));
-function isUnlocked(id) { return prompts.find(p=>p.id===id)?.free || unlocked.has(id); }
-const freeCount = prompts.filter(p=>p.free).length;
-const paidCount = prompts.length - freeCount;
-
-const trendingIds = [1,10,20,50,40,61,30,11]; // Top 8 trending
-const cats = [
-  {id:"all",name:"全部",icon:"🏠"},
-  {id:"writing",name:"✍️ 写作创作",icon:"✍️"},
-  {id:"coding",name:"💻 编程开发",icon:"💻"},
-  {id:"art",name:"🎨 AI绘画",icon:"🎨"},
-  {id:"office",name:"📊 办公效率",icon:"📊"},
-  {id:"marketing",name:"📢 营销运营",icon:"📢"},
-  {id:"edu",name:"📚 教育学习",icon:"📚"},
-  {id:"life",name:"🌟 生活助手",icon:"🌟"},
+// ============ COLLECTIONS ============
+const collections = [
+  {id:"c1",title:"小红书运营全套",desc:"从文案到选题到数据分析，一站配齐",icon:"📱",cats:["writing","marketing"],count:8},
+  {id:"c2",title:"程序员效率包",desc:"代码、调试、部署、面试全覆盖",icon:"💻",cats:["coding"],count:10},
+  {id:"c3",title:"职场新人救星",desc:"简历、周报、PPT、邮件全搞定",icon:"🚀",cats:["office","edu"],count:10},
+  {id:"c4",title:"AI绘画从入门到精通",desc:"Midjourney/可灵/文生图提示词大全",icon:"🎨",cats:["art"],count:11},
+  {id:"c5",title:"自媒体内容工厂",desc:"公众号、短视频、小红书内容批量生产",icon:"🏭",cats:["writing","marketing"],count:12},
+  {id:"c6",title:"学霸养成计划",desc:"考研、英语、学习方法一网打尽",icon:"📚",cats:["edu"],count:8},
 ];
 
-const catColorMap = {
-  writing: 'var(--purple-light)', coding: 'var(--blue-light)', art: 'var(--pink-light)',
-  office: 'var(--green-light)', marketing: 'var(--orange-light)', edu: 'var(--cyan-light)', life: 'var(--teal-light)'
-};
+// ============ RENDER ============
+let activeCat = 'all';
+let activeSort = 'default';
+let searchQuery = '';
 
-let activeCat = 'all', activeDiff = 'all', searchQuery = '';
+const catNames = {writing:'写作创作',coding:'编程开发',art:'AI绘画',office:'办公效率',marketing:'营销运营',edu:'教育学习',life:'生活助手'};
+const catColors = {writing:'var(--accent)',coding:'var(--blue)',art:'var(--pink)',office:'var(--green)',marketing:'var(--orange)',edu:'var(--cyan)',life:'var(--accent)'};
 
-function filterPrompts() {
+function getFiltered() {
   let list = [...prompts];
+  // Category filter
   if (activeCat !== 'all') list = list.filter(p => p.cat === activeCat);
-  if (activeDiff !== 'all') list = list.filter(p => p.diff === activeDiff);
+  // Search filter
   if (searchQuery) {
     const q = searchQuery.toLowerCase();
-    list = list.filter(p => p.title.toLowerCase().includes(q) || p.catName.includes(q) || p.desc.includes(q) || p.prompt.toLowerCase().includes(q));
+    list = list.filter(p => p.title.toLowerCase().includes(q) || p.tag.includes(q) || p.prompt.toLowerCase().includes(q) || p.cat.includes(q));
   }
+  // Sort
+  if (activeSort === 'popular') list.sort((a,b) => (b.hot?1:0) - (a.hot?1:0));
+  if (activeSort === 'new') list.reverse();
   return list;
 }
 
-function renderCatBar() {
-  document.getElementById('catBar').innerHTML = cats.map(c => `
-    <button class="cat-pill${activeCat===c.id?' active':''}" onclick="setCat('${c.id}',this)">${c.name}</button>
+function renderPrompts() {
+  const list = getFiltered();
+  const grid = document.getElementById('promptGrid');
+  const noRes = document.getElementById('noResults');
+  const count = document.getElementById('resultCount');
+
+  if (list.length === 0) {
+    grid.innerHTML = '';
+    noRes.style.display = 'block';
+    count.textContent = '未找到匹配的提示词';
+    return;
+  }
+  noRes.style.display = 'none';
+  count.textContent = `显示 ${list.length} 条提示词`;
+
+  grid.innerHTML = list.map(p => `
+    <div class="prompt-card" data-cat="${p.cat}">
+      <div class="card-header">
+        <div class="card-title">${p.hot?'🔥 ':''}${p.title}</div>
+        <span class="card-tag" style="background:${catColors[p.cat]}22;color:${catColors[p.cat]}">${p.tag}</span>
+      </div>
+      <div class="card-prompt">${escapeHtml(p.prompt)}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:0.78em;color:var(--text-dim)">🤖 ${p.model}</span>
+        <span style="font-size:0.78em;color:var(--text-dim)">${catNames[p.cat]}</span>
+      </div>
+      <div class="card-actions">
+        <button class="copy-btn" onclick="copyPrompt(${p.id}, this)">📋 复制提示词</button>
+        <button class="expand-btn" onclick="expandPrompt(${p.id})">🔍</button>
+      </div>
+    </div>
   `).join('');
 }
 
-function renderPromptGrid() {
-  const list = filterPrompts();
-  document.getElementById('resultInfo').textContent = `${list.length} 条结果`;
-  document.getElementById('empty').style.display = list.length ? 'none' : 'block';
-  document.getElementById('promptGrid').innerHTML = list.map(p => {
-    const free = p.free !== false;
-    const unlockedNow = free || unlocked.has(p.id);
-    return `
-    <div class="p-card${free?'':' premium'}">
-      <div class="pc-top">
-        <div class="pc-title">${p.catIcon} ${p.title}</div>
-        <div class="pc-badges">
-          <span class="badge ${p.diff==='easy'?'badge-easy':p.diff==='medium'?'badge-medium':'badge-hard'}">${p.diff==='easy'?'入门':p.diff==='medium'?'进阶':'高级'}</span>
-          <span class="badge ${free?'badge-free':'badge-premium'}">${free?'免费':'🔒 付费'}</span>
-        </div>
-      </div>
-      <div class="pc-desc">${p.desc}</div>
-      <div class="pc-preview">
-        <div class="pp-label">Prompt 预览</div>
-        ${unlockedNow ? `<div class="pp-text">${escapeHtml(p.prompt.substring(0,200))}...</div>` : `<div class="pp-lock">🔒</div><div class="pp-text">${escapeHtml(p.prompt.substring(0,200))}...</div>`}
-      </div>
-      <div class="pc-footer">
-        <div class="pc-model">🤖 ${p.model}</div>
-        <div class="pc-actions">
-          <button class="btn-sm btn-expand" onclick="openModal(${p.id})">🔍 详情</button>
-          ${unlockedNow ? `<button class="btn-sm btn-copy" onclick="quickCopy(${p.id},this)">📋 复制</button>` : `<button class="btn-sm btn-premium" onclick="showUpgrade()">🔓 解锁</button>`}
-        </div>
-      </div>
+function renderCollections() {
+  document.getElementById('collectionsGrid').innerHTML = collections.map(c => `
+    <div class="col-card" onclick="showCollection('${c.id}')">
+      <div class="col-icon">${c.icon}</div>
+      <div class="col-title">${c.title}</div>
+      <div class="col-desc">${c.desc}</div>
+      <div class="col-count">${c.count}条</div>
     </div>
-  `}).join('');
+  `).join('');
 }
 
-function renderTrending() {
-  document.getElementById('trendingGrid').innerHTML = trendingIds.map((id,i) => {
-    const p = prompts.find(x => x.id === id);
-    if (!p) return '';
-    return `
-      <div class="trend-card" onclick="openModal(${p.id})">
-        <div class="rank">0${i+1}</div>
-        <div class="tc-icon" style="background:${p.catColor}">${p.catIcon}</div>
-        <div class="tc-title">${p.title}</div>
-        <div class="tc-meta">${p.catName} · ${p.diff==='easy'?'入门':p.diff==='medium'?'进阶':'高级'}</div>
-      </div>
-    `;
-  }).join('');
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
 }
 
-function escapeHtml(s) { const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
-
-function setCat(cat, btn) {
-  activeCat = cat;
-  document.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  renderPromptGrid();
-}
-
-function setDiff(diff, btn) {
-  activeDiff = diff;
-  document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  renderPromptGrid();
-}
-
-function filterAll() {
-  searchQuery = document.getElementById('search').value;
-  renderPromptGrid();
-}
-
-function quickCopy(id, btn) {
+// ============ ACTIONS ============
+function copyPrompt(id, btn) {
   const p = prompts.find(x => x.id === id);
   if (!p) return;
   navigator.clipboard.writeText(p.prompt).then(() => {
-    btn.textContent = '✅ 已复制';
-    setTimeout(() => { btn.textContent = '📋 复制'; }, 2000);
+    btn.textContent = '✅ 已复制！';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 复制提示词'; btn.classList.remove('copied'); }, 2000);
   });
 }
 
-function openModal(id) {
+function expandPrompt(id) {
   const p = prompts.find(x => x.id === id);
   if (!p) return;
-  document.getElementById('mTitle').textContent = p.title;
-  document.getElementById('mMeta').innerHTML = `
-    <span>${p.catIcon} ${p.catName}</span>
-    <span>${p.diff==='easy'?'🟢入门':p.diff==='medium'?'🟠进阶':'🔴高级'}</span>
-    <span>🤖 ${p.model}</span>
-  `;
-  document.getElementById('mPrompt').textContent = p.prompt;
-  document.getElementById('mTipsText').textContent = p.tips;
-  document.getElementById('mCopy').onclick = function() {
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalPrompt').textContent = p.prompt;
+  document.getElementById('modalCopy').onclick = function() {
     navigator.clipboard.writeText(p.prompt).then(() => {
-      this.textContent = '✅ 已复制到剪贴板！';
-      setTimeout(() => { this.textContent = '📋 一键复制'; }, 2000);
+      this.textContent = '✅ 已复制！';
+      this.classList.add('copied');
+      setTimeout(() => { this.textContent = '📋 一键复制'; this.classList.remove('copied'); }, 2000);
     });
   };
   document.getElementById('modal').classList.add('show');
 }
 
-function closeModal() { document.getElementById('modal').classList.remove('show'); }
-
-function randomPrompt() {
-  const p = prompts[Math.floor(Math.random() * prompts.length)];
-  openModal(p.id);
+function closeModal() {
+  document.getElementById('modal').classList.remove('show');
 }
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-// ===== 解锁系统 =====
-function showUpgrade() {
-  document.getElementById('payPaidTotal').textContent = paidCount;
-  document.getElementById('payModal').classList.add('show');
-}
-function showPayModal() { showUpgrade(); }
-function closePayModal() { document.getElementById('payModal').classList.remove('show'); document.getElementById('unlockMsg').textContent=''; }
-function doUnlockDirect() {
-  const msg = document.getElementById('unlockMsg');
-  prompts.filter(p=>!p.free).forEach(p=>unlocked.add(p.id));
-  localStorage.setItem('ph_unlocked', JSON.stringify([...unlocked]));
-  msg.textContent = '✅ 解锁成功！全部提示词已激活，刷新后生效';
-  msg.style.color = 'var(--green)';
-  setTimeout(() => { closePayModal(); updateStats(); renderPromptGrid(); }, 1500);
+function filterPrompts() {
+  searchQuery = document.getElementById('search').value;
+  renderPrompts();
 }
 
-// ===== 轮播 =====
-let carouselIdx = 0;
-const carouselSlides = document.querySelectorAll('#carouselTrack .carousel-slide');
-function carouselGo(i) {
-  carouselSlides.forEach(s => s.classList.remove('active'));
-  carouselIdx = (i + carouselSlides.length) % carouselSlides.length;
-  carouselSlides[carouselIdx].classList.add('active');
-  document.querySelectorAll('.carousel-dot').forEach((d,j) => d.classList.toggle('active', j===carouselIdx));
-}
-function carouselNext() { carouselGo(carouselIdx + 1); }
-function carouselPrev() { carouselGo(carouselIdx - 1); }
-// Init carousel
-(function initCarousel() {
-  const dots = document.getElementById('carouselDots');
-  dots.innerHTML = carouselSlides.map((_,i) => `<button class="carousel-dot${i===0?' active':''}" onclick="carouselGo(${i})"></button>`).join('');
-  carouselGo(0);
-  setInterval(carouselNext, 5000);
-})();
-function updateStats() {
-  const uCount = [...unlocked].length;
-  document.getElementById('unlockCount').textContent = uCount;
-  document.getElementById('remainCount').textContent = paidCount - uCount;
-  document.getElementById('unlockBanner').style.display = uCount > 0 && uCount < paidCount ? 'flex' : 'none';
-  document.getElementById('pFreeCount').textContent = freeCount;
-  document.getElementById('pPaidCount').textContent = paidCount;
+function showCollection(cid) {
+  const col = collections.find(c => c.id === cid);
+  if (!col) return;
+  activeCat = 'all';
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.cat-btn[data-cat="all"]').classList.add('active');
+  searchQuery = '';
+  document.getElementById('search').value = '';
+  // Filter by collection categories
+  const colPrompts = prompts.filter(p => col.cats.includes(p.cat));
+  document.getElementById('promptGrid').innerHTML = colPrompts.map(p => `
+    <div class="prompt-card" data-cat="${p.cat}">
+      <div class="card-header">
+        <div class="card-title">${p.hot?'🔥 ':''}${p.title}</div>
+        <span class="card-tag" style="background:${catColors[p.cat]}22;color:${catColors[p.cat]}">${p.tag}</span>
+      </div>
+      <div class="card-prompt">${escapeHtml(p.prompt)}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:0.78em;color:var(--text-dim)">🤖 ${p.model}</span>
+        <span style="font-size:0.78em;color:var(--text-dim)">${catNames[p.cat]}</span>
+      </div>
+      <div class="card-actions">
+        <button class="copy-btn" onclick="copyPrompt(${p.id}, this)">📋 复制提示词</button>
+        <button class="expand-btn" onclick="expandPrompt(${p.id})">🔍</button>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('resultCount').textContent = `合集「${col.title}」: ${colPrompts.length} 条提示词`;
+  document.getElementById('noResults').style.display = colPrompts.length ? 'none' : 'block';
+  window.scrollTo({top:300,behavior:'smooth'});
 }
 
-// Init
-renderCatBar();
-renderTrending();
-renderPromptGrid();
-updateStats();
-document.getElementById('totalCount').textContent = prompts.length;
+function scrollToTop() { window.scrollTo({top:0,behavior:'smooth'}); }
+
+// ============ EVENT LISTENERS ============
+document.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    activeCat = this.dataset.cat;
+    renderPrompts();
+  });
+});
+
+document.querySelectorAll('.sort-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    activeSort = this.dataset.sort;
+    renderPrompts();
+  });
+});
+
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ============ INIT ============
+renderPrompts();
+renderCollections();
+document.getElementById('totalCount').textContent = prompts.length + '+';
 </script>
 </body>
 </html>
