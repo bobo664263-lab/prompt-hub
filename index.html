@@ -188,7 +188,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   </div>
   <div class="sidebar-content" id="sidebarPay">
     <div class="pay-section">
-      <p style="font-size:0.85em;color:var(--text2);margin-bottom:4px">扫码解锁全部付费提示词</p>
+      <p style="font-size:0.85em;color:var(--text2);margin-bottom:4px">扫码支付 ¥9.9，解锁全部付费提示词</p>
       <div class="pay-price">¥9.9<small>/永久</small></div>
       <div class="pay-qrs">
         <div class="pay-qr">
@@ -200,12 +200,19 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
           <div class="lbl zfb">支付宝</div>
         </div>
       </div>
-      <button class="pay-btn unlock" id="payBtn" onclick="doPay()">💳 付款后点此解锁</button>
+      <div style="background:var(--gold-light);border-radius:8px;padding:10px;margin:10px 0">
+        <p style="font-size:0.78em;color:#92400e;margin-bottom:6px">👇 付款后输入口令激活</p>
+        <div style="display:flex;gap:4px">
+          <input id="unlockCode" type="text" placeholder="输入解锁口令" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:6px;font-size:0.85em;text-align:center;outline:none">
+          <button class="btn-sm btn-copy" onclick="verifyUnlock()" style="padding:8px 14px">激活</button>
+        </div>
+        <p id="unlockHint" style="font-size:0.7em;color:var(--text3);margin-top:4px"></p>
+      </div>
       <ul class="pay-features">
         <li>全部108条提示词永久解锁</li>
         <li>高级难度·专业级模板</li>
         <li>每周新增自动解锁</li>
-        <li>扫码即付，点即激活</li>
+        <li>付款后联系客服获取口令</li>
       </ul>
     </div>
   </div>
@@ -440,23 +447,32 @@ function switchTab(tab) {
   document.querySelectorAll('.sidebar-tab').forEach((t,i) => t.classList.toggle('active', (i===0&&tab==='pay')||(i===1&&tab==='chat')));
   document.getElementById('sidebarPay').style.display = tab==='pay'?'block':'none';
   document.getElementById('sidebarChat').style.display = tab==='chat'?'flex':'none';
+  if (tab==='pay') updatePayUI();
 }
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
+  if (document.getElementById('sidebar').classList.contains('open')) updatePayUI();
 }
-function doPay() {
-  prompts.filter(p=>!p.free).forEach(p=>unlocked.add(p.title));
-  localStorage.setItem('ph_unlocked',JSON.stringify([...unlocked]));
-  document.getElementById('payBtn').textContent = '✅ 已解锁！';
-  document.getElementById('payBtn').className = 'pay-btn unlocked';
-  document.getElementById('payBtn').onclick = null;
-  setTimeout(()=>{renderAll();updatePayBtn();},800);
+function verifyUnlock() {
+  const code = document.getElementById('unlockCode').value.trim();
+  const hint = document.getElementById('unlockHint');
+  const validCodes = ['ailiqi2026','free2026','prompt999'];
+  if (validCodes.includes(code)) {
+    prompts.filter(p=>!p.free).forEach(p=>unlocked.add(p.title));
+    localStorage.setItem('ph_unlocked',JSON.stringify([...unlocked]));
+    hint.textContent = '✅ 解锁成功！所有付费提示词已激活';
+    hint.style.color = 'var(--green)';
+    document.getElementById('unlockCode').value = '';
+    setTimeout(()=>{renderAll();updatePayUI();},800);
+  } else if (code) {
+    hint.textContent = '❌ 口令不正确，付款后联系客服获取';
+    hint.style.color = '#dc2626';
+  }
 }
-function updatePayBtn() {
+function updatePayUI() {
   if (unlocked.size >= paidCount) {
-    document.getElementById('payBtn').textContent = '✅ 已解锁全部';
-    document.getElementById('payBtn').className = 'pay-btn unlocked';
-    document.getElementById('payBtn').onclick = null;
+    const sec = document.getElementById('sidebarPay').querySelector('.pay-section');
+    sec.innerHTML = '<div style="text-align:center;padding:20px"><div style="font-size:2em">✅</div><p style="font-weight:700;color:var(--green);margin:8px 0">已解锁全部付费提示词</p><p style="font-size:0.8em;color:var(--text3)">108条全部可用，后续新增自动解锁</p></div>';
   }
 }
 
@@ -533,7 +549,7 @@ function esc(s){const d=document.createElement('div');d.textContent=s;return d.i
 renderCatGrid();
 renderFeatured();
 renderAll();
-updatePayBtn();
+updatePayUI();
 </script>
 </body>
 </html>
