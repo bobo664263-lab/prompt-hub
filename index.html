@@ -212,6 +212,10 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
 <section class="prompt-section">
   <div class="ps-h"><h2>📋 全部提示词</h2><span class="ps-count" id="resultCount"></span></div>
+  <div class="unlock-cta" id="unlockCta" style="background:linear-gradient(135deg,var(--gold-light),#fef3c7);border:1.5px solid var(--gold);border-radius:var(--radius);padding:14px 20px;margin-bottom:14px;display:none;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span style="font-size:0.9em;font-weight:700;color:#92400e">🔒 进阶与高级提示词需解锁后使用</span>
+    <button class="btn btn-gold" onclick="openPayModal()">🔓 立即解锁 · ¥9.9</button>
+  </div>
   <div class="prompt-grid" id="promptGrid"></div>
   <div class="empty" id="empty"><p>没有匹配结果，换个关键词试试 🔍</p></div>
 </section>
@@ -315,11 +319,9 @@ const prompts = [
   {cat:"life",catName:"生活助手",diff:"easy",model:"通用",title:"法律常识咨询",desc:"分析风险+可行方案+证据收集建议",prompt:"请分析以下法律风险和应对：\n情况：[描述]\n含：涉及法律+权利+义务+3个应对方案+需收集证据+何时找律师\n⚠️仅供参考",tips:"描述清楚时间、地点、人物关系"},
 ];
 
-// TIERING: easy=free, hard=paid, medium=free except featured
+// TIERING: easy=free, medium+hard=paid
 prompts.forEach(p => {
-  if (p.diff === 'easy') p.free = true;
-  else if (p.diff === 'hard') p.free = false;
-  else p.free = !p.feat;
+  p.free = (p.diff === 'easy');
 });
 const paidCount = prompts.filter(p=>!p.free).length;
 const unlocked = new Set(JSON.parse(localStorage.getItem('ph_unlocked')||'[]'));
@@ -382,6 +384,8 @@ function renderAll() {
   const list = filterPrompts();
   document.getElementById('resultCount').textContent=`共 ${list.length} 条`;
   document.getElementById('empty').style.display=list.length?'none':'block';
+  const hasPaid = list.some(p=>!(p.free||unlocked.has(p.title)));
+  document.getElementById('unlockCta').style.display = hasPaid && unlocked.size < paidCount ? 'flex' : 'none';
   document.getElementById('promptGrid').innerHTML = list.map(p=>{
     const isFree = p.free || unlocked.has(p.title);
     return `<div class="p-card${isFree?'':' paid'}">
