@@ -98,7 +98,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .p-card{border:1.5px solid var(--border);border-radius:var(--radius);padding:18px 20px;transition:.2s;background:#fff;position:relative}
 .p-card:hover{border-color:var(--purple-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)}
 .p-card.paid .pc-preview-inner{filter:blur(4px);pointer-events:none;user-select:none}
-.p-card.paid .pc-lock{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;z-index:1;background:rgba(255,255,255,0.5);border-radius:8px;cursor:pointer}
+.p-card.paid .pc-lock{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1;background:rgba(255,255,255,0.6);border-radius:8px;cursor:pointer}
 .pc-top{display:flex;justify-content:space-between;align-items:start;margin-bottom:5px}
 .pc-title{font-weight:700;font-size:0.9em}
 .pc-desc{font-size:0.8em;color:var(--text2);margin-bottom:7px}
@@ -227,6 +227,10 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
     <div class="meta" id="mMeta"></div>
     <div class="prompt-text" id="mPrompt"></div>
     <div class="tips" id="mTips"></div>
+    <div id="modalUnlockCta" style="display:none;background:linear-gradient(135deg,var(--gold-light),#fef3c7);border:1.5px solid var(--gold);border-radius:10px;padding:14px 16px;margin-bottom:14px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <span style="font-size:0.9em;font-weight:700;color:#92400e">🔒 提示词内容已隐藏，解锁后查看完整内容</span>
+      <button class="btn btn-gold" onclick="event.stopPropagation();openPayModal()">🔓 解锁 · ¥9.9</button>
+    </div>
     <div style="display:flex;gap:8px">
       <button class="btn btn-primary" id="mCopyBtn" onclick="modalCopy()">📋 复制到剪贴板</button>
       <button class="btn btn-ghost" onclick="closeModal()">关闭</button>
@@ -395,9 +399,20 @@ function renderAll() {
         <span class="badge ${isFree?'badge-free':'badge-paid'}">${isFree?'免费':'付费'}</span>
       </div></div>
       <div class="pc-desc">${p.desc}</div>
+      ${isFree?'':`<div style="display:flex;gap:4px;margin-bottom:7px;flex-wrap:wrap">
+        <span style="font-size:0.66em;padding:2px 7px;background:var(--purple-light);color:var(--purple);border-radius:4px;font-weight:600">📐 结构化模板</span>
+        <span style="font-size:0.66em;padding:2px 7px;background:var(--green-light);color:var(--green);border-radius:4px;font-weight:600">💡 含使用技巧</span>
+        <span style="font-size:0.66em;padding:2px 7px;background:var(--orange-light);color:var(--orange);border-radius:4px;font-weight:600">🎯 场景化优化</span>
+      </div>`}
       <div class="pc-preview">
-        <div class="pc-preview-inner">${esc(p.prompt.substring(0,100))}...</div>
-        ${isFree?'':'<div class="pc-lock" style="cursor:pointer" onclick="event.stopPropagation();openPayModal()"><span style="font-size:1.2em">🔒 点击解锁</span></div>'}
+        <div class="pc-preview-inner">${esc(p.prompt.substring(0,150))}...</div>
+        ${isFree?'':'<div class="pc-lock" onclick="event.stopPropagation();openPayModal()">
+          <div style="text-align:center">
+            <div style="font-size:1.4em;margin-bottom:4px">🔒</div>
+            <div style="font-size:0.85em;font-weight:600">解锁查看完整模板</div>
+            <div style="font-size:0.72em;color:var(--text3);margin-top:2px">含结构化指令 · 示例 · 技巧</div>
+          </div>
+        </div>`}
       </div>
       <div class="pc-bottom">
         <span class="pc-model">${p.model}</span>
@@ -433,10 +448,23 @@ let curModal = null;
 function openModal(title) {
   curModal = prompts.find(p=>p.title===title);
   if(!curModal)return;
+  const isFree = curModal.free || unlocked.has(curModal.title);
   document.getElementById('mTitle').textContent=curModal.title;
-  document.getElementById('mMeta').innerHTML=`${CAT_EMOJI[curModal.cat]} ${curModal.catName} · ${DIFF_NAMES[curModal.diff]} · ${curModal.model}`;
-  document.getElementById('mPrompt').textContent=curModal.prompt;
-  document.getElementById('mTips').innerHTML=`<strong>💡 使用技巧</strong><br>${curModal.tips}`;
+  document.getElementById('mMeta').innerHTML=`${CAT_EMOJI[curModal.cat]} ${curModal.catName} · ${DIFF_NAMES[curModal.diff]} · ${curModal.model}${isFree?'':' · <span style="color:var(--gold)">🔒 付费</span>'}`;
+  if (isFree) {
+    document.getElementById('mPrompt').textContent=curModal.prompt;
+    document.getElementById('mPrompt').style.filter='none';
+    document.getElementById('mTips').innerHTML=`<strong>💡 使用技巧</strong><br>${curModal.tips}`;
+    document.getElementById('mCopyBtn').style.display='';
+    document.getElementById('modalUnlockCta').style.display='none';
+  } else {
+    document.getElementById('mPrompt').textContent=curModal.prompt;
+    document.getElementById('mPrompt').style.filter='blur(6px)';
+    document.getElementById('mTips').innerHTML=`<strong>💡 使用技巧</strong><br>${curModal.tips}`;
+    document.getElementById('mTips').style.filter='blur(4px)';
+    document.getElementById('mCopyBtn').style.display='none';
+    document.getElementById('modalUnlockCta').style.display='flex';
+  }
   document.getElementById('modal').classList.add('show');
 }
 function modalCopy(){
