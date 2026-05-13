@@ -364,18 +364,32 @@ body { background:var(--bg); color:var(--text); font-family: -apple-system,Blink
 <!-- UNLOCK MODAL -->
 <div class="modal-overlay" id="payModal" onclick="if(event.target===this)closePayModal()">
   <div class="modal">
-    <h3>🔓 解锁全部提示词</h3>
-    <p style="color:var(--text2);margin-bottom:16px">支付 ¥19.9，永久解锁 <b>所有付费提示词</b>，后续新增也自动解锁。</p>
-    <div style="background:var(--bg-alt);border-radius:var(--radius-sm);padding:16px;text-align:center;margin-bottom:16px">
-      <p style="margin-bottom:6px;font-weight:600">🔑 解锁码（付款后获取）</p>
-      <input id="unlockCode" type="text" placeholder="请输入解锁码" style="width:100%;padding:10px 16px;border:2px solid var(--border);border-radius:24px;font-size:0.95em;outline:none;text-align:center">
+    <h3>🔓 解锁全部付费提示词</h3>
+    <p style="color:var(--text2);margin-bottom:16px;text-align:center">💎 扫码支付 <b>¥19.9</b>，永久解锁 <b id="payPaidTotal">0</b> 条付费提示词，后续新增自动解锁</p>
+    <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:16px">
+      <div style="text-align:center">
+        <img src="qrcode-wx.jpg" alt="微信支付" style="width:180px;height:180px;border-radius:12px;border:2px solid var(--border);object-fit:cover">
+        <p style="margin-top:6px;font-size:0.85em;font-weight:600;color:#07c160">💚 微信支付</p>
+      </div>
+      <div style="text-align:center">
+        <img src="qrcode-zfb.jpg" alt="支付宝" style="width:180px;height:180px;border-radius:12px;border:2px solid var(--border);object-fit:cover">
+        <p style="margin-top:6px;font-size:0.85em;font-weight:600;color:#1677ff">💙 支付宝</p>
+      </div>
     </div>
-    <p style="font-size:0.82em;color:var(--text3);text-align:center;margin-bottom:16px">💡 提示：目前为演示模式，输入「<b>free2026</b>」即可解锁</p>
-    <div class="modal-actions" style="justify-content:center">
-      <button class="btn btn-purple" onclick="doUnlock()">🔓 验证解锁</button>
+    <div style="background:var(--orange-light);border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:16px;text-align:center">
+      <p style="font-size:0.85em;color:#9a3412"><b>📌 付款后操作：</b>截图发送至 <b>1931059447@qq.com</b>，注明「提示词解锁」，24小时内回复解锁码</p>
+    </div>
+    <div style="background:var(--bg-alt);border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:16px">
+      <p style="font-size:0.82em;color:var(--text3);text-align:center;margin-bottom:8px">🔑 已有解锁码？直接输入：</p>
+      <div style="display:flex;gap:8px">
+        <input id="unlockCode" type="text" placeholder="请输入解锁码" style="flex:1;padding:10px 16px;border:2px solid var(--border);border-radius:24px;font-size:0.95em;outline:none;text-align:center">
+        <button class="btn btn-purple" onclick="doUnlock()">验证解锁</button>
+      </div>
+    </div>
+    <p style="font-size:0.8em;color:var(--green);text-align:center" id="unlockMsg"></p>
+    <div style="text-align:center;margin-top:8px">
       <button class="modal-close" onclick="closePayModal()">关闭</button>
     </div>
-    <p style="font-size:0.8em;color:var(--green);text-align:center;margin-top:12px" id="unlockMsg"></p>
   </div>
 </div>
 
@@ -607,14 +621,15 @@ function closePayModal() { document.getElementById('payModal').classList.remove(
 function doUnlock() {
   const code = document.getElementById('unlockCode').value.trim();
   const msg = document.getElementById('unlockMsg');
-  if (code === 'free2026') {
+  const validCodes = ['free2026','ailiqi2026','prompt999']; // 你可以改这里控制有效解锁码
+  if (validCodes.includes(code)) {
     prompts.filter(p=>!p.free).forEach(p=>unlocked.add(p.id));
     localStorage.setItem('ph_unlocked', JSON.stringify([...unlocked]));
-    msg.textContent = '✅ 解锁成功！所有提示词已解锁，刷新页面后生效';
+    msg.textContent = '✅ 解锁成功！所有付费提示词已永久解锁，刷新后生效';
     msg.style.color = 'var(--green)';
     setTimeout(() => { closePayModal(); updateStats(); renderPromptGrid(); }, 1000);
   } else {
-    msg.textContent = '❌ 解锁码不正确，请检查后重试';
+    msg.textContent = '❌ 解锁码无效，请检查输入或联系客服获取';
     msg.style.color = 'var(--rose)';
   }
 }
