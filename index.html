@@ -98,7 +98,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .p-card{border:1.5px solid var(--border);border-radius:var(--radius);padding:18px 20px;transition:.2s;background:#fff;position:relative}
 .p-card:hover{border-color:var(--purple-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)}
 .p-card.paid .pc-preview-inner{filter:blur(4px);pointer-events:none;user-select:none}
-.p-card.paid .pc-lock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1;background:rgba(255,255,255,0.35);border-radius:var(--radius)}
+.p-card.paid .pc-lock{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;z-index:1;background:rgba(255,255,255,0.5);border-radius:8px;cursor:pointer}
 .pc-top{display:flex;justify-content:space-between;align-items:start;margin-bottom:5px}
 .pc-title{font-weight:700;font-size:0.9em}
 .pc-desc{font-size:0.8em;color:var(--text2);margin-bottom:7px}
@@ -393,13 +393,13 @@ function renderAll() {
       <div class="pc-desc">${p.desc}</div>
       <div class="pc-preview">
         <div class="pc-preview-inner">${esc(p.prompt.substring(0,100))}...</div>
-        ${isFree?'':'<div class="pc-lock" style="cursor:pointer" onclick="event.stopPropagation();openPayModal()"><span style="font-size:1.5em">🔒</span></div>'}
+        ${isFree?'':'<div class="pc-lock" style="cursor:pointer" onclick="event.stopPropagation();openPayModal()"><span style="font-size:1.2em">🔒 点击解锁</span></div>'}
       </div>
       <div class="pc-bottom">
         <span class="pc-model">${p.model}</span>
         <div class="pc-actions">
           <button class="btn-sm btn-detail" onclick="openModal('${esc(p.title)}')">详情</button>
-          ${isFree?`<button class="btn-sm btn-copy" onclick="copyPrompt('${esc(p.title)}',this)">复制</button>`:`<button class="btn-sm btn-unlock" onclick="event.stopPropagation();openPayModal()">🔓 ¥9.9</button>`}
+          ${isFree?`<button class="btn-sm btn-copy" onclick="copyPrompt('${esc(p.title)}',this)">复制</button>`:`<button class="btn btn-gold" onclick="event.stopPropagation();openPayModal()">🔓 解锁 ¥9.9</button>`}
         </div>
       </div></div>`;
   }).join('');
