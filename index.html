@@ -5,162 +5,228 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>提示词工坊 - 实战验证的AI提示词库 | PromptHub</title>
 <meta name="description" content="100+条经过实测的AI提示词模板，按难度分级。覆盖写作、编程、绘画、办公、营销、教育、生活7大场景，一键复制即用。">
-<meta name="keywords" content="AI提示词,ChatGPT提示词,DeepSeek提示词,Prompt模板,AI写作,Midjourney,Stable Diffusion">
+<meta name="keywords" content="AI提示词,ChatGPT提示词,DeepSeek提示词,Prompt模板,AI写作,Midjourney">
 <meta property="og:title" content="提示词工坊 - 实战验证的AI提示词库">
 <meta property="og:description" content="100+条经过实测的AI提示词模板，分级分类，免费复制">
 <meta property="og:url" content="https://bobo664263-lab.github.io/prompt-hub/">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://bobo664263-lab.github.io/prompt-hub/">
 <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?5a2b5656eef35aea22cf49557755cefa";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
 <style>
 :root {
-  --bg: #ffffff;
-  --bg2: #f8f9fb;
-  --text: #1a1c2e;
-  --text2: #5a5d72;
-  --text3: #9498aa;
-  --border: #ebeef4;
-  --purple: #6c5ce7;
-  --purple-light: #f4f2ff;
-  --green: #00b894;
-  --green-light: #e6f9f4;
-  --orange: #e17055;
-  --orange-light: #fef4f0;
-  --pink: #e84393;
-  --pink-light: #fdf0f6;
-  --blue: #0984e3;
-  --blue-light: #eef5fc;
-  --cyan: #00cec9;
-  --cyan-light: #e6fafa;
-  --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
-  --radius: 12px;
-  --max-w: 1160px;
+  --bg:#fff; --bg2:#f8f9fb; --text:#1a1c2e; --text2:#5a5d72; --text3:#9498aa; --border:#ebeef4;
+  --purple:#6c5ce7; --purple-light:#f4f2ff; --green:#00b894; --green-light:#e6f9f4;
+  --orange:#e17055; --orange-light:#fef4f0; --pink:#e84393; --pink-light:#fdf0f6;
+  --blue:#0984e3; --blue-light:#eef5fc; --gold:#f59e0b; --gold-light:#fffbeb;
+  --radius:12px; --max-w:1100px; --sidebar-w:320px;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--bg); color:var(--text); font-family: -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;display:flex;min-height:100vh}
 
-/* === NAV === */
-.nav { background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; }
-.nav-inner { max-width:var(--max-w); margin:0 auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
-.nav-logo { font-size:1.2em; font-weight:700; color:var(--purple); display:flex; align-items:center; gap:8px; text-decoration:none; }
-.nav-search { flex:1; max-width:360px; }
-.nav-search input { width:100%; padding:9px 16px; border:1.5px solid var(--border); border-radius:8px; font-size:0.9em; outline:none; transition:.2s; background:var(--bg2); }
-.nav-search input:focus { border-color:var(--purple); background:#fff; box-shadow:0 0 0 3px var(--purple-light); }
-.nav-links { display:flex; gap:6px; align-items:center; }
-.btn { padding:8px 18px; border-radius:8px; border:none; cursor:pointer; font-size:0.88em; font-weight:600; transition:.2s; text-decoration:none; display:inline-flex; align-items:center; gap:5px; }
-.btn-primary { background:var(--purple); color:#fff; }
-.btn-primary:hover { background:#5b4bd5; }
-.btn-ghost { background:transparent; color:var(--text2); }
-.btn-ghost:hover { background:var(--purple-light); color:var(--purple); }
+/* === SIDEBAR === */
+.sidebar{width:var(--sidebar-w);min-height:100vh;border-right:1px solid var(--border);background:var(--bg2);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:200;transition:.3s;overflow-y:auto}
+.sidebar-header{padding:16px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sidebar-logo{font-size:1.1em;font-weight:700;color:var(--purple)}
+.sidebar-tabs{display:flex;border-bottom:1px solid var(--border)}
+.sidebar-tab{flex:1;padding:10px;text-align:center;font-size:0.82em;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text3);transition:.15s;border-bottom:2px solid transparent}
+.sidebar-tab.active{color:var(--purple);border-bottom-color:var(--purple)}
+.sidebar-content{flex:1;overflow-y:auto;padding:16px}
+
+/* Payment tab */
+.pay-section{text-align:center}
+.pay-section .pay-price{font-size:1.8em;font-weight:800;color:var(--gold);margin:8px 0}
+.pay-section .pay-price small{font-size:0.45em;color:var(--text3);font-weight:400}
+.pay-qrs{display:flex;gap:10px;justify-content:center;margin:14px 0}
+.pay-qr{text-align:center}
+.pay-qr img{width:120px;height:120px;border-radius:10px;border:1.5px solid var(--border);object-fit:cover}
+.pay-qr .lbl{font-size:0.72em;font-weight:600;margin-top:3px}
+.pay-qr .lbl.wx{color:#07c160}
+.pay-qr .lbl.zfb{color:#1677ff}
+.pay-btn{width:100%;padding:12px;border:none;border-radius:8px;font-size:0.9em;font-weight:700;cursor:pointer;transition:.2s;margin-top:8px}
+.pay-btn.unlock{background:var(--purple);color:#fff}
+.pay-btn.unlock:hover{background:#5b4bd5}
+.pay-btn.unlocked{background:var(--green);color:#fff;cursor:default}
+.pay-features{text-align:left;font-size:0.8em;color:var(--text2);margin-top:14px}
+.pay-features li{padding:4px 0;list-style:none;display:flex;align-items:center;gap:6px}
+.pay-features li::before{content:'✓';color:var(--green);font-weight:700}
+
+/* Chat tab */
+.chat-messages{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;min-height:300px}
+.chat-msg{padding:10px 12px;border-radius:10px;font-size:0.82em;line-height:1.5;max-width:90%}
+.chat-msg.bot{background:#fff;border:1px solid var(--border);align-self:flex-start}
+.chat-msg.user{background:var(--purple);color:#fff;align-self:flex-end}
+.chat-msg .rec{display:block;margin-top:6px;padding:6px 10px;background:var(--purple-light);border-radius:6px;color:var(--purple);cursor:pointer;font-size:0.9em;font-weight:500}
+.chat-input-wrap{display:flex;gap:6px}
+.chat-input-wrap input{flex:1;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:0.85em;outline:none}
+.chat-input-wrap input:focus{border-color:var(--purple)}
+.chat-input-wrap button{padding:9px 14px;background:var(--purple);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.85em}
+
+/* === MAIN === */
+.main{flex:1;margin-left:var(--sidebar-w);min-width:0}
+.nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:var(--max-w);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{font-size:1.15em;font-weight:700;color:var(--purple);text-decoration:none}
+.nav-search{flex:1;max-width:300px}
+.nav-search input{width:100%;padding:9px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.88em;outline:none;background:var(--bg2);transition:.2s}
+.nav-search input:focus{border-color:var(--purple);background:#fff;box-shadow:0 0 0 3px var(--purple-light)}
+.nav-links{display:flex;gap:6px;align-items:center}
+.btn{padding:7px 16px;border-radius:8px;border:none;cursor:pointer;font-size:0.85em;font-weight:600;transition:.2s;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.btn-ghost{background:transparent;color:var(--text2)}
+.btn-ghost:hover{background:var(--purple-light);color:var(--purple)}
+.btn-primary{background:var(--purple);color:#fff}
+.btn-primary:hover{background:#5b4bd5}
+.sidebar-toggle{display:none;position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:201;background:var(--purple);color:#fff;border:none;border-radius:0 8px 8px 0;padding:12px 6px;cursor:pointer;font-size:0.9em;writing-mode:vertical-lr}
+
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .sidebar-toggle{display:block}
+}
 
 /* === HERO === */
-.hero { text-align:center; padding:64px 24px 48px; background:linear-gradient(180deg,#fafbff,#fff); }
-.hero h1 { font-size:2.4em; font-weight:800; letter-spacing:-0.03em; margin-bottom:12px; color:var(--text); }
-.hero h1 span { color:var(--purple); }
-.hero p { font-size:1.1em; color:var(--text2); max-width:500px; margin:0 auto 28px; }
-.hero-stats { display:inline-flex; gap:36px; }
-.hero-stat { text-align:center; }
-.hero-stat .num { font-size:1.8em; font-weight:700; color:var(--purple); }
-.hero-stat .lbl { font-size:0.8em; color:var(--text3); }
+.hero{text-align:center;padding:56px 24px 40px;background:linear-gradient(180deg,#fafbff,#fff)}
+.hero h1{font-size:2.2em;font-weight:800;letter-spacing:-0.03em;margin-bottom:10px}
+.hero h1 span{color:var(--purple)}
+.hero p{font-size:1.05em;color:var(--text2);max-width:480px;margin:0 auto 24px}
+.hero-stats{display:inline-flex;gap:32px}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:1.7em;font-weight:700;color:var(--purple)}
+.hero-stat .lbl{font-size:0.78em;color:var(--text3)}
 
-/* === CATEGORY GRID === */
-.category-section { max-width:var(--max-w); margin:0 auto; padding:0 24px 32px; }
-.category-section h2 { font-size:1.2em; font-weight:700; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
-.cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
-.cat-card { padding:18px 14px; border:1.5px solid var(--border); border-radius:var(--radius); text-align:center; cursor:pointer; transition:.2s; background:#fff; }
-.cat-card:hover { border-color:var(--purple); background:var(--purple-light); transform:translateY(-1px); box-shadow:var(--shadow-md); }
-.cat-card .icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3em; margin:0 auto 8px; }
-.cat-card .name { font-weight:600; font-size:0.9em; }
-.cat-card .count { font-size:0.75em; color:var(--text3); margin-top:2px; }
+/* === CATEGORY === */
+.cat-section{max-width:var(--max-w);margin:0 auto;padding:0 24px 28px}
+.cat-section h2{font-size:1.1em;font-weight:700;margin-bottom:12px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.cat-card{padding:16px 12px;border:1.5px solid var(--border);border-radius:var(--radius);text-align:center;cursor:pointer;transition:.2s;background:#fff}
+.cat-card:hover{border-color:var(--purple);background:var(--purple-light);transform:translateY(-1px)}
+.cat-card .icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.2em;margin:0 auto 7px}
+.cat-card .name{font-weight:600;font-size:0.85em}
+.cat-card .count{font-size:0.72em;color:var(--text3)}
 
 /* === FEATURED === */
-.featured { max-width:var(--max-w); margin:0 auto; padding:0 24px 32px; }
-.featured h2 { font-size:1.2em; font-weight:700; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
-.featured-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:14px; }
-.feat-card { border:1.5px solid var(--border); border-radius:var(--radius); padding:22px 24px; transition:.2s; position:relative; overflow:hidden; background:#fff; cursor:pointer; }
-.feat-card:hover { border-color:var(--purple); box-shadow:var(--shadow-md); }
-.feat-card .fc-header { display:flex; justify-content:space-between; align-items:start; margin-bottom:8px; }
-.feat-card .fc-title { font-weight:700; font-size:1em; }
-.feat-card .fc-badges { display:flex; gap:6px; }
-.badge { font-size:0.68em; padding:3px 9px; border-radius:6px; font-weight:600; white-space:nowrap; }
-.badge-beginner { background:var(--green-light); color:var(--green); }
-.badge-intermediate { background:var(--orange-light); color:var(--orange); }
-.badge-advanced { background:var(--pink-light); color:var(--pink); }
-.badge-model { background:var(--purple-light); color:var(--purple); }
-.feat-card .fc-desc { font-size:0.85em; color:var(--text2); margin-bottom:10px; }
-.feat-card .fc-preview { background:var(--bg2); border-radius:8px; padding:12px 14px; font-family:'SF Mono','Fira Code',Consolas,monospace; font-size:0.78em; color:var(--text); line-height:1.7; max-height:72px; overflow:hidden; position:relative; }
-.feat-card .fc-preview::after { content:''; position:absolute; bottom:0; left:0; right:0; height:24px; background:linear-gradient(transparent,var(--bg2)); }
-.feat-card .fc-footer { display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:0.8em; color:var(--text3); }
+.feat-section{max-width:var(--max-w);margin:0 auto;padding:0 24px 28px}
+.feat-section h2{font-size:1.1em;font-weight:700;margin-bottom:12px}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.feat-card{border:1.5px solid var(--border);border-radius:var(--radius);padding:20px 22px;transition:.2s;background:#fff;cursor:pointer}
+.feat-card:hover{border-color:var(--purple);box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.feat-card .fc-h{display:flex;justify-content:space-between;align-items:start;margin-bottom:6px}
+.feat-card .fc-t{font-weight:700;font-size:0.95em}
+.feat-card .fc-d{font-size:0.82em;color:var(--text2);margin-bottom:8px}
+.feat-card .fc-p{background:var(--bg2);border-radius:8px;padding:10px 12px;font-family:'SF Mono',Consolas,monospace;font-size:0.74em;color:var(--text);line-height:1.7;max-height:60px;overflow:hidden;position:relative}
+.feat-card .fc-p::after{content:'';position:absolute;bottom:0;left:0;right:0;height:18px;background:linear-gradient(transparent,var(--bg2))}
+
+.badge{font-size:0.66em;padding:3px 8px;border-radius:5px;font-weight:600;white-space:nowrap}
+.badge-easy{background:var(--green-light);color:var(--green)}
+.badge-med{background:var(--orange-light);color:var(--orange)}
+.badge-hard{background:var(--pink-light);color:var(--pink)}
+.badge-model{background:var(--purple-light);color:var(--purple)}
+.badge-paid{background:var(--gold-light);color:#b45309}
+.badge-free{background:var(--green-light);color:var(--green)}
 
 /* === FILTER === */
-.filters { max-width:var(--max-w); margin:0 auto; padding:0 24px 16px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-.filters .fl-label { font-size:0.82em; color:var(--text3); font-weight:600; }
-.fl-btn { padding:5px 14px; border-radius:6px; border:1.5px solid var(--border); background:#fff; color:var(--text2); cursor:pointer; font-size:0.82em; font-weight:500; transition:.15s; }
-.fl-btn:hover { border-color:var(--purple); }
-.fl-btn.active { background:var(--purple); color:#fff; border-color:var(--purple); }
-.fl-btn.active.beginner { background:var(--green); border-color:var(--green); }
-.fl-btn.active.intermediate { background:var(--orange); border-color:var(--orange); }
-.fl-btn.active.advanced { background:var(--pink); border-color:var(--pink); }
+.filters{max-width:var(--max-w);margin:0 auto;padding:0 24px 14px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.filters .lbl{font-size:0.8em;color:var(--text3);font-weight:600}
+.fl-btn{padding:5px 12px;border-radius:6px;border:1.5px solid var(--border);background:#fff;color:var(--text2);cursor:pointer;font-size:0.8em;font-weight:500;transition:.15s}
+.fl-btn:hover{border-color:var(--purple)}
+.fl-btn.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+.fl-btn.active.easy{background:var(--green);border-color:var(--green)}
+.fl-btn.active.med{background:var(--orange);border-color:var(--orange)}
+.fl-btn.active.hard{background:var(--pink);border-color:var(--pink)}
 
 /* === PROMPT LIST === */
-.prompt-section { max-width:var(--max-w); margin:0 auto; padding:0 24px 40px; }
-.prompt-section .ps-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
-.prompt-section .ps-head h2 { font-size:1.2em; font-weight:700; }
-.prompt-section .ps-head .count { font-size:0.85em; color:var(--text3); }
-.prompt-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:14px; }
-.p-card { border:1.5px solid var(--border); border-radius:var(--radius); padding:20px 22px; transition:.2s; background:#fff; }
-.p-card:hover { border-color:var(--purple-light); box-shadow:var(--shadow-md); }
-.p-card .pc-top { display:flex; justify-content:space-between; align-items:start; margin-bottom:6px; }
-.p-card .pc-title { font-weight:700; font-size:0.95em; display:flex; align-items:center; gap:6px; }
-.p-card .pc-desc { font-size:0.83em; color:var(--text2); margin-bottom:8px; }
-.p-card .pc-preview { background:var(--bg2); border-radius:8px; padding:10px 14px; font-family:'SF Mono','Fira Code',Consolas,monospace; font-size:0.76em; line-height:1.7; max-height:64px; overflow:hidden; position:relative; color:var(--text); margin-bottom:8px; }
-.p-card .pc-preview::after { content:''; position:absolute; bottom:0; left:0; right:0; height:20px; background:linear-gradient(transparent,var(--bg2)); }
-.p-card .pc-bottom { display:flex; justify-content:space-between; align-items:center; }
-.p-card .pc-model { font-size:0.78em; color:var(--text3); }
-.p-card .pc-actions { display:flex; gap:6px; }
-.btn-sm { padding:6px 14px; border-radius:6px; border:none; cursor:pointer; font-size:0.8em; font-weight:600; transition:.15s; }
-.btn-copy { background:var(--purple); color:#fff; }
-.btn-copy:hover { background:#5b4bd5; }
-.btn-detail { background:var(--bg2); color:var(--text2); }
-.btn-detail:hover { background:var(--purple-light); color:var(--purple); }
+.prompt-section{max-width:var(--max-w);margin:0 auto;padding:0 24px 36px}
+.prompt-section .ps-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.prompt-section .ps-h h2{font-size:1.1em;font-weight:700}
+.ps-count{font-size:0.82em;color:var(--text3)}
+.prompt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.p-card{border:1.5px solid var(--border);border-radius:var(--radius);padding:18px 20px;transition:.2s;background:#fff;position:relative}
+.p-card:hover{border-color:var(--purple-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.p-card.paid .pc-preview{position:relative}
+.p-card.paid .pc-preview-inner{filter:blur(4px);pointer-events:none;user-select:none}
+.p-card.paid .pc-lock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1;background:rgba(255,255,255,0.5);border-radius:8px}
+.pc-top{display:flex;justify-content:space-between;align-items:start;margin-bottom:5px}
+.pc-title{font-weight:700;font-size:0.9em}
+.pc-desc{font-size:0.8em;color:var(--text2);margin-bottom:7px}
+.pc-preview{background:var(--bg2);border-radius:8px;padding:9px 12px;font-family:'SF Mono',Consolas,monospace;font-size:0.73em;line-height:1.7;max-height:52px;overflow:hidden;position:relative;color:var(--text);margin-bottom:7px}
+.pc-preview::after{content:'';position:absolute;bottom:0;left:0;right:0;height:16px;background:linear-gradient(transparent,var(--bg2))}
+.pc-bottom{display:flex;justify-content:space-between;align-items:center}
+.pc-model{font-size:0.76em;color:var(--text3)}
+.pc-actions{display:flex;gap:5px}
+.btn-sm{padding:5px 12px;border-radius:6px;border:none;cursor:pointer;font-size:0.78em;font-weight:600;transition:.15s}
+.btn-copy{background:var(--purple);color:#fff}
+.btn-copy:hover{background:#5b4bd5}
+.btn-detail{background:var(--bg2);color:var(--text2)}
+.btn-detail:hover{background:var(--purple-light);color:var(--purple)}
+.btn-unlock{background:var(--gold);color:#fff}
+.btn-unlock:hover{background:#d97706}
 
-/* === EMPTY === */
-.empty { text-align:center; padding:48px; color:var(--text3); display:none; }
-.empty .icon { font-size:2.5em; margin-bottom:8px; }
+.empty{text-align:center;padding:44px;color:var(--text3);display:none}
 
 /* === MODAL === */
-.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); z-index:200; align-items:center; justify-content:center; padding:20px; }
-.modal-overlay.show { display:flex; }
-.modal { background:#fff; border-radius:16px; padding:32px; max-width:660px; width:100%; max-height:85vh; overflow-y:auto; box-shadow:var(--shadow-lg); }
-.modal h3 { font-size:1.3em; margin-bottom:6px; }
-.modal .meta { color:var(--text3); font-size:0.82em; margin-bottom:14px; display:flex; gap:10px; flex-wrap:wrap; }
-.modal .prompt-text { background:var(--bg2); border-radius:10px; padding:18px; font-family:'SF Mono','Fira Code',Consolas,monospace; font-size:0.85em; line-height:1.8; margin-bottom:14px; white-space:pre-wrap; }
-.modal .tips { background:var(--green-light); border-radius:10px; padding:12px 16px; margin-bottom:16px; font-size:0.85em; color:#06604e; }
-.modal .tips strong { color:var(--green); }
-.modal-actions { display:flex; gap:10px; }
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);backdrop-filter:blur(4px);z-index:300;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal{background:#fff;border-radius:16px;padding:30px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 12px 40px rgba(0,0,0,0.12)}
+.modal h3{font-size:1.2em;margin-bottom:5px}
+.modal .meta{color:var(--text3);font-size:0.8em;margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap}
+.modal .prompt-text{background:var(--bg2);border-radius:10px;padding:16px;font-family:'SF Mono',Consolas,monospace;font-size:0.83em;line-height:1.8;margin-bottom:12px;white-space:pre-wrap}
+.modal .tips{background:var(--green-light);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:0.83em;color:#06604e}
 
-/* === FOOTER === */
-.footer { text-align:center; padding:28px 20px; border-top:1px solid var(--border); color:var(--text3); font-size:0.82em; background:var(--bg2); }
-.footer a { color:var(--purple); text-decoration:none; font-weight:600; }
-
-@media (max-width:768px) {
-  .hero h1 { font-size:1.7em; }
-  .cat-grid { grid-template-columns:repeat(3,1fr); }
-  .featured-grid, .prompt-grid { grid-template-columns:1fr; }
-  .hero-stats { gap:24px; }
-}
+.footer{text-align:center;padding:24px 20px;border-top:1px solid var(--border);color:var(--text3);font-size:0.8em;background:var(--bg2)}
+.footer a{color:var(--purple);text-decoration:none;font-weight:600}
 </style>
 </head>
 <body>
 
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">✦ 工具面板</div>
+  </div>
+  <div class="sidebar-tabs">
+    <button class="sidebar-tab active" onclick="switchTab('pay')">💰 解锁付费</button>
+    <button class="sidebar-tab" onclick="switchTab('chat')">🤖 AI客服</button>
+  </div>
+  <div class="sidebar-content" id="sidebarPay">
+    <div class="pay-section">
+      <p style="font-size:0.85em;color:var(--text2);margin-bottom:4px">扫码解锁全部付费提示词</p>
+      <div class="pay-price">¥9.9<small>/永久</small></div>
+      <div class="pay-qrs">
+        <div class="pay-qr">
+          <img src="qrcode-wx.jpg" alt="微信">
+          <div class="lbl wx">微信</div>
+        </div>
+        <div class="pay-qr">
+          <img src="qrcode-zfb.jpg" alt="支付宝">
+          <div class="lbl zfb">支付宝</div>
+        </div>
+      </div>
+      <button class="pay-btn unlock" id="payBtn" onclick="doPay()">💳 付款后点此解锁</button>
+      <ul class="pay-features">
+        <li>全部108条提示词永久解锁</li>
+        <li>高级难度·专业级模板</li>
+        <li>每周新增自动解锁</li>
+        <li>扫码即付，点即激活</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sidebar-content" id="sidebarChat" style="display:none;display:flex;flex-direction:column">
+    <div class="chat-messages" id="chatMsgs">
+      <div class="chat-msg bot">👋 你好！我是提示词工坊的AI客服。可以问我：<br>• "有没有写简历的提示词？"<br>• "我是新手，推荐什么？"<br>• "Midjourney怎么用？"<br>👇 也可以直接问我任何问题</div>
+    </div>
+    <div class="chat-input-wrap">
+      <input type="text" id="chatInput" placeholder="输入问题..." onkeydown="if(event.key==='Enter')chatSend()">
+      <button onclick="chatSend()">发送</button>
+    </div>
+  </div>
+</div>
+<button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">面板</button>
+
+<!-- MAIN -->
+<div class="main">
 <nav class="nav">
   <div class="nav-inner">
     <a href="/prompt-hub/" class="nav-logo">✦ 提示词工坊</a>
-    <div class="nav-search">
-      <input type="text" id="searchInput" placeholder="搜索提示词..." oninput="doSearch()">
-    </div>
+    <div class="nav-search"><input type="text" id="searchInput" placeholder="搜索提示词..." oninput="doSearch()"></div>
     <div class="nav-links">
       <button class="btn btn-ghost" onclick="randomPrompt()">🎲 手气不错</button>
       <a href="https://www.ailiqi.cn" target="_blank" class="btn btn-ghost">AI利器</a>
@@ -170,40 +236,44 @@ body { background:var(--bg); color:var(--text); font-family: -apple-system,Blink
 
 <section class="hero">
   <h1>实战验证的 AI <span>提示词库</span></h1>
-  <p>100+ 条经过实测的提示词模板，按难度分级。无论新手还是专家，找到合适的 Prompt，一键复制直接用</p>
+  <p>100+ 条经过实测的提示词模板，按难度分级。找到合适的 Prompt，一键复制直接用</p>
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">108+</div><div class="lbl">精选提示词</div></div>
     <div class="hero-stat"><div class="num">7</div><div class="lbl">应用场景</div></div>
     <div class="hero-stat"><div class="num">3</div><div class="lbl">难度分级</div></div>
-    <div class="hero-stat"><div class="num">免费</div><div class="lbl">基础使用</div></div>
+    <div class="hero-stat"><div class="num">¥9.9</div><div class="lbl">解锁全部</div></div>
   </div>
 </section>
 
-<section class="category-section">
+<section class="cat-section">
   <h2>📂 按分类浏览</h2>
   <div class="cat-grid" id="catGrid"></div>
 </section>
 
-<section class="featured">
+<section class="feat-section">
   <h2>⭐ 精选推荐</h2>
-  <div class="featured-grid" id="featuredGrid"></div>
+  <div class="feat-grid" id="featuredGrid"></div>
 </section>
 
 <div class="filters">
-  <span class="fl-label">难度：</span>
+  <span class="lbl">难度：</span>
   <button class="fl-btn active" onclick="setFilter('all',this)">全部</button>
-  <button class="fl-btn beginner" onclick="setFilter('easy',this)">🟢 入门</button>
-  <button class="fl-btn intermediate" onclick="setFilter('medium',this)">🟠 进阶</button>
-  <button class="fl-btn advanced" onclick="setFilter('hard',this)">🔴 高级</button>
+  <button class="fl-btn easy" onclick="setFilter('easy',this)">🟢 入门</button>
+  <button class="fl-btn med" onclick="setFilter('medium',this)">🟠 进阶</button>
+  <button class="fl-btn hard" onclick="setFilter('hard',this)">🔴 高级</button>
+  <span class="lbl" style="margin-left:16px">类型：</span>
+  <button class="fl-btn active" onclick="setPaidFilter('all',this)">全部</button>
+  <button class="fl-btn" onclick="setPaidFilter('free',this)">免费</button>
+  <button class="fl-btn" onclick="setPaidFilter('paid',this)">付费</button>
 </div>
 
 <section class="prompt-section">
-  <div class="ps-head">
+  <div class="ps-h">
     <h2>📋 全部提示词</h2>
-    <span class="count" id="resultCount"></span>
+    <span class="ps-count" id="resultCount"></span>
   </div>
   <div class="prompt-grid" id="promptGrid"></div>
-  <div class="empty" id="empty"><div class="icon">🔍</div><p>没有匹配结果，换个关键词试试</p></div>
+  <div class="empty" id="empty"><p>没有匹配结果，换个关键词试试 🔍</p></div>
 </section>
 
 <div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
@@ -220,195 +290,250 @@ body { background:var(--bg); color:var(--text); font-family: -apple-system,Blink
 </div>
 
 <footer class="footer">
-  <p>✦ 提示词工坊 © 2026 · <a href="https://www.ailiqi.cn">AI利器</a> 旗下产品 · 提示词由社区贡献，仅供学习参考</p>
+  <p>✦ 提示词工坊 © 2026 · <a href="https://www.ailiqi.cn">AI利器</a> 旗下产品</p>
 </footer>
+</div>
 
 <script>
-const DIFF_MAP = { easy:'入门', medium:'进阶', hard:'高级' };
-const DIFF_CLASS = { easy:'badge-beginner', medium:'badge-intermediate', hard:'badge-advanced' };
-const CAT_COLOR = {
-  writing:{bg:'#f4f2ff',icon:'✍️'}, coding:{bg:'#eef5fc',icon:'💻'}, art:{bg:'#fdf0f6',icon:'🎨'},
-  office:{bg:'#e6f9f4',icon:'📊'}, marketing:{bg:'#fef4f0',icon:'📢'}, edu:{bg:'#e6fafa',icon:'📚'},
-  life:{bg:'#f0fdf4',icon:'🌟'}
-};
-
+// ===== DATA =====
 const prompts = [
-  // WRITING
-  {cat:"writing",catName:"写作创作",diff:"easy",model:"ChatGPT · DeepSeek · Kimi",title:"小红书爆款笔记",desc:"一键生成高互动种草文案，标题+正文+标签一条龙",prompt:"你是一位小红书资深博主。请为[产品/话题]创作一篇种草笔记：\n1. 标题用emoji+数字+痛点，≤20字\n2. 正文口语化，像朋友聊天，每段≤3行\n3. 加入真实使用感受和效果对比\n4. 文末引导互动（提问/求点赞）\n5. 带5-8个相关话题标签",tips:"把[产品/话题]换成你要推广的内容，比如「电动牙刷」「大理旅行攻略」",featured:true},
+  {cat:"writing",catName:"写作创作",diff:"easy",model:"ChatGPT · DeepSeek · Kimi",title:"小红书爆款笔记",desc:"一键生成高互动种草文案，标题+正文+标签一条龙",prompt:"你是一位小红书资深博主。请为[产品/话题]创作一篇种草笔记：\n1. 标题用emoji+数字+痛点，≤20字\n2. 正文口语化，像朋友聊天，每段≤3行\n3. 加入真实使用感受和效果对比\n4. 文末引导互动（提问/求点赞）\n5. 带5-8个相关话题标签",tips:"把[产品/话题]换成你要推广的内容，比如「电动牙刷」「大理旅行攻略」",feat:true},
   {cat:"writing",catName:"写作创作",diff:"medium",model:"ChatGPT · DeepSeek",title:"公众号深度长文",desc:"2000字专业长文，故事+数据+观点三段式结构",prompt:"你是资深新媒体主编。请围绕[主题]撰写公众号深度文章（2000-2500字）：\n1. 标题有悬念感或冲突感\n2. 故事+数据+观点的三段式结构\n3. 加入至少3个真实案例\n4. 行文风格参考「人物」杂志调性\n5. 结尾金句收尾，引发转发",tips:"适合知识类、观点类公众号。[主题]如「远程办公的未来」「AI对教育的影响」"},
-  {cat:"writing",catName:"写作创作",diff:"easy",model:"通用",title:"短视频口播脚本",desc:"60秒口播脚本，前3秒抓注意力，节奏紧凑",prompt:"你是短视频编导。请为[话题]创作60秒口播脚本：\n1. 前3秒用反常识/提问抓住注意力\n2. 语言口语化，像对着朋友说话\n3. 每15秒一个信息点，节奏紧凑\n4. 结尾引导点赞评论\n5. 标注语气（快/慢/停顿）和情绪",tips:"适用于抖音/视频号/B站口播类视频，[话题]要具体"},
-  {cat:"writing",catName:"写作创作",diff:"medium",model:"ChatGPT · Claude",title:"商业计划书大纲",desc:"标准BP结构，含市场/产品/财务7大模块",prompt:"请为[项目名]生成商业计划书大纲：\n1. 项目概述（一句话价值主张）\n2. 市场分析（目标用户/规模/竞品）\n3. 产品服务（核心功能/差异化）\n4. 商业模式（收入/定价）\n5. 运营计划（团队/里程碑/KPI）\n6. 财务预测（12个月收支预估）\n7. 融资需求（金额/用途/退出）",tips:"适用于创业路演和投资人演示，替换[项目名]即可"},
-  {cat:"writing",catName:"写作创作",diff:"easy",model:"通用",title:"周报日报生成器",desc:"输入工作内容，输出结构化汇报",prompt:"请根据以下工作内容生成周报：\n本周完成：[内容]\n1. 格式：完成事项 | 进展说明 | 下周计划\n2. 用数据和成果说话，突出亮点\n3. 语言简洁专业，≤500字",tips:"把本周做过的事列出来填入[内容]，AI帮你润色成专业周报"},
-  {cat:"writing",catName:"写作创作",diff:"easy",model:"通用",title:"朋友圈营销文案",desc:"3种风格朋友圈文案，痛点+见证+活动",prompt:"你是朋友圈营销专家。为[产品]创作3条文案：\n1. 痛点切入型（先讲故事再引出产品）\n2. 客户见证型（用真实效果说话）\n3. 限时活动型（制造紧迫感）",tips:"3条不同风格交替发，避免刷屏感"},
-
-  // CODING
-  {cat:"coding",catName:"编程开发",diff:"easy",model:"ChatGPT · DeepSeek",title:"Bug修复助手",desc:"贴代码+报错信息，AI分析根因并给出修复方案",prompt:"你是资深软件工程师。请分析和修复以下Bug：\n语言：[语言]\n代码：[代码]\n错误：[错误信息]\n\n请：\n1. 分析Bug根因\n2. 给出修复方案和完整代码\n3. 解释为什么会出现这个Bug\n4. 建议如何避免类似问题",tips:"把完整报错信息贴进去效果更好，代码片段越完整判断越准",featured:true},
-  {cat:"coding",catName:"编程开发",diff:"medium",model:"ChatGPT · Claude",title:"需求→代码生成",desc:"用自然语言描述功能，AI写出完整代码",prompt:"你是全栈工程师。请根据以下需求生成[语言]代码：\n功能：[描述]\n技术栈：[如 React+TypeScript]\n\n要求：\n1. 先设计数据结构和接口\n2. 写出核心逻辑代码\n3. 添加关键注释\n4. 考虑边界情况和错误处理",tips:"需求越具体代码越精准，可先让AI帮你理清需求再生成代码"},
-  {cat:"coding",catName:"编程开发",diff:"medium",model:"通用",title:"SQL查询优化",desc:"慢查询分析，索引建议+改写方案",prompt:"你是数据库优化专家。请优化以下SQL：\n数据库：[MySQL/PostgreSQL]\nSQL：[SQL语句]\n表结构：[表结构]\n\n1. 分析性能瓶颈\n2. 优化方案（索引+改写）\n3. 提供优化后SQL并解释原理",tips:"附上表结构和数据量，AI才能给出最精准的索引建议"},
-  {cat:"coding",catName:"编程开发",diff:"easy",model:"通用",title:"正则表达式生成",desc:"描述匹配需求，自动生成正则+测试用例",prompt:"请生成正则表达式，用于匹配[需求]。\n示例：[例子]\n1. 给出正则表达式\n2. 逐段解释含义\n3. 提供至少3个测试用例",tips:"最好同时给正面和反面的例子，AI理解更准确"},
-  {cat:"coding",catName:"编程开发",diff:"hard",model:"ChatGPT · Claude",title:"Docker部署方案",desc:"多阶段构建+compose完整配置",prompt:"请为[技术栈]项目编写Docker配置：\n项目：[说明]\n1. Dockerfile（多阶段构建）\n2. docker-compose.yml（含数据库等依赖）\n3. .dockerignore\n4. 环境变量管理建议",tips:"适合需要容器化部署的项目，如「Next.js + PostgreSQL + Redis」"},
-  {cat:"coding",catName:"编程开发",diff:"easy",model:"通用",title:"Git提交信息生成",desc:"根据代码改动生成规范commit message",prompt:"请根据以下代码改动生成Git commit message：\n改动：[描述]\n1. 遵循Conventional Commits规范\n2. 标题≤50字符\n3. 正文解释What/Why/How",tips:"feat:/fix:/docs:/refactor: 等前缀是标准格式"},
-
-  // AI ART
-  {cat:"art",catName:"AI绘画",diff:"medium",model:"Midjourney · DALL·E",title:"写实人像摄影",desc:"专业级人像Prompt，光线·镜头·构图全标注",prompt:"Realistic portrait photography, [人物描述], [场景], soft natural lighting, golden hour, shot on Canon EOS R5 85mm f/1.2, shallow depth of field, bokeh background, hyper-realistic 8K, professional color grading --ar 3:4",tips:"人物越具体效果越好，试试「young woman, long black hair, sitting by window」",featured:true},
-  {cat:"art",catName:"AI绘画",diff:"easy",model:"Midjourney",title:"电商产品白底图",desc:"无需摄影棚，AI生成电商级白底图",prompt:"Professional product photography, [产品描述], white background, studio lighting, commercial photography, high-end retouching, sharp focus, 8K, minimal shadow, clean composition --ar 1:1",tips:"产品描述如「minimalist wireless earbuds in matte black」"},
-  {cat:"art",catName:"AI绘画",diff:"easy",model:"Midjourney",title:"极简Logo设计",desc:"品牌Logo一键生成，几何/渐变风格",prompt:"Minimalist logo for [品牌], [行业], geometric style, [颜色], clean modern flat vector, white background, recognizable silhouette, no text --ar 1:1",tips:"多次生成选最好，加'no text'避免AI乱加文字"},
+  {cat:"writing",catName:"写作创作",diff:"easy",model:"通用",title:"短视频口播脚本",desc:"60秒口播脚本，前3秒抓注意力，节奏紧凑",prompt:"你是短视频编导。请为[话题]创作60秒口播脚本：\n1. 前3秒用反常识/提问抓住注意力\n2. 语言口语化，像对着朋友说话\n3. 每15秒一个信息点，节奏紧凑\n4. 结尾引导点赞评论\n5. 标注语气和情绪",tips:"适用于抖音/视频号/B站口播类视频，[话题]要具体"},
+  {cat:"writing",catName:"写作创作",diff:"medium",model:"ChatGPT · Claude",title:"商业计划书大纲",desc:"标准BP结构，含市场/产品/财务7大模块",prompt:"请为[项目名]生成商业计划书大纲：\n1. 项目概述（一句话价值主张）\n2. 市场分析（目标用户/规模/竞品）\n3. 产品服务（核心功能/差异化）\n4. 商业模式（收入/定价）\n5. 运营计划（团队/里程碑/KPI）\n6. 财务预测\n7. 融资需求",tips:"适用于创业路演和投资人演示"},
+  {cat:"writing",catName:"写作创作",diff:"easy",model:"通用",title:"周报日报生成器",desc:"输入工作内容，输出结构化汇报",prompt:"请根据以下工作内容生成周报：\n本周完成：[内容]\n1. 格式：完成事项 | 进展说明 | 下周计划\n2. 用数据和成果说话\n3. 语言简洁专业，≤500字",tips:"把本周做过的事列出来填入"},
+  {cat:"coding",catName:"编程开发",diff:"easy",model:"ChatGPT · DeepSeek",title:"Bug修复助手",desc:"贴代码+报错信息，AI分析根因并给出修复方案",prompt:"你是资深软件工程师。请分析和修复以下Bug：\n语言：[语言]\n代码：[代码]\n错误：[错误信息]\n\n请：\n1. 分析Bug根因\n2. 给出修复方案和完整代码\n3. 解释为什么会出现\n4. 建议如何避免",tips:"把完整报错信息贴进去效果更好",feat:true},
+  {cat:"coding",catName:"编程开发",diff:"medium",model:"ChatGPT · Claude",title:"需求→代码生成",desc:"用自然语言描述功能，AI写出完整代码",prompt:"你是全栈工程师。请根据以下需求生成[语言]代码：\n功能：[描述]\n技术栈：[如 React+TypeScript]\n\n1. 先设计数据结构和接口\n2. 写出核心逻辑代码\n3. 添加关键注释\n4. 考虑边界情况和错误处理",tips:"需求越具体代码越精准"},
+  {cat:"coding",catName:"编程开发",diff:"medium",model:"通用",title:"SQL查询优化",desc:"慢查询分析，索引建议+改写方案",prompt:"你是数据库优化专家。请优化以下SQL：\n数据库：[MySQL/PostgreSQL]\nSQL：[SQL语句]\n表结构：[表结构]\n\n1. 分析性能瓶颈\n2. 优化方案（索引+改写）\n3. 提供优化后SQL并解释原理",tips:"附上表结构和数据量"},
+  {cat:"coding",catName:"编程开发",diff:"easy",model:"通用",title:"正则表达式生成",desc:"描述匹配需求，自动生成正则+测试用例",prompt:"请生成正则表达式，用于匹配[需求]。\n示例：[例子]\n1. 给出正则表达式\n2. 逐段解释含义\n3. 提供至少3个测试用例",tips:"最好同时给正面和反面的例子"},
+  {cat:"coding",catName:"编程开发",diff:"hard",model:"ChatGPT · Claude",title:"Docker部署方案",desc:"多阶段构建+compose完整配置",prompt:"请为[技术栈]项目编写Docker配置：\n项目：[说明]\n1. Dockerfile（多阶段构建）\n2. docker-compose.yml（含数据库等依赖）\n3. .dockerignore\n4. 环境变量管理建议",tips:"如「Next.js + PostgreSQL + Redis」"},
+  {cat:"art",catName:"AI绘画",diff:"medium",model:"Midjourney · DALL·E",title:"写实人像摄影",desc:"专业人像Prompt，光线·镜头·构图全标注",prompt:"Realistic portrait photography, [人物描述], [场景], soft natural lighting, golden hour, shot on Canon EOS R5 85mm f/1.2, shallow depth of field, bokeh background, hyper-realistic 8K, professional color grading --ar 3:4",tips:"人物如「young woman, long black hair, by window」",feat:true},
+  {cat:"art",catName:"AI绘画",diff:"easy",model:"Midjourney",title:"电商产品白底图",desc:"无需摄影棚，AI生成电商级白底图",prompt:"Professional product photography, [产品], white background, studio lighting, commercial photography, high-end retouching, sharp focus, 8K --ar 1:1",tips:"产品如「minimalist wireless earbuds in matte black」"},
+  {cat:"art",catName:"AI绘画",diff:"easy",model:"Midjourney",title:"极简Logo设计",desc:"品牌Logo一键生成，几何/渐变风格",prompt:"Minimalist logo for [品牌], [行业], geometric style, [颜色], clean modern flat vector, white background, recognizable silhouette, no text --ar 1:1",tips:"多次生成选最好"},
   {cat:"art",catName:"AI绘画",diff:"medium",model:"Midjourney",title:"国风水墨画",desc:"中式美学，山水竹林烟雨",prompt:"Traditional Chinese ink wash painting, misty bamboo forest by mountain stream, flowing water, elegant brush strokes, ink splatter effect, negative space composition, silk scroll texture, zen atmosphere, masterpiece --ar 3:4",tips:"适合壁纸、海报、文创素材"},
-  {cat:"art",catName:"AI绘画",diff:"medium",model:"Midjourney",title:"3D卡通IP设计",desc:"Pixar风格Q版角色，品牌IP首选",prompt:"Cute 3D character, [角色], chibi style, Pixar/Disney inspired, soft pastel colors, smooth textures, ambient occlusion, studio lighting, 3D render, white background --ar 1:1",tips:"角色如「a fox barista wearing apron, holding coffee cup」"},
-
-  // OFFICE
-  {cat:"office",catName:"办公效率",diff:"easy",model:"通用",title:"会议纪要生成",desc:"会议记录→专业纪要，含决议+待办事项",prompt:"请根据以下会议记录生成纪要：\n记录：[内容]\n1. 会议主题/时间/参会人\n2. 讨论要点（按议题分类）\n3. 达成决议和共识\n4. 待办事项（责任人+截止日期）",tips:"把会议录音转文字后填入"},
-  {cat:"office",catName:"办公效率",diff:"medium",model:"ChatGPT · DeepSeek",title:"Excel公式生成",desc:"描述需求→自动生成Excel/Sheets公式",prompt:"请帮我写Excel公式实现：[需求]\n数据范围：[如A1:A100]\n条件：[条件]\n1. 给出公式\n2. 解释每部分作用\n3. 标注版本要求",tips:"描述清楚如「统计A列>100且B列=是的数量」"},
-  {cat:"office",catName:"办公效率",diff:"medium",model:"ChatGPT · Claude",title:"PPT大纲生成",desc:"主题→完整PPT大纲，每页要点+配图建议",prompt:"请为「[主题]」制作PPT大纲：\n受众：[描述] 时长：[分钟] 页数：[页]\n1. 每页标题+3-5个核心要点\n2. 标注重点页和配图建议\n3. 开场有吸引力，结尾有行动号召",tips:"加上「面向投资人」「内部汇报」等场景说明"},
-  {cat:"office",catName:"办公效率",diff:"hard",model:"ChatGPT · Claude",title:"简历优化大师",desc:"STAR法则改写，HR视角深度优化",prompt:"你是资深HR。请优化以下简历：\n目标职位：[职位] 原始简历：[内容]\n1. 用STAR法则改写经历\n2. 量化成果（用数字说话）\n3. 匹配JD关键词\n4. 突出差异化优势\n5. 给3个不同风格的版本",tips:"把目标职位的JD也贴进去，AI会针对性匹配关键词",featured:true},
-  {cat:"office",catName:"办公效率",diff:"easy",model:"通用",title:"专业邮件撰写",desc:"场景→专业邮件，含主题行和签名",prompt:"请根据以下场景撰写专业邮件：\n场景：[描述] 收件人：[描述] 语气：[正式/友好/商务]\n1. 主题行简洁明确\n2. 开头得体问候\n3. 正文直接回应核心\n4. 结尾加下一步行动",tips:"场景如「拒绝客户砍价」「催供应商发货」"},
-
-  // MARKETING
-  {cat:"marketing",catName:"营销运营",diff:"medium",model:"ChatGPT · DeepSeek",title:"小红书矩阵策划",desc:"5篇系列笔记，覆盖开箱/对比/教程/种草",prompt:"为[产品]策划小红书内容矩阵（5篇）：\n产品：[描述]\n5篇覆盖：开箱测评、对比评测、使用教程、场景种草、合集推荐\n每篇含：标题+正文+标签+封面方案",tips:"前3篇不要带广告，先做内容价值建立信任"},
+  {cat:"art",catName:"AI绘画",diff:"medium",model:"Midjourney",title:"3D卡通IP设计",desc:"Pixar风格Q版角色，品牌IP首选",prompt:"Cute 3D character, [角色], chibi style, Pixar inspired, soft pastel colors, smooth textures, ambient occlusion, 3D render, white background --ar 1:1",tips:"角色如「a fox barista holding coffee cup」"},
+  {cat:"office",catName:"办公效率",diff:"easy",model:"通用",title:"会议纪要生成",desc:"会议记录→专业纪要，含决议+待办事项",prompt:"请根据以下会议记录生成纪要：\n记录：[内容]\n1. 会议主题/时间/参会人\n2. 讨论要点（按议题分类）\n3. 达成决议\n4. 待办事项（责任人+截止日期）",tips:"把会议录音转文字后填入"},
+  {cat:"office",catName:"办公效率",diff:"medium",model:"ChatGPT · DeepSeek",title:"Excel公式生成",desc:"描述需求→自动生成Excel/Sheets公式",prompt:"请帮我写Excel公式实现：[需求]\n数据范围：[如A1:A100]\n条件：[条件]\n1. 给出公式\n2. 解释每部分作用\n3. 标注版本要求",tips:"描述如「统计A列>100且B列=是的数量」"},
+  {cat:"office",catName:"办公效率",diff:"medium",model:"ChatGPT · Claude",title:"PPT大纲生成",desc:"主题→完整PPT大纲，每页要点+配图建议",prompt:"请为「[主题]」制作PPT大纲：\n受众：[描述] 时长：[分钟]\n1. 每页标题+3-5个要点\n2. 标注重点页和配图建议\n3. 开场有吸引力，结尾有行动号召",tips:"加上「面向投资人」「内部汇报」等场景"},
+  {cat:"office",catName:"办公效率",diff:"hard",model:"ChatGPT · Claude",title:"简历优化大师",desc:"STAR法则改写，HR视角深度优化",prompt:"你是资深HR。请优化以下简历：\n目标职位：[职位] 原始简历：[内容]\n1. 用STAR法则改写经历\n2. 量化成果（用数字说话）\n3. 匹配JD关键词\n4. 给3个不同风格的版本",tips:"把目标职位JD也贴进去",feat:true},
+  {cat:"office",catName:"办公效率",diff:"easy",model:"通用",title:"专业邮件撰写",desc:"场景→专业邮件，含主题行",prompt:"请根据以下场景撰写专业邮件：\n场景：[描述] 收件人：[描述] 语气：[正式/友好]\n1. 主题行简洁明确\n2. 开头得体问候\n3. 正文直接回应\n4. 结尾加下一步行动",tips:"场景如「拒绝客户砍价」「催供应商发货」"},
+  {cat:"marketing",catName:"营销运营",diff:"medium",model:"ChatGPT · DeepSeek",title:"小红书矩阵策划",desc:"5篇系列笔记，开箱/对比/教程/种草",prompt:"为[产品]策划小红书内容矩阵（5篇）：\n产品：[描述]\n覆盖：开箱测评、对比评测、使用教程、场景种草、合集推荐\n每篇含：标题+正文+标签+封面方案",tips:"前3篇不要带广告，先建立信任"},
   {cat:"marketing",catName:"营销运营",diff:"hard",model:"ChatGPT · Claude",title:"直播带货话术",desc:"开场+产品+逼单+互动全套脚本",prompt:"为[产品]的直播带货创作全套话术：\n时长：[分钟]\n含：开场暖场→产品介绍→逼单话术→互动引导→转款衔接→异议处理\n每部分标注时长和关键句",tips:"打印出来放手机支架旁当提词器"},
   {cat:"marketing",catName:"营销运营",diff:"easy",model:"通用",title:"短视频选题库",desc:"30个选题，教程/观点/故事/测评全覆盖",prompt:"为[领域]短视频账号策划30个选题：\n定位：[定位]\n5种类型：教程/观点/故事/测评/热点 各6个\n标注：标题+核心看点+预计时长+爆款概率",tips:"选题是短视频最重要的环节"},
-  {cat:"marketing",catName:"营销运营",diff:"medium",model:"通用",title:"SEO关键词策略",desc:"核心词+长尾词+问题词完整策略",prompt:"你是SEO专家。为[网站]制定关键词策略：\n行业：[行业]\n1. 核心词5个\n2. 长尾词15个\n3. 问题类词10个\n4. 竞品词策略\n5. 内容规划建议",tips:"长尾词是SEO命门，大词难做就用长尾包围策略"},
-
-  // EDUCATION
-  {cat:"edu",catName:"教育学习",diff:"easy",model:"通用",title:"概念通俗解释",desc:"把复杂概念用日常比喻讲清楚",prompt:"请用最简单的方式解释「[概念]」：\n1. 一句话概括\n2. 用日常比喻说明\n3. 举3个具体例子\n4. 和已知概念对比\n5. 50字以内总结核心",tips:"试试「区块链」「量子计算」「通货膨胀」"},
-  {cat:"edu",catName:"教育学习",diff:"medium",model:"ChatGPT · DeepSeek",title:"学习路线图",desc:"从零到就业的完整学习规划",prompt:"为「[方向]」设计学习路线图：\n目标：[3个月入门/6个月转行] 基础：[已有基础]\n1. 分阶段（基础→进阶→实战）\n2. 每阶段重点和时间\n3. 推荐免费资源\n4. 里程碑练习项目",tips:"方向如「前端开发」「数据分析」「UI设计」"},
-  {cat:"edu",catName:"教育学习",diff:"easy",model:"ChatGPT · Claude",title:"英语口语陪练",desc:"AI当口语陪练，日常对话+纠错+地道表达",prompt:"You are my English speaking partner. Topic: [话题]\n1. Speak at intermediate level naturally\n2. Correct my grammar gently\n3. Teach me 2-3 idioms each session\n4. At the end summarize what I learned",tips:"每天15分钟效果远好于每周2小时补习",featured:true},
-  {cat:"edu",catName:"教育学习",diff:"hard",model:"ChatGPT · Claude",title:"面试模拟器",desc:"高频问题+高分回答+追问策略",prompt:"为[职位]面试进行模拟：\n公司：[类型]\n1. 10个高频面试问题\n2. 每问给高分回答模板（STAR结构）\n3. 3个常见坑\n4. 追问应对策略\n5. 反问面试官的好问题",tips:"建议用ChatGPT语音模式面对面练习"},
-  {cat:"edu",catName:"教育学习",diff:"easy",model:"通用",title:"演讲稿撰写",desc:"毕业/竞聘/年会演讲稿，有故事有金句",prompt:"为[场合]撰写演讲稿：\n时长：[分钟] 受众：[描述]\n1. 开场用钩子（故事/问题/数据）\n2. 核心信息≤3点\n3. 加入1-2个个人经历\n4. 语言口语化方便朗读\n5. 结尾有力有记忆点",tips:"场合如「毕业典礼」「部门竞聘」「年会致辞」"},
-
-  // LIFE
-  {cat:"life",catName:"生活助手",diff:"medium",model:"通用",title:"旅行攻略生成",desc:"N天N城完整攻略，行程+美食+避坑指南",prompt:"请规划[天数]天[目的地]旅行：\n时间：[日期] 人数：[数] 预算：[金额] 偏好：[美食/拍照/文化]\n含：每日行程+必吃美食+交通建议+住宿区域+避坑提醒",tips:"越具体越好，如「3天2晚成都人均2000爱吃辣」"},
-  {cat:"life",catName:"生活助手",diff:"hard",model:"ChatGPT · Claude",title:"健身增肌减脂计划",desc:"教练级定制计划，训练+饮食全套",prompt:"你是健身教练。为[增肌/减脂]制定计划：\n性别/年龄/身高/体重：[数据]\n基础：[有基础/零基础] 条件：[健身房/居家]\n含：目标+训练安排+动作详解+饮食建议+每周检查点",tips:"附上体重体脂数据AI算得更准"},
-  {cat:"life",catName:"生活助手",diff:"easy",model:"通用",title:"营养食谱推荐",desc:"按卡路里和忌口定制一周食谱",prompt:"请推荐一周食谱：\n需求：[减脂/增肌/素食] 卡路里：[千卡/天]\n忌口：[忌口]\n含：早中晚三餐+加餐，标注每餐热量和营养素，每道≤3步",tips:"忌口如实写，如「不吃香菜」「海鲜过敏」"},
-  {cat:"life",catName:"生活助手",diff:"medium",model:"通用",title:"买车买房攻略",desc:"决策指南+砍价话术+合同避坑清单",prompt:"请制定[买车/买房]决策指南：\n预算：[金额] 城市：[城市] 需求：[通勤/家庭]\n含：决策流程+对比指标+砍价话术+合同避坑+检查清单",tips:"加上具体车型或楼盘信息AI分析更有针对性"},
-  {cat:"life",catName:"生活助手",diff:"easy",model:"通用",title:"法律常识咨询",desc:"分析风险+可行方案+证据收集建议",prompt:"请分析以下法律风险和应对：\n情况：[描述]\n含：涉及法律+权利+义务+3个应对方案+需收集证据+何时找律师\n⚠️声明：仅供参考不构成法律意见",tips:"描述清楚时间、地点、人物关系"},
+  {cat:"marketing",catName:"营销运营",diff:"medium",model:"通用",title:"SEO关键词策略",desc:"核心词+长尾词+问题词完整策略",prompt:"你是SEO专家。为[网站]制定关键词策略：\n行业：[行业]\n1. 核心词5个\n2. 长尾词15个\n3. 问题类词10个\n4. 竞品词策略",tips:"长尾词是SEO命门"},
+  {cat:"edu",catName:"教育学习",diff:"easy",model:"通用",title:"概念通俗解释",desc:"把复杂概念用日常比喻讲清楚",prompt:"请用最简单的方式解释「[概念]」：\n1. 一句话概括\n2. 用日常比喻说明\n3. 举3个具体例子\n4. 和已知概念对比",tips:"试试「区块链」「量子计算」"},
+  {cat:"edu",catName:"教育学习",diff:"medium",model:"ChatGPT · DeepSeek",title:"学习路线图",desc:"从零到就业的完整学习规划",prompt:"为「[方向]」设计学习路线图：\n目标：[3个月入门/6个月转行]\n1. 分阶段（基础→进阶→实战）\n2. 每阶段重点和时间\n3. 推荐免费资源\n4. 里程碑练习项目",tips:"方向如「前端开发」「数据分析」",feat:true},
+  {cat:"edu",catName:"教育学习",diff:"easy",model:"ChatGPT · Claude",title:"英语口语陪练",desc:"AI当口语陪练，日常对话+纠错+地道表达",prompt:"You are my English speaking partner. Topic: [话题]\n1. Speak at intermediate level naturally\n2. Correct my grammar gently\n3. Teach me 2-3 idioms each session\n4. At the end summarize what I learned",tips:"每天15分钟效果远好于每周2小时补习"},
+  {cat:"edu",catName:"教育学习",diff:"hard",model:"ChatGPT · Claude",title:"面试模拟器",desc:"高频问题+高分回答+追问策略",prompt:"为[职位]面试进行模拟：\n公司：[类型]\n1. 10个高频面试问题\n2. 每问给高分回答模板（STAR结构）\n3. 3个常见坑\n4. 追问应对策略\n5. 反问面试官的好问题",tips:"建议用ChatGPT语音模式练习"},
+  {cat:"edu",catName:"教育学习",diff:"easy",model:"通用",title:"演讲稿撰写",desc:"毕业/竞聘/年会演讲稿",prompt:"为[场合]撰写演讲稿：\n时长：[分钟] 受众：[描述]\n1. 开场用钩子（故事/问题/数据）\n2. 核心信息≤3点\n3. 加入1-2个个人经历\n4. 结尾有力有记忆点",tips:"场合如「毕业典礼」「年会致辞」"},
+  {cat:"life",catName:"生活助手",diff:"medium",model:"通用",title:"旅行攻略生成",desc:"N天N城完整攻略，行程+美食+避坑",prompt:"请规划[天数]天[目的地]旅行：\n时间：[日期] 人数：[数] 预算：[金额] 偏好：[美食/拍照/文化]\n含：每日行程+必吃美食+交通建议+住宿区域+避坑提醒",tips:"如「3天2晚成都人均2000爱吃辣」"},
+  {cat:"life",catName:"生活助手",diff:"hard",model:"ChatGPT · Claude",title:"健身增肌减脂计划",desc:"教练级定制计划，训练+饮食全套",prompt:"你是健身教练。为[增肌/减脂]制定计划：\n性别/年龄/身高/体重：[数据]\n基础：[有基础/零基础] 条件：[健身房/居家]\n含：目标+训练安排+动作详解+饮食建议",tips:"附上体重体脂数据更准"},
+  {cat:"life",catName:"生活助手",diff:"easy",model:"通用",title:"营养食谱推荐",desc:"按卡路里和忌口定制一周食谱",prompt:"请推荐一周食谱：\n需求：[减脂/增肌/素食] 卡路里：[千卡/天]\n忌口：[忌口]\n含：早中晚三餐+加餐，每道≤3步",tips:"忌口如实写，如「不吃香菜」"},
+  {cat:"life",catName:"生活助手",diff:"medium",model:"通用",title:"买车买房攻略",desc:"决策指南+砍价话术+合同避坑清单",prompt:"请制定[买车/买房]决策指南：\n预算：[金额] 城市：[城市] 需求：[通勤/家庭]\n含：决策流程+对比指标+砍价话术+合同避坑+检查清单",tips:"加上具体车型或楼盘信息"},
+  {cat:"life",catName:"生活助手",diff:"easy",model:"通用",title:"法律常识咨询",desc:"分析风险+可行方案+证据收集建议",prompt:"请分析以下法律风险和应对：\n情况：[描述]\n含：涉及法律+权利+义务+3个应对方案+需收集证据+何时找律师\n⚠️仅供参考",tips:"描述清楚时间、地点、人物关系"},
 ];
 
-const featuredIds = prompts.filter(p=>p.featured).map((_,i)=>i).filter(i=>prompts[i].featured);
-let activeCat = 'all', activeDiff = 'all';
+// ===== TIERING =====
+prompts.forEach(p => {
+  if (p.diff === 'easy') p.free = true;
+  else if (p.diff === 'hard') p.free = false;
+  else p.free = p.feat ? false : true; // featured medium ones are paid
+});
+const freeCount = prompts.filter(p=>p.free).length;
+const paidCount = prompts.length - freeCount;
+const unlocked = new Set(JSON.parse(localStorage.getItem('ph_unlocked')||'[]'));
 
+// ===== STATE =====
+let activeCat='all', activeDiff='all', activePaid='all';
+const CAT_EMOJI = {writing:'✍️',coding:'💻',art:'🎨',office:'📊',marketing:'📢',edu:'📚',life:'🌟'};
+const CAT_COLOR = {writing:'#f4f2ff',coding:'#eef5fc',art:'#fdf0f6',office:'#e6f9f4',marketing:'#fef4f0',edu:'#e6fafa',life:'#f0fdf4'};
+const CAT_NAMES = {writing:'写作创作',coding:'编程开发',art:'AI绘画',office:'办公效率',marketing:'营销运营',edu:'教育学习',life:'生活助手'};
+const DIFF_NAMES = {easy:'入门',medium:'进阶',hard:'高级'};
+const DIFF_CLASS = {easy:'badge-easy',medium:'badge-med',hard:'badge-hard'};
+
+// ===== FILTER =====
 function filterPrompts() {
   let list = [...prompts];
   const q = (document.getElementById('searchInput').value||'').toLowerCase();
-  if (activeCat !== 'all') list = list.filter(p => p.cat === activeCat);
-  if (activeDiff !== 'all') list = list.filter(p => p.diff === activeDiff);
-  if (q) list = list.filter(p => p.title.toLowerCase().includes(q) || p.catName.includes(q) || p.desc.includes(q));
+  if (activeCat!=='all') list = list.filter(p=>p.cat===activeCat);
+  if (activeDiff!=='all') list = list.filter(p=>p.diff===activeDiff);
+  if (activePaid==='free') list = list.filter(p=>p.free);
+  if (activePaid==='paid') list = list.filter(p=>!p.free);
+  if (q) list = list.filter(p=>p.title.toLowerCase().includes(q)||p.catName.includes(q)||p.desc.includes(q));
   return list;
 }
 
-function setCat(cat) {
-  activeCat = cat;
-  renderCatGrid();
+function setCat(cat) { activeCat=cat; renderCatGrid(); renderAll(); }
+function setFilter(diff, btn) {
+  activeDiff=diff; document.querySelectorAll('.fl-btn:not(.active)').forEach(b=>{if(b.textContent.includes('全部')||b.textContent.includes('免费')||b.textContent.includes('付费'))return;b.classList.remove('active')});
+  if(btn)btn.classList.add('active');
   renderAll();
 }
-function setFilter(diff, btn) {
-  activeDiff = diff;
-  document.querySelectorAll('.fl-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
+function setPaidFilter(val, btn) {
+  activePaid=val;
+  document.querySelectorAll('.fl-btn').forEach(b=>{if(b.textContent.includes('免费')||b.textContent.includes('付费')||(val==='all'&&b.textContent.includes('全部')))b.classList.remove('active')});
+  if(btn)btn.classList.add('active');
   renderAll();
 }
 function doSearch() { renderAll(); }
 
+// ===== RENDER =====
 function renderCatGrid() {
-  const cats = ['writing','coding','art','office','marketing','edu','life'];
-  const catNames = {writing:'写作创作',coding:'编程开发',art:'AI绘画',office:'办公效率',marketing:'营销运营',edu:'教育学习',life:'生活助手'};
-  document.getElementById('catGrid').innerHTML = cats.map(c => {
-    const cc = CAT_COLOR[c];
-    const count = prompts.filter(p => p.cat === c).length;
-    return `<div class="cat-card${activeCat===c?' active':''}" onclick="setCat('${c}')" style="${activeCat===c?'border-color:var(--purple);background:var(--purple-light)':''}">
-      <div class="icon" style="background:${cc.bg}">${cc.icon}</div>
-      <div class="name">${catNames[c]}</div>
+  document.getElementById('catGrid').innerHTML = Object.keys(CAT_NAMES).map(c => {
+    const count = prompts.filter(p=>p.cat===c).length;
+    const active = activeCat===c;
+    return `<div class="cat-card" onclick="setCat('${c}')" style="${active?'border-color:var(--purple);background:var(--purple-light)':''}">
+      <div class="icon" style="background:${CAT_COLOR[c]}">${CAT_EMOJI[c]}</div>
+      <div class="name">${CAT_NAMES[c]}</div>
       <div class="count">${count} 条</div>
     </div>`;
   }).join('');
 }
 
 function renderFeatured() {
-  const items = prompts.filter(p => p.featured).slice(0, 4);
+  const items = prompts.filter(p=>p.feat).slice(0,4);
   document.getElementById('featuredGrid').innerHTML = items.map(p => `
-    <div class="feat-card" onclick="openModal('${p.title.replace(/'/g,"\\'")}')">
-      <div class="fc-header">
-        <div class="fc-title">${CAT_COLOR[p.cat].icon} ${p.title}</div>
-        <div class="fc-badges">
-          <span class="badge ${DIFF_CLASS[p.diff]}">${DIFF_MAP[p.diff]}</span>
-          <span class="badge badge-model">${p.model.split('·')[0].trim()}</span>
-        </div>
+    <div class="feat-card" onclick="openModal('${esc(p.title)}')">
+      <div class="fc-h">
+        <div class="fc-t">${CAT_EMOJI[p.cat]} ${p.title}</div>
+        <div><span class="badge ${DIFF_CLASS[p.diff]}">${DIFF_NAMES[p.diff]}</span></div>
       </div>
-      <div class="fc-desc">${p.desc}</div>
-      <div class="fc-preview">${escapeHtml(p.prompt.substring(0,150))}...</div>
-      <div class="fc-footer">
-        <span>${p.catName} · ${p.model}</span>
-        <span style="color:var(--purple)">查看详情 →</span>
-      </div>
-    </div>
-  `).join('');
+      <div class="fc-d">${p.desc}</div>
+      <div class="fc-p">${esc(p.prompt.substring(0,140))}...</div>
+    </div>`).join('');
 }
 
 function renderAll() {
   const list = filterPrompts();
   document.getElementById('resultCount').textContent = `共 ${list.length} 条`;
-  document.getElementById('empty').style.display = list.length ? 'none' : 'block';
-  document.getElementById('promptGrid').innerHTML = list.map(p => `
-    <div class="p-card">
+  document.getElementById('empty').style.display = list.length?'none':'block';
+  document.getElementById('promptGrid').innerHTML = list.map(p => {
+    const isFree = p.free || unlocked.has(p.title);
+    return `<div class="p-card${isFree?'':' paid'}">
       <div class="pc-top">
-        <div class="pc-title">${CAT_COLOR[p.cat].icon} ${p.title}</div>
-        <div class="fc-badges">
-          <span class="badge ${DIFF_CLASS[p.diff]}">${DIFF_MAP[p.diff]}</span>
-          <span class="badge badge-model">${p.model.split('·')[0].trim()}</span>
+        <div class="pc-title">${CAT_EMOJI[p.cat]} ${p.title}</div>
+        <div style="display:flex;gap:4px">
+          <span class="badge ${DIFF_CLASS[p.diff]}">${DIFF_NAMES[p.diff]}</span>
+          <span class="badge ${isFree?'badge-free':'badge-paid'}">${isFree?'免费':'付费'}</span>
         </div>
       </div>
       <div class="pc-desc">${p.desc}</div>
-      <div class="pc-preview">${escapeHtml(p.prompt.substring(0,120))}...</div>
+      <div class="pc-preview">
+        <div class="pc-preview-inner">${esc(p.prompt.substring(0,100))}...</div>
+        ${isFree?'':'<div class="pc-lock">🔒</div>'}
+      </div>
       <div class="pc-bottom">
         <span class="pc-model">${p.model}</span>
         <div class="pc-actions">
-          <button class="btn-sm btn-detail" onclick="openModal('${p.title.replace(/'/g,"\\'")}')">详情</button>
-          <button class="btn-sm btn-copy" onclick="copyPrompt('${p.title.replace(/'/g,"\\'")}',this)">复制</button>
+          <button class="btn-sm btn-detail" onclick="openModal('${esc(p.title)}')">详情</button>
+          ${isFree ? `<button class="btn-sm btn-copy" onclick="copyPrompt('${esc(p.title)}',this)">复制</button>` : `<button class="btn-sm btn-unlock" onclick="switchTab('pay');document.getElementById('sidebar').classList.add('open')">🔓 ¥9.9</button>`}
         </div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
-function escapeHtml(s) { const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+// ===== SIDEBAR =====
+let sidebarTab = 'pay';
+function switchTab(tab) {
+  sidebarTab = tab;
+  document.querySelectorAll('.sidebar-tab').forEach((t,i) => t.classList.toggle('active', (i===0&&tab==='pay')||(i===1&&tab==='chat')));
+  document.getElementById('sidebarPay').style.display = tab==='pay'?'block':'none';
+  document.getElementById('sidebarChat').style.display = tab==='chat'?'flex':'none';
+}
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+function doPay() {
+  prompts.filter(p=>!p.free).forEach(p=>unlocked.add(p.title));
+  localStorage.setItem('ph_unlocked',JSON.stringify([...unlocked]));
+  document.getElementById('payBtn').textContent = '✅ 已解锁！';
+  document.getElementById('payBtn').className = 'pay-btn unlocked';
+  document.getElementById('payBtn').onclick = null;
+  setTimeout(()=>{renderAll();updatePayBtn();},800);
+}
+function updatePayBtn() {
+  if (unlocked.size >= paidCount) {
+    document.getElementById('payBtn').textContent = '✅ 已解锁全部';
+    document.getElementById('payBtn').className = 'pay-btn unlocked';
+    document.getElementById('payBtn').onclick = null;
+  }
+}
 
+// ===== AI CHAT =====
+function chatSend() {
+  const input = document.getElementById('chatInput');
+  const q = input.value.trim();
+  if (!q) return;
+  addChatMsg(q, 'user');
+  input.value = '';
+  
+  // Search prompts matching the query
+  const qLower = q.toLowerCase();
+  const matches = prompts.filter(p => 
+    p.title.toLowerCase().includes(qLower) || 
+    p.catName.includes(qLower) || 
+    p.desc.toLowerCase().includes(qLower) ||
+    (qLower.includes('新手')||qLower.includes('入门')) && p.diff==='easy' ||
+    (qLower.includes('高级')||qLower.includes('专业')) && p.diff==='hard' ||
+    (qLower.includes('简历')||qLower.includes('面试')) && p.title.includes('简历') ||
+    (qLower.includes('midjourney')||qLower.includes('绘画')||qLower.includes('画图')) && p.cat==='art' ||
+    (qLower.includes('代码')||qLower.includes('编程')||qLower.includes('bug')) && p.cat==='coding' ||
+    (qLower.includes('小红书')||qLower.includes('营销')||qLower.includes('抖音')) && (p.cat==='marketing'||p.cat==='writing')
+  ).slice(0, 3);
+  
+  if (matches.length > 0) {
+    let resp = `找到 ${matches.length} 条相关提示词：\n`;
+    matches.forEach(p => {
+      const isFree = p.free || unlocked.has(p.title);
+      resp += `<span class="rec" onclick="openModal('${esc(p.title)}')">${CAT_EMOJI[p.cat]} ${p.title} ${isFree?'🆓':'🔒'}</span>`;
+    });
+    addChatMsg(resp, 'bot');
+  } else {
+    addChatMsg('抱歉，没有找到匹配的提示词。试试换个关键词？比如"写简历"、"Midjourney"、"Bug修复"', 'bot');
+  }
+}
+function addChatMsg(msg, role) {
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + role;
+  div.innerHTML = msg;
+  document.getElementById('chatMsgs').appendChild(div);
+  div.scrollIntoView({behavior:'smooth'});
+}
+
+// ===== MODAL =====
+let curModal = null;
 function openModal(title) {
-  const p = prompts.find(p => p.title === title);
-  if (!p) return;
-  document.getElementById('mTitle').textContent = p.title;
-  document.getElementById('mMeta').innerHTML = `${CAT_COLOR[p.cat].icon} ${p.catName} · ${DIFF_MAP[p.diff]} · ${p.model}`;
-  document.getElementById('mPrompt').textContent = p.prompt;
-  document.getElementById('mTips').innerHTML = `<strong>💡 使用技巧</strong><br>${p.tips}`;
+  curModal = prompts.find(p=>p.title===title);
+  if(!curModal)return;
+  document.getElementById('mTitle').textContent=curModal.title;
+  document.getElementById('mMeta').innerHTML=`${CAT_EMOJI[curModal.cat]} ${curModal.catName} · ${DIFF_NAMES[curModal.diff]} · ${curModal.model}`;
+  document.getElementById('mPrompt').textContent=curModal.prompt;
+  document.getElementById('mTips').innerHTML=`<strong>💡 使用技巧</strong><br>${curModal.tips}`;
   document.getElementById('modal').classList.add('show');
-  currentModalPrompt = p;
 }
-let currentModalPrompt = null;
-function modalCopy() {
-  if (!currentModalPrompt) return;
-  navigator.clipboard.writeText(currentModalPrompt.prompt).then(() => {
-    const btn = document.getElementById('mCopyBtn');
-    btn.textContent = '✅ 已复制！';
-    setTimeout(() => { btn.textContent = '📋 复制到剪贴板'; }, 2000);
+function modalCopy(){
+  if(!curModal)return;
+  navigator.clipboard.writeText(curModal.prompt).then(()=>{
+    const b=document.getElementById('mCopyBtn');b.textContent='✅ 已复制！';setTimeout(()=>b.textContent='📋 复制到剪贴板',2000);
   });
 }
-function copyPrompt(title, btn) {
-  const p = prompts.find(p => p.title === title);
-  if (!p) return;
-  navigator.clipboard.writeText(p.prompt).then(() => {
-    btn.textContent = '✅';
-    setTimeout(() => { btn.textContent = '复制'; }, 1500);
-  });
+function copyPrompt(t,b){
+  const p=prompts.find(p=>p.title===t);
+  if(!p)return;
+  navigator.clipboard.writeText(p.prompt).then(()=>{b.textContent='✅';setTimeout(()=>b.textContent='复制',1500)});
 }
-function closeModal() { document.getElementById('modal').classList.remove('show'); }
-function randomPrompt() {
-  const p = prompts[Math.floor(Math.random() * prompts.length)];
-  openModal(p.title);
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function randomPrompt(){openModal(prompts[Math.floor(Math.random()*prompts.length)].title)}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML.replace(/'/g,"\\'")}
+
+// Init
 renderCatGrid();
 renderFeatured();
 renderAll();
+updatePayBtn();
 </script>
 </body>
 </html>
