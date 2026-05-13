@@ -227,10 +227,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
     <div class="meta" id="mMeta"></div>
     <div class="prompt-text" id="mPrompt"></div>
     <div class="tips" id="mTips"></div>
-    <div id="modalUnlockCta" style="display:none;background:linear-gradient(135deg,var(--gold-light),#fef3c7);border:1.5px solid var(--gold);border-radius:10px;padding:14px 16px;margin-bottom:14px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <span style="font-size:0.9em;font-weight:700;color:#92400e">🔒 提示词内容已隐藏，解锁后查看完整内容</span>
-      <button class="btn btn-gold" onclick="event.stopPropagation();openPayModal()">🔓 解锁 · ¥9.9</button>
-    </div>
     <div style="display:flex;gap:8px">
       <button class="btn btn-primary" id="mCopyBtn" onclick="modalCopy()">📋 复制到剪贴板</button>
       <button class="btn btn-ghost" onclick="closeModal()">关闭</button>
@@ -392,7 +388,7 @@ function renderAll() {
   document.getElementById('unlockCta').style.display = hasPaid && unlocked.size < paidCount ? 'flex' : 'none';
   document.getElementById('promptGrid').innerHTML = list.map(p=>{
     const isFree = p.free || unlocked.has(p.title);
-    return `<div class="p-card${isFree?'':' paid'}">
+    return `<div class="p-card${isFree?'':' paid'}"${isFree?'':` onclick="openPayModal()" style="cursor:pointer"`}>
       <div class="pc-top"><div class="pc-title">${CAT_EMOJI[p.cat]} ${p.title}</div>
       <div style="display:flex;gap:4px">
         <span class="badge ${DIFF_CLASS[p.diff]}">${DIFF_NAMES[p.diff]}</span>
@@ -417,8 +413,12 @@ function renderAll() {
       <div class="pc-bottom">
         <span class="pc-model">${p.model}</span>
         <div class="pc-actions">
-          <button class="btn-sm btn-detail" onclick="openModal('${esc(p.title)}')">详情</button>
-          ${isFree?`<button class="btn-sm btn-copy" onclick="copyPrompt('${esc(p.title)}',this)">复制</button>`:`<button class="btn btn-gold" onclick="event.stopPropagation();openPayModal()">🔓 解锁 ¥9.9</button>`}
+          ${isFree?`
+            <button class="btn-sm btn-detail" onclick="openModal('${esc(p.title)}')">详情</button>
+            <button class="btn-sm btn-copy" onclick="copyPrompt('${esc(p.title)}',this)">复制</button>
+          `:`
+            <button class="btn btn-gold" onclick="event.stopPropagation();openPayModal()">🔓 解锁 ¥9.9</button>
+          `}
         </div>
       </div></div>`;
   }).join('');
@@ -448,23 +448,14 @@ let curModal = null;
 function openModal(title) {
   curModal = prompts.find(p=>p.title===title);
   if(!curModal)return;
-  const isFree = curModal.free || unlocked.has(curModal.title);
   document.getElementById('mTitle').textContent=curModal.title;
-  document.getElementById('mMeta').innerHTML=`${CAT_EMOJI[curModal.cat]} ${curModal.catName} · ${DIFF_NAMES[curModal.diff]} · ${curModal.model}${isFree?'':' · <span style="color:var(--gold)">🔒 付费</span>'}`;
-  if (isFree) {
-    document.getElementById('mPrompt').textContent=curModal.prompt;
-    document.getElementById('mPrompt').style.filter='none';
-    document.getElementById('mTips').innerHTML=`<strong>💡 使用技巧</strong><br>${curModal.tips}`;
-    document.getElementById('mCopyBtn').style.display='';
-    document.getElementById('modalUnlockCta').style.display='none';
-  } else {
-    document.getElementById('mPrompt').textContent=curModal.prompt;
-    document.getElementById('mPrompt').style.filter='blur(6px)';
-    document.getElementById('mTips').innerHTML=`<strong>💡 使用技巧</strong><br>${curModal.tips}`;
-    document.getElementById('mTips').style.filter='blur(4px)';
-    document.getElementById('mCopyBtn').style.display='none';
-    document.getElementById('modalUnlockCta').style.display='flex';
-  }
+  document.getElementById('mMeta').innerHTML=`${CAT_EMOJI[curModal.cat]} ${curModal.catName} · ${DIFF_NAMES[curModal.diff]} · ${curModal.model}`;
+  document.getElementById('mPrompt').textContent=curModal.prompt;
+  document.getElementById('mPrompt').style.filter='none';
+  document.getElementById('mTips').innerHTML=`<strong>💡 使用技巧</strong><br>${curModal.tips}`;
+  document.getElementById('mTips').style.filter='none';
+  document.getElementById('mCopyBtn').style.display='';
+  document.getElementById('modalUnlockCta').style.display='none';
   document.getElementById('modal').classList.add('show');
 }
 function modalCopy(){
